@@ -56,34 +56,26 @@ table {
 body
 {
     line-height: 1;
-    background: black; 
 }
 
-html, body, #container {
+html {
     width: 100%;
     height: 100%;
     background: black;
 }
 
-
 #vidIntroVideo, #divTrgIntroVideo {
     opacity:1;
     text-align: center;
+    /*display: block;*/
     margin: 0 auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #divTrigGlobe {
-    position:absolute;
+    /*position:absolute;*/
+    text-align:center;
     margin-right: auto;
     margin-left:  auto;
-}
-
-#divTrigGlobe img {
-    height:60%;
-    width:60%;
 }
 
 

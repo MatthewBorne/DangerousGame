@@ -30,11 +30,14 @@
 -->
 
 <!-- div of the entire page -->
-<div class="container" style="height:5500px;">
-    <div class="spacer" style="height:500px;">
+<body>
+    <div class="spacer" style="height:1000px;">
     </div>
 
-    <div id="divTrgIntroVideo">
+    <div id="divTrgIntroVideo" style="height:2000px">
+        <div id="introVidSpacer" class="spacer" style="height:150px;">
+        </div>
+
         <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="false"
         preload="auto" data-setup="{}" width="40%" height="auto" >
         <source src="./resources/vid/vidIntroVideo.mp4" type='video/mp4'>
@@ -43,18 +46,16 @@
     </div>
 
     <div class="spacer" style="height:500px;">
-        Scroll Down
+        Spacer Div here
     </div>
 
-    <div id="divTrigGlobe">
-        <img src="./resources/img/imgGlobe3.png">
+    <div id="divTrigGlobe" style="height:2000px">
+        <div style="height=1000px">
+            <img src="./resources/img/imgGlobe3.png">
+        </div>
     </div>
 
-<!--
     <div id="divTrigPlane">
         <img src="./resources/img/imgPlane.png">
     </div>
--->
-
-
-</div>
+</body>

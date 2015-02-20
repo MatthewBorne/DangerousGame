@@ -26,7 +26,7 @@ $(document).ready(function(){
     .setPin("#divTrgIntroVideo")
     .setTween(twnIntroVideo)
     .addTo(controller);
-    //scnIntroVideo.addIndicators();                  //uncomment this line to See Debug Triggers
+    scnIntroVideo.addIndicators();                  //uncomment this line to See Debug Triggers
 
     scnIntroVideo.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
 
@@ -34,13 +34,13 @@ $(document).ready(function(){
 
 
     //Scene 1 Globe
-    var twnGlobeScale = TweenMax.to("#divTrigGlobe", 5, {scale: 1.0});    //tween to make the image larger on scroll
+    var twnGlobeScale = TweenMax.to("#divTrigGlobe", 5, {scale: 1.5});    //tween to make the image larger on scroll
 
-    var scnGunPoint = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 700, triggerHook: .0, reverse: true})
+    var scnGlobeScale = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1000, triggerHook: 0.0, reverse: true})
     .setTween(twnGlobeScale)
     .setPin("#divTrigGlobe")
     .addTo(controller);
-    //scnGunPoint.addIndicators();                  //uncomment this line to See Debug Triggers
+    scnGlobeScale.addIndicators();                  //uncomment this line to See Debug Triggers
 
 
 
