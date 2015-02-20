@@ -1,0 +1,92 @@
+/* ***********************************************
+   Start CSS Reset Code  */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* End CSS Reset Code
+   ***********************************************    */
+
+
+/* This will Set videos to 16:9 when setting width % (to make the video as wide as the window) and setting height to auto (to adjust according to width)
+   For more information, check: http://coolestguidesontheplanet.com/videodrome/videojs/   */
+.video-js {padding-top: 56.25%}
+.vjs-fullscreen {padding-top: 0px}
+
+
+body
+{
+    line-height: 1;
+    background: black; 
+}
+
+html, body, #container {
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+
+#vidIntroVideo, #divTrgIntroVideo {
+    opacity:1;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#divTrigGlobe {
+    position:absolute;
+    margin-right: auto;
+    margin-left:  auto;
+}
+
+#divTrigGlobe img {
+    height:60%;
+    width:60%;
+}
+
+
+
+/* For Wipe, The div is overflow:hidden and starts at a width of 0% and ends at a width of 100%. */
+/* For Swipe, The div is positioned top: -100% and then animated to 0%.    */

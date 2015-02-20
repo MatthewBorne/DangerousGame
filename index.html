@@ -1,0 +1,60 @@
+<!-- The Most Dangerous Game Interactive Website Prototype   
+
+     By:  Katie Kreitman, Julie Martin, Elizabeth Blanchard           
+          Matthew Borne, Eric Zeringue, Collin Babb, Gaelan Harrington
+-->
+<!doctype html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+</head>
+
+<script type="text/javascript" src="./resources/js/jquery/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="./resources/js/jquery/jquery.min.js"></script>
+
+<!-- ScrollMagic Libraries -->
+<script type="text/javascript" src="./resources/js/scrollmagic/jquery.scrollmagic.min.js"></script>
+<script type="text/javascript" src="./resources/js/scrollmagic/jquery.scrollmagic.debug.js"></script>
+
+<!--  video.js plugin for video playback -->
+<link href="http://vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/4.11/video.js"></script> 
+
+<!-- Our Files -->
+<script src="animations.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- These Will be the final locations of the files. They are moved temporarily to make programming easier... 
+<script src="./resources/js/animations.js"></script>
+<link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+-->
+
+<!-- div of the entire page -->
+<div class="container" style="height:5500px;">
+    <div class="spacer" style="height:500px;">
+    </div>
+
+    <div id="divTrgIntroVideo">
+        <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="false"
+        preload="auto" data-setup="{}" width="40%" height="auto" >
+        <source src="./resources/vid/vidIntroVideo.mp4" type='video/mp4'>
+          <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+        </video>
+    </div>
+
+    <div class="spacer" style="height:500px;">
+        Scroll Down
+    </div>
+
+    <div id="divTrigGlobe">
+        <img src="./resources/img/imgGlobe3.png">
+    </div>
+
+<!--
+    <div id="divTrigPlane">
+        <img src="./resources/img/imgPlane.png">
+    </div>
+-->
+
+
+</div>
