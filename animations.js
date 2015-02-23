@@ -44,6 +44,24 @@ $(document).ready(function(){
 
 
 
+    //Scene 3 Gate Left
+    var twnGateLeftOpen = TweenMax.to("#imgGateLeft", 5, {rotationY:50, transformOrigin:"26%"});    //tween to make the gate rotate in Z
+
+    var scnGateLeftOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1000, triggerHook: 0.0, reverse: true})
+    .setTween(twnGateLeftOpen)
+    .addTo(controller);
+    scnGateLeftOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+
+    //Scene 3 Gate Right
+    var twnGateRightOpen = TweenMax.to("#imgGateRight", 5, {rotationY:-50, transformOrigin:"74%"});    //tween to make the gate rotate in Z  
+
+    var scnGateOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1000, triggerHook: 0.0, reverse: true})
+    .setTween(twnGateRightOpen)
+    .addTo(controller);
+    scnGateRightOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+
+
+
     /*
     //Gun Point Image Code
     var twnGunPoint = TweenMax.to("#divTrigGunPoint", 5, {transform: "translateX(1500px)", scale: 1.8});    //tween to make the image larger on scroll
