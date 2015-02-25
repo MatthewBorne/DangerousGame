@@ -1,4 +1,9 @@
 
+
+//Note to other Programmers: Do not pin and tween the same object at the same time!!!
+//                           Pin the containing div, and tween the object inside
+
+
 $(document).ready(function(){
 
     //object which references intro video
@@ -20,11 +25,14 @@ $(document).ready(function(){
     var controller = new ScrollMagic();                // init scrollMagic controller
 
 
-    //Intro Video Code
-    var twnIntroVideoEnter = TweenMax.to("#vidIntroVideo", 0.5, {opacity: 1});  //tween to make the video larger on scroll
+    //Intro Video Fade in/out and pin code
+    var twnIntroVideoEnter = new TimelineMax();   
 
-    var scnIntroVideoEnter = new ScrollScene({triggerElement: "#divTrgIntroVideoEnter", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
-    .setPin("#vidIntroVideo")
+    twnIntroVideoEnter.add(TweenMax.to("#vidIntroVideo", 0.7, {opacity: 1}));  //tween to make the video fade in.  Takes up 70% of the scroll duration
+    twnIntroVideoEnter.add(TweenMax.to("#vidIntroVideo", 0.3, {opacity: 0}));  //tween to make the video face out. Takes up 30% of the scroll duration
+
+    var scnIntroVideoEnter = new ScrollScene({triggerElement: "#divTrigIntroVideo", duration: 4000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
+    .setPin("#divTrigIntroVideo", {pushFollowers: false})
     .setTween(twnIntroVideoEnter)
     .addTo(controller);
     //scnIntroVideoEnter.addIndicators();                  //uncomment this line to See Debug Triggers
@@ -32,25 +40,14 @@ $(document).ready(function(){
     scnIntroVideoEnter.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
 
 
-    var twnIntroVideoExit = TweenMax.to("#vidIntroVideo", 0.5, {opacity: 0});  //tween to make the video larger on scroll
 
-    var scnIntroVideoExit = new ScrollScene({triggerElement: "#divTrgIntroVideoExit", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
-    .setPin("#vidIntroVideo")
-    .setTween(twnIntroVideoExit)
+    var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, scale: 1.5});
+
+    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnGlobeAppear)
+    .setPin("#divTrigGlobe", {pushFollowers: false})
     .addTo(controller);
-    scnIntroVideoExit.addIndicators();
-
-
-
-
-    //Scene 1 Globe
-    var twnGlobeScale = TweenMax.to("#divImgGlobe", 5, {opacity: 1, scale: 1.5});    //tween to make the image larger on scroll
-
-    var scnGlobeScale = new ScrollScene({triggerElement: "#divTrigGlobeScene", duration: 2000, triggerHook: 0.0, reverse: true})
-    .setTween(twnGlobeScale)
-    .setPin("#divImgGlobe")
-    .addTo(controller);
-    //scnGlobeScale.addIndicators();                  //uncomment this line to See Debug Triggers
+    scnGlobeAppear.addIndicators();
 
 
 /*
@@ -62,7 +59,7 @@ $(document).ready(function(){
     .setPin("#imgPlane")
     .addTo(controller);
     scnPlaneAppear.addIndicators();
-*/
+
 
     //Scene 3 Gate Left
     var twnGateLeftOpen = TweenMax.to("#imgGateLeft", 5, {rotationY:50, transformOrigin:"26%"});    //tween to make the gate rotate in Z
@@ -82,7 +79,7 @@ $(document).ready(function(){
     .addTo(controller);
     //scnGateRightOpen.addIndicators();                  //uncomment this line to See Debug Triggers
 
-
+*/
 
     /*
     //Gun Point Image Code

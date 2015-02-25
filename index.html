@@ -29,10 +29,9 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
 -->
 
-<!-- div of the entire page -->
 <body>
 
-    <div id="divTrgIntroVideoEnter" style="height:2000px">
+    <div id="divTrigIntroVideo" style="height:4000px">
         <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="true"
         preload="auto" data-setup="{}" width="auto" height="auto" >
         <source src="./resources/vid/vidIntroVideo.mp4" type='video/mp4'>
@@ -40,23 +39,23 @@
         </video>
     </div>
 
-    <div id="divTrgIntroVideoExit">
+    <div class="spacer" style="height:300px">     <!-- 300 as a spacer before earth starts fade in -->
+        Spacer Div #1 here!!
     </div>
 
-    <div class="spacer" style="height:2500px;">
-        Spacer Div here
+    <div id="divTrigGlobe">
+        <img id="imgGlobe" src="./resources/img/imgGlobe3.png">
     </div>
 
-    <div id="divTrigGlobeScene" style="height:3000px">
-        <div id="divImgGlobe" style="height=2000px">
-            <img src="./resources/img/imgGlobe3.png">
-        </div>
-
-        <div id="divImgPlane" style="height=1000px">
-            <img id="imgPlane" src="./resources/img/imgPlane.png">
-        </div>
-
+    <div class="spacer" style="height:3000px">     <!-- 300 as a spacer before earth starts fade in -->
+        Spacer Div #2 here!!
     </div>
+
+<!--
+    <div id="divImgPlane" style="height=2000px">
+        <img id="imgPlane" src="./resources/img/imgPlane.png">
+    </div>
+
 
 
     <div class="spacer" style="height:3000px;">
@@ -88,4 +87,5 @@
     <div class="spacer" style="height:3000px;">
         Spacer Div here
     </div>
+-->
 </body>

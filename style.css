@@ -66,59 +66,52 @@ html {
 }
 
 #vidIntroVideo {
-    opacity:        .2;
-    /*display: block;*/
+    opacity: .2;
 }
 
-#divTrgIntroVideoEnter {
-    text-align:center;
+#divTrigIntroVideo {
+    text-align: center;
     margin:     auto auto auto auto;
 }
 
-#divTrigGlobeScene {
-    text-align:center;
-    margin-right: auto;
-    margin-left:  auto;
+#divTrigGlobe {
+    text-align: center;
 }
 
-#divImgGlobe {
+#imgGlobe {
     -ms-transform: scale(.5,.5);     /* IE 9 */
     -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera */
     transform: scale(.5,.5);
-    opacity:  0;
-    z-index: 0;
+    margin-top: -15%;
+    margin-right: 50%;
+    opacity: 0;
 }
 
 
-#divTrgIntroVideoExit {
-    text-align:center;
-    opacity:        1;
-    margin:     auto auto auto auto;
-}
+/*
+    #imgPlane {
+        -ms-transform: scale(.5,.5);     /* IE 9 
+        -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera 
+        transform: scale(.5,.5);
+        z-index:  1;
+    }
 
-#imgPlane {
-    -ms-transform: scale(.5,.5);     /* IE 9 */
-    -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera */
-    transform: scale(.5,.5);
-    top: -3000px;
-    z-index:  1;
-}
+    #divTrigGate {
+        text-align:center;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
 
-#divTrigGate {
-    text-align:center;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-}
+    #divBackgroundHolder {
+        background-image: url(./resources/img/scene3/imgBehindGate.png);
+    }
 
-#divBackgroundHolder {
-    background-image: url(./resources/img/scene3/imgBehindGate.png);
-}
-
-.gate{
-    display: inline-block;     /*allows the two gate images to be side by side */
-    margin-left: auto;
-    margin-right: auto; 
-}
+    .gate{
+        display: inline-block;     /*allows the two gate images to be side by side 
+        margin-left: auto;
+        margin-right: auto; 
+    }
+*/
 
 /* For Wipe, The div is overflow:hidden and starts at a width of 0% and ends at a width of 100%. */
 /* For Swipe, The div is positioned top: -100% and then animated to 0%.    */
