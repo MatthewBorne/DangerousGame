@@ -87,14 +87,18 @@ html {
     opacity:0;
 }
 
-/*
+
 #imgPlane {
-    -ms-transform: scale(.5,.5);     /* IE 9 
-    -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera 
-    transform: scale(.5,.5);
+    margin-left: 44%;
+    margin-top:   5%;
+    opacity:      0;
+    -ms-transform: scale(.25,.25);     /* IE 9  */
+    -webkit-transform: scale(.25,.25); /* Chrome, Safari, Opera */
+    transform: scale(.25,.25);
     z-index:  1;
 }
 
+/*
     #divTrigGate {
         text-align:center;
         -webkit-perspective: 1000px;
