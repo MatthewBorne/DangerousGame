@@ -66,12 +66,12 @@ html {
 }
 
 #vidIntroVideo {
+    opacity:        .2;
     /*display: block;*/
 }
 
 #divTrgIntroVideoEnter {
     text-align:center;
-    opacity:        .5;
     margin:     auto auto auto auto;
 }
 

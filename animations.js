@@ -21,15 +21,24 @@ $(document).ready(function(){
 
 
     //Intro Video Code
-    var twnIntroVideo = TweenMax.to("#divTrgIntroVideoEnter", 0.5, {opacity: 1});  //tween to make the video larger on scroll
+    var twnIntroVideoEnter = TweenMax.to("#vidIntroVideo", 0.5, {opacity: 1});  //tween to make the video larger on scroll
 
-    var scnIntroVideo = new ScrollScene({triggerElement: "#divTrgIntroVideoEnter", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
-    .setPin("#divTrgIntroVideoEnter")
-    .setTween(twnIntroVideo)
+    var scnIntroVideoEnter = new ScrollScene({triggerElement: "#divTrgIntroVideoEnter", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
+    .setPin("#vidIntroVideo")
+    .setTween(twnIntroVideoEnter)
     .addTo(controller);
-    //scnIntroVideo.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnIntroVideoEnter.addIndicators();                  //uncomment this line to See Debug Triggers
 
-    //scnIntroVideo.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
+    scnIntroVideoEnter.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
+
+
+    var twnIntroVideoExit = TweenMax.to("#vidIntroVideo", 0.5, {opacity: 0});  //tween to make the video larger on scroll
+
+    var scnIntroVideoExit = new ScrollScene({triggerElement: "#divTrgIntroVideoExit", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
+    .setPin("#vidIntroVideo")
+    .setTween(twnIntroVideoExit)
+    .addTo(controller);
+    scnIntroVideoExit.addIndicators();
 
 
 
