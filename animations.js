@@ -49,17 +49,15 @@ $(document).ready(function(){
     .addTo(controller);
     scnGlobeAppear.addIndicators();
 
-
 /*
     //Scene 1 Plane
     var twnPlaneAppear = TweenMax.to("#imgPlane", 5, {opacity: 1}); 
 
     var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigGlobeScene", duration: 1000, triggerHook: 0.0, reverse: true})
     .setTween(twnPlaneAppear)
-    .setPin("#imgPlane")
+    .setPin("#divTrigGlobe")
     .addTo(controller);
     scnPlaneAppear.addIndicators();
-
 
     //Scene 3 Gate Left
     var twnGateLeftOpen = TweenMax.to("#imgGateLeft", 5, {rotationY:50, transformOrigin:"26%"});    //tween to make the gate rotate in Z

@@ -56,7 +56,7 @@ table {
 body
 {
     line-height: 1;
-    min-width: 1080px;
+    min-width: 100%;
 }
 
 html {
@@ -71,30 +71,29 @@ html {
 
 #divTrigIntroVideo {
     text-align: center;
-    margin:     auto auto auto auto;
 }
 
 #divTrigGlobe {
-    text-align: center;
 }
 
 #imgGlobe {
+    width:      100%;                /* doesn't work without this line! */
+    margin-left:  auto;
+    margin-right: auto;
+    margin-top: -12%;
     -ms-transform: scale(.5,.5);     /* IE 9 */
     -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera */
     transform: scale(.5,.5);
-    margin-top: -15%;
-    margin-right: 50%;
-    opacity: 0;
+    opacity:0;
 }
 
-
 /*
-    #imgPlane {
-        -ms-transform: scale(.5,.5);     /* IE 9 
-        -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera 
-        transform: scale(.5,.5);
-        z-index:  1;
-    }
+#imgPlane {
+    -ms-transform: scale(.5,.5);     /* IE 9 
+    -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera 
+    transform: scale(.5,.5);
+    z-index:  1;
+}
 
     #divTrigGate {
         text-align:center;
