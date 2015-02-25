@@ -56,6 +56,7 @@ table {
 body
 {
     line-height: 1;
+    min-width: 1080px;
 }
 
 html {
@@ -64,24 +65,53 @@ html {
     background: black;
 }
 
-#vidIntroVideo, #divTrgIntroVideo {
-    opacity:1;
-    text-align: center;
+#vidIntroVideo {
     /*display: block;*/
-    margin: 0 auto;
 }
 
-#divTrigGlobe {
-    /*position:absolute;*/
+#divTrgIntroVideoEnter {
+    text-align:center;
+    opacity:        .5;
+    margin:     auto auto auto auto;
+}
+
+#divTrigGlobeScene {
     text-align:center;
     margin-right: auto;
     margin-left:  auto;
+}
+
+#divImgGlobe {
+    -ms-transform: scale(.5,.5);     /* IE 9 */
+    -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera */
+    transform: scale(.5,.5);
+    opacity:  0;
+    z-index: 0;
+}
+
+
+#divTrgIntroVideoExit {
+    text-align:center;
+    opacity:        1;
+    margin:     auto auto auto auto;
+}
+
+#imgPlane {
+    -ms-transform: scale(.5,.5);     /* IE 9 */
+    -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera */
+    transform: scale(.5,.5);
+    top: -3000px;
+    z-index:  1;
 }
 
 #divTrigGate {
     text-align:center;
     -webkit-perspective: 1000px;
     perspective: 1000px;
+}
+
+#divBackgroundHolder {
+    background-image: url(./resources/img/scene3/imgBehindGate.png);
 }
 
 .gate{

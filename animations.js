@@ -15,50 +15,63 @@ $(document).ready(function(){
         sfxGunShot.play();
     }
 
+    $(document).ready(function(){ vidIntroVideo.play(); }) 
 
     var controller = new ScrollMagic();                // init scrollMagic controller
 
 
     //Intro Video Code
-    var twnIntroVideo = TweenMax.to("#divTrgIntroVideo", 0.5, {scale: 2.0});  //tween to make the video larger on scroll
+    var twnIntroVideo = TweenMax.to("#divTrgIntroVideoEnter", 0.5, {opacity: 1});  //tween to make the video larger on scroll
 
-    var scnIntroVideo = new ScrollScene({triggerElement: "#divTrgIntroVideo", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
-    .setPin("#divTrgIntroVideo")
+    var scnIntroVideo = new ScrollScene({triggerElement: "#divTrgIntroVideoEnter", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
+    .setPin("#divTrgIntroVideoEnter")
     .setTween(twnIntroVideo)
     .addTo(controller);
-    scnIntroVideo.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnIntroVideo.addIndicators();                  //uncomment this line to See Debug Triggers
 
-    scnIntroVideo.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
+    //scnIntroVideo.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
 
 
 
 
     //Scene 1 Globe
-    var twnGlobeScale = TweenMax.to("#divTrigGlobe", 5, {scale: 1.5});    //tween to make the image larger on scroll
+    var twnGlobeScale = TweenMax.to("#divImgGlobe", 5, {opacity: 1, scale: 1.5});    //tween to make the image larger on scroll
 
-    var scnGlobeScale = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1000, triggerHook: 0.0, reverse: true})
+    var scnGlobeScale = new ScrollScene({triggerElement: "#divTrigGlobeScene", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnGlobeScale)
-    .setPin("#divTrigGlobe")
+    .setPin("#divImgGlobe")
     .addTo(controller);
-    scnGlobeScale.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnGlobeScale.addIndicators();                  //uncomment this line to See Debug Triggers
 
 
+/*
+    //Scene 1 Plane
+    var twnPlaneAppear = TweenMax.to("#imgPlane", 5, {opacity: 1}); 
+
+    var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigGlobeScene", duration: 1000, triggerHook: 0.0, reverse: true})
+    .setTween(twnPlaneAppear)
+    .setPin("#imgPlane")
+    .addTo(controller);
+    scnPlaneAppear.addIndicators();
+*/
 
     //Scene 3 Gate Left
     var twnGateLeftOpen = TweenMax.to("#imgGateLeft", 5, {rotationY:50, transformOrigin:"26%"});    //tween to make the gate rotate in Z
 
-    var scnGateLeftOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1000, triggerHook: 0.0, reverse: true})
+    var scnGateLeftOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnGateLeftOpen)
     .addTo(controller);
-    scnGateLeftOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnGateLeftOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+
 
     //Scene 3 Gate Right
     var twnGateRightOpen = TweenMax.to("#imgGateRight", 5, {rotationY:-50, transformOrigin:"74%"});    //tween to make the gate rotate in Z  
 
-    var scnGateOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1000, triggerHook: 0.0, reverse: true})
+    var scnGateOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnGateRightOpen)
+    .setPin("#divTrigGate")
     .addTo(controller);
-    scnGateRightOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnGateRightOpen.addIndicators();                  //uncomment this line to See Debug Triggers
 
 
 

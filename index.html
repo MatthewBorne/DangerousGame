@@ -31,50 +31,58 @@
 
 <!-- div of the entire page -->
 <body>
-    <div class="spacer" style="height:1000px;">
-    </div>
 
-    <div id="divTrgIntroVideo" style="height:2000px">
-        <div id="introVidSpacer" class="spacer" style="height:150px;">
-        </div>
+    <div id="divTrgIntroVideoEnter" style="height:1000px">
 
-        <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="false"
-        preload="auto" data-setup="{}" width="40%" height="auto" >
+        <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="true"
+        preload="auto" data-setup="{}" width="auto" height="auto" >
         <source src="./resources/vid/vidIntroVideo.mp4" type='video/mp4'>
           <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
         </video>
     </div>
 
+    <div id="divTrgIntroVideoExit">
+    </div>
+
     <div class="spacer" style="height:500px;">
         Spacer Div here
     </div>
 
-    <div id="divTrigGlobe" style="height:2000px">
-        <div style="height=1000px">
+    <div id="divTrigGlobeScene" style="height:3000px">
+        <div id="divImgGlobe" style="height=2000px">
             <img src="./resources/img/imgGlobe3.png">
         </div>
+
+        <div id="divImgPlane" style="height=1000px">
+            <img id="imgPlane" src="./resources/img/imgPlane.png">
+        </div>
+
     </div>
 
-    <div id="divTrigPlane">
-        <img src="./resources/img/imgPlane.png">
-    </div>
 
-
-    <div class="spacer" style="height:500px;">
+    <div class="spacer" style="height:3000px;">
         Spacer Div here
     </div>
 
-    <div id="divTrigGate" style="height:1000px">
-        <div class="spacer" style="height:450px;">
+
+    <div id="divTrigGate" style="height:2150px">
+        <div class="spacer" style="height:150px;">
             Spacer Div here
         </div>
-        
-        <div class="gate" id="imgGateLeft">
-            <img src="./resources/img/scene3/imgGateLeft.png">
-        </div>
 
-        <div class="gate" id="imgGateRight">
-            <img src="./resources/img/scene3/imgGateRight.png">
+        <div id="divBackgroundHolder" style="height:1000px">
+
+            <div class="spacer" style="height:100px;">
+                Spacer Div here
+            </div>
+
+            <div class="gate" id="imgGateLeft">
+                <img src="./resources/img/scene3/imgGateLeft.png">
+            </div>
+
+            <div class="gate" id="imgGateRight">
+                <img src="./resources/img/scene3/imgGateRight.png">
+            </div>
         </div>
     </div>
 
