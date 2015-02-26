@@ -57,6 +57,7 @@ body
 {
     line-height: 1;
     min-width: 100%;
+    overflow-x: hidden;
 }
 
 html {
@@ -73,14 +74,15 @@ html {
     text-align: center;
 }
 
-#divTrigGlobe {
+#divGlobeScene {
+    position:relative;
 }
 
 #imgGlobe {
-    width:      100%;                /* doesn't work without this line! */
-    margin-left:  auto;
-    margin-right: auto;
-    margin-top: -12%;
+    position:absolute;
+    /*width:      100%;                /* doesn't work without this line! */
+    margin-left: -120px;
+    margin-top:  -200px;
     -ms-transform: scale(.5,.5);     /* IE 9 */
     -webkit-transform: scale(.5,.5); /* Chrome, Safari, Opera */
     transform: scale(.5,.5);
@@ -89,12 +91,13 @@ html {
 
 
 #imgPlane {
-    margin-left: 44%;
-    margin-top:   5%;
+    position:absolute;
+    margin-left: 780px;                   /* 750px; */
+    margin-top:  130px;                   /* 100px; */
     opacity:      0;
-    -ms-transform: scale(.25,.25);     /* IE 9  */
-    -webkit-transform: scale(.25,.25); /* Chrome, Safari, Opera */
-    transform: scale(.25,.25);
+    -ms-transform: scale(.20,.20);     /* IE 9  */
+    -webkit-transform: scale(.20,.20); /* Chrome, Safari, Opera */
+    transform: scale(.20,.20);
     z-index:  1;
 }
 

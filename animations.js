@@ -52,14 +52,18 @@ $(document).ready(function(){
 
 
     var twnPlaneAppear = new TimelineMax();   
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .1, {opacity: 1})); 
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .9, {opacity: 1}));
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 1})); 
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:.35}));
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .5,   {opacity: 1}));
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:.20}));
 
-    var scnPlaneAppear = new ScrollScene({triggerElement: "#divImgPlane", duration: 900, triggerHook: 0.0, reverse: true})
+    var scnPlaneAppear = new ScrollScene({triggerElement: "#divImgPlane", duration: 1100, triggerHook: 0.0, reverse: true})
     .setTween(twnPlaneAppear)
     .setPin("#divImgPlane",  {pushFollowers: false})
     .addTo(controller);
     scnPlaneAppear.addIndicators();
+
+    
 /*
     //Scene 3 Gate Left
     var twnGateLeftOpen = TweenMax.to("#imgGateLeft", 5, {rotationY:50, transformOrigin:"26%"});    //tween to make the gate rotate in Z

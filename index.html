@@ -33,7 +33,7 @@
 
     <div id="divTrigIntroVideo" style="height:4000px">
         <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="true"
-        preload="auto" data-setup="{}" width="auto" height="auto" >
+        preload="auto" data-setup="{}" width="auto" height="auto" loop="true">
         <source src="./resources/vid/vidIntroVideo.mp4" type='video/mp4'>
           <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
         </video>
@@ -43,13 +43,17 @@
         Spacer Div #1 here!!
     </div>
 
-    <div id="divTrigGlobe" style="height:2000px">
-        <img id="imgGlobe" src="./resources/img/imgGlobe3.png">
+    <div id="divGlobeScene">
+
+        <div id="divTrigGlobe" style="height:2000px">
+            <img id="imgGlobe" src="./resources/img/imgGlobe3.png">
+        </div>
+
+        <div id="divImgPlane" style="height=2000px">
+            <img id="imgPlane" src="./resources/img/imgPlane.png">
+        </div>
     </div>
 
-    <div id="divImgPlane" style="height=2000px">
-        <img id="imgPlane" src="./resources/img/imgPlane.png">
-    </div>
 
     
     <div class="spacer" style="height:3000px">     <!-- 300 as a spacer before earth starts fade in -->
