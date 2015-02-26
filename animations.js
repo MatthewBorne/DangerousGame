@@ -47,23 +47,44 @@ $(document).ready(function(){
     .setTween(twnGlobeAppear)
     .setPin("#divTrigGlobe", {pushFollowers: false})
     .addTo(controller);
-    scnGlobeAppear.addIndicators();
-
+    //scnGlobeAppear.addIndicators();
 
 
     var twnPlaneAppear = new TimelineMax();   
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 1})); 
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:.35}));
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .5,   {opacity: 1}));
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:.20}));
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1   })); 
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.35}));
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
 
-    var scnPlaneAppear = new ScrollScene({triggerElement: "#divImgPlane", duration: 1100, triggerHook: 0.0, reverse: true})
+    var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration: 1100, triggerHook: 0.0, reverse: true})
     .setTween(twnPlaneAppear)
-    .setPin("#divImgPlane",  {pushFollowers: false})
+    .setPin("#divTrigPlane",  {pushFollowers: false})
     .addTo(controller);
-    scnPlaneAppear.addIndicators();
+    //scnPlaneAppear.addIndicators();
 
     
+
+    var twnYachtAppear = new TimelineMax();   
+    twnYachtAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 0})); 
+    twnYachtAppear.add(TweenMax.to("#imgYacht", .225, {opacity: 1}));
+
+    var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 500, triggerHook: 0.0, reverse: true})
+    .setTween(twnYachtAppear)
+    .setPin("#divTrigYacht",  {pushFollowers: false})
+    .addTo(controller);
+    //scnYachtAppear.addIndicators();
+
+
+    var twnEndGlobeScene = new TimelineMax();   
+    twnEndGlobeScene.add(TweenMax.to("#imgGlobe", 1,  {opacity: 0}) ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
+    twnEndGlobeScene.add(TweenMax.to("#imgYacht", 1, {opacity: 0})  ,0);
+
+    var scnEndGlobeScene = new ScrollScene({triggerElement: "#divTrigEndGlobeScene", duration: 200, triggerHook: 0.0, reverse: true})
+    .setTween(twnEndGlobeScene)
+    .addTo(controller);
+    scnEndGlobeScene.addIndicators();
+
+
 /*
     //Scene 3 Gate Left
     var twnGateLeftOpen = TweenMax.to("#imgGateLeft", 5, {rotationY:50, transformOrigin:"26%"});    //tween to make the gate rotate in Z
