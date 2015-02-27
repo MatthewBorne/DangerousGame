@@ -54,7 +54,7 @@ $(document).ready(function(){
 
     var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, scale: 1.5});
 
-    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 2000, triggerHook: 0.0, reverse: true})
+    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true})
     .setTween(twnGlobeAppear)
     .setPin("#divTrigGlobe", {pushFollowers: false})
     .addTo(controller);
