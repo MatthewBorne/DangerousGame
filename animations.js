@@ -9,10 +9,20 @@ $(document).ready(function(){
     //object which references intro video
     var vidIntroVideo = videojs('vidIntroVideo');
 
+
     //Start Intro Video on call
     function playVidintroVideo (event) {
         vidIntroVideo.play();
     }
+
+    function giveBackScroll () {
+        var body = document.body;
+        body.style.overflowY = "visible";
+        console.log("scrollable!");
+    }
+
+
+     vidIntroVideo.on('ended', giveBackScroll);
 
     //Play gunshot sound on call
     function playSFXGunShot (event) {
@@ -25,20 +35,21 @@ $(document).ready(function(){
     var controller = new ScrollMagic();                // init scrollMagic controller
 
 
+/*
     //Intro Video Fade in/out and pin code
     var twnIntroVideoEnter = new TimelineMax();   
 
     twnIntroVideoEnter.add(TweenMax.to("#vidIntroVideo", 0.7, {opacity: 1}));  //tween to make the video fade in.  Takes up 70% of the scroll duration
     twnIntroVideoEnter.add(TweenMax.to("#vidIntroVideo", 0.3, {opacity: 0}));  //tween to make the video face out. Takes up 30% of the scroll duration
 
-    var scnIntroVideoEnter = new ScrollScene({triggerElement: "#divTrigIntroVideo", duration: 4000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
+    var scnIntroVideoEnter = new ScrollScene({triggerElement: "#divTrigIntroVideo", duration: 2000, triggerHook: 0.0, reverse: true})  // build scene and add pin logic
     .setPin("#divTrigIntroVideo", {pushFollowers: false})
     .setTween(twnIntroVideoEnter)
     .addTo(controller);
     //scnIntroVideoEnter.addIndicators();                  //uncomment this line to See Debug Triggers
 
-    scnIntroVideoEnter.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
-
+    //scnIntroVideoEnter.on("start", playVidintroVideo);     // add a listener to start the intro video when the user scrolls to video
+*/
 
 
     var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, scale: 1.5});
