@@ -11,7 +11,7 @@ $(document).ready(function(){
     var heightNormalizer = windowHeight / 1050;
     var widthNormalizer =  windowWidth / 1680;
 
-    //$(window).resize(function(){location.reload();});
+    $(window).resize(function(){location.reload();});
 
     //object which references intro video
     var vidIntroVideo = videojs('vidIntroVideo');
