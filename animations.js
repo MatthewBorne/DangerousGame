@@ -6,6 +6,13 @@
 
 $(document).ready(function(){
 
+    var windowHeight = $( window ).height();
+    var windowWidth = $( window ).width();
+    var heightNormalizer = windowHeight / 1050;
+    var widthNormalizer =  windowWidth / 1680;
+
+    //$(window).resize(function(){location.reload();});
+
     //object which references intro video
     var vidIntroVideo = videojs('vidIntroVideo');
 
@@ -67,11 +74,15 @@ $(document).ready(function(){
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
 
-    var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration: 1100, triggerHook: 0.0, reverse: true})
+    var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration: 1000*widthNormalizer, triggerHook: 0.0, reverse: true})
     .setTween(twnPlaneAppear)
     .setPin("#divTrigPlane",  {pushFollowers: false})
     .addTo(controller);
     //scnPlaneAppear.addIndicators();
+
+    document.getElementById("divTrigPlane").style.height = 1000*widthNormalizer + "px";
+    console.log(document.getElementById("divTrigPlane").style.height);
+    console.log(1000*widthNormalizer);
 
     
 
@@ -79,7 +90,7 @@ $(document).ready(function(){
     twnYachtAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 0})); 
     twnYachtAppear.add(TweenMax.to("#imgYacht", .225, {opacity: 1}));
 
-    var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 500, triggerHook: 0.0, reverse: true})
+    var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 500*widthNormalizer, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtAppear)
     .setPin("#divTrigYacht",  {pushFollowers: false})
     .addTo(controller);
@@ -90,10 +101,26 @@ $(document).ready(function(){
     twnEndGlobeScene.add(TweenMax.to("#imgGlobe", 1,  {opacity: 0}) ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
     twnEndGlobeScene.add(TweenMax.to("#imgYacht", 1, {opacity: 0})  ,0);
 
-    var scnEndGlobeScene = new ScrollScene({triggerElement: "#divTrigEndGlobeScene", duration: 200, triggerHook: 0.0, reverse: true})
+    var scnEndGlobeScene = new ScrollScene({triggerElement: "#divTrigEndGlobeScene", duration: 400, triggerHook: 0.0, reverse: true})
     .setTween(twnEndGlobeScene)
     .addTo(controller);
     scnEndGlobeScene.addIndicators();
+
+
+
+    var twnYachtScene1 = new TimelineMax();   
+    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .2, {opacity: 1})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 1})  ,0);
+    twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 1}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 0}),2);
+    twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 0}),2);
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .8, {transform: "translateX(0px)"}),2);
+
+    var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnYachtScene1)
+    .setPin("#divTrigYachtScene1", {pushFollowers: false})
+    .addTo(controller);
+    scnYachtScene1.addIndicators();
 
 
 /*
