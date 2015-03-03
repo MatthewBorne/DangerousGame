@@ -9,7 +9,7 @@ $(document).ready(function(){
     var windowHeight = $( window ).height();
     var windowWidth = $( window ) .width();
     var heightNormalizer = windowHeight / 1050;
-    var widthNormalizer =  windowWidth / 1680;
+    var widthNormalizer  = windowWidth  / 1680;
 
     $(window).resize(function(){location.reload();});
 
@@ -29,6 +29,11 @@ $(document).ready(function(){
 
 
      vidIntroVideo.on('ended', giveBackScroll);
+
+
+
+     var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
+
 
     //Play gunshot sound on call
     function playSFXGunShot (event) {
@@ -52,8 +57,12 @@ $(document).ready(function(){
 	}
 	
 	function playSFXBoatOnOcean (event) {
-		var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
+		sfxBoatOnOcean.play();
 	}
+
+    function stopSFXBoatOnOcean() {
+        sfxBoatOnOcean.pause();
+    }
 
     $(document).ready(function(){ vidIntroVideo.play(); }) 
 
@@ -77,9 +86,9 @@ $(document).ready(function(){
 */
 
 
-    var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, scale: 1.5});
+    var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, scale: 1.5, onStart:playSFXSpaceWhoosh});
 
-    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true, /*onComplete:playSFXSpaceWhoosh*/})
+    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true})
     .setTween(twnGlobeAppear)
     .setPin("#divTrigGlobe", {pushFollowers: false})
     .addTo(controller);
@@ -104,7 +113,7 @@ $(document).ready(function(){
 
     var twnYachtAppear = new TimelineMax();   
     twnYachtAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 0})); 
-    twnYachtAppear.add(TweenMax.to("#imgYacht", .225, {opacity: 1}, /*onComplete:playSFXBoatOnOcean*/));
+    twnYachtAppear.add(TweenMax.to("#imgYacht", .225, {opacity: 1}));
 
     var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 500*widthNormalizer, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtAppear)
@@ -125,7 +134,7 @@ $(document).ready(function(){
 
 
     var twnYachtScene1 = new TimelineMax();   
-    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .3, {opacity: 1})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
+    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .3, {opacity: 1, onStart:playSFXBoatOnOcean})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .3, {opacity: 1})  ,0);
     twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 0}),2);
@@ -153,7 +162,7 @@ $(document).ready(function(){
 
 
     var twnYachtGunShots = new TimelineMax()  
-    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot}));
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot, onStart: stopSFXBoatOnOcean}));
     twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 0})); 
     twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .4, {opacity: 0}));
     twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot}));
