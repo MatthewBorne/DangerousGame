@@ -25,7 +25,6 @@ $(document).ready(function(){
     function giveBackScroll () {
         var body = document.body;
         body.style.overflowY = "visible";
-        console.log("scrollable!");
     }
 
 
@@ -80,10 +79,8 @@ $(document).ready(function(){
     .addTo(controller);
     //scnPlaneAppear.addIndicators();
 
+    //Set the scroll distance of the plane in relation to the width of the page.
     document.getElementById("divTrigPlane").style.height = 1000*widthNormalizer + "px";
-    console.log(document.getElementById("divTrigPlane").style.height);
-    console.log(1000*widthNormalizer);
-
     
 
     var twnYachtAppear = new TimelineMax();   
@@ -109,8 +106,8 @@ $(document).ready(function(){
 
 
     var twnYachtScene1 = new TimelineMax();   
-    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .2, {opacity: 1})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 1})  ,0);
+    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .3, {opacity: 1})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .3, {opacity: 1})  ,0);
     twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 0}),2);
     twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 0}),2);
@@ -124,8 +121,10 @@ $(document).ready(function(){
     twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .8, {transform: "translateX(-1000px)"}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 0}));
+    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .3, {opacity: 0})  ,6);  
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .15, {opacity: 0})  ,6);
 
-    var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 2000, triggerHook: 0.0, reverse: true})
+    var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 3000, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtScene1)
     .setPin("#divTrigYachtScene1", {pushFollowers: false})
     .addTo(controller);
