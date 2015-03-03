@@ -118,17 +118,38 @@ $(document).ready(function(){
     twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .0001, {opacity: 1}) ,3);
     twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 0}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .8, {transform: "translateX(-1000px)"}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .8, {transform: "translateX(-600px)"}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 0}));
-    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .3, {opacity: 0})  ,6);  
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .15, {opacity: 0})  ,6);
+    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .4, {opacity: 0})  ,6);  
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .2, {opacity: 0})  ,6);
 
     var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 3000, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtScene1)
     .setPin("#divTrigYachtScene1", {pushFollowers: false})
     .addTo(controller);
     scnYachtScene1.addIndicators();
+
+
+
+
+    var twnYachtGunShots = new TimelineMax()  
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot}));
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 0})); 
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .4, {opacity: 0}));
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot}));
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 0})); 
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .4, {opacity: 0}));
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot}));
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 0})); 
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .4, {opacity: 0}));   
+
+    var scnYachtGunShots = new ScrollScene({triggerElement: "#divTrigYachtGunShots", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnYachtGunShots)
+    .setPin("#divTrigYachtGunShots", {pushFollowers: false})
+    .addTo(controller);
+    scnYachtGunShots.addIndicators();
+    //scnYachtGunShots.on("start", playSFXGunShot);
 
 
 /*
