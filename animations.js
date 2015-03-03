@@ -36,6 +36,21 @@ $(document).ready(function(){
         var sfxGunShot = new Audio('./resources/sfx/sfxGunShot.mp3');
         sfxGunShot.play();
     }
+	
+	function playSFXSpaceWhoosh (event) {
+		var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
+		sfxSpaceWhoosh.play();
+	}
+	
+	function playSFXJetSound (event) {
+		var sfxJetSound = new Audio('./resources/sfx/sfxJetSound.ogg');
+		sfxJetSound.play();
+	}
+	
+	function playSFXZoomLens (event) {
+		var sfxZoomLens = new Audio('./resources/sfx/sfxZoomLens.ogg');
+		sfxZoomLens.play();
+	}
 
     $(document).ready(function(){ vidIntroVideo.play(); }) 
 
