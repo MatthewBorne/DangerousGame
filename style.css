@@ -186,6 +186,21 @@ html {
     opacity: 0;
 }
 
+#imgYachtScene4{
+    position: absolute;
+    width: 140%;
+    tranform: translateX(0px);
+    opacity: 0;
+}
+
+#imgYachtText4{
+    position: absolute;
+    margin-top: 8%;
+    margin-left: 16%;
+    z-index: 3;
+    opacity: 0;
+}
+
 
 /*
     #divTrigGate {

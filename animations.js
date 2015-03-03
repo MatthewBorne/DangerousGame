@@ -121,6 +121,9 @@ $(document).ready(function(){
     twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .0001, {opacity: 1}) ,3);
     twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 0}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .8, {transform: "translateX(-1000px)"}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 1}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 0}));
 
     var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtScene1)
