@@ -7,7 +7,7 @@
 $(document).ready(function(){
 
     var windowHeight = $( window ).height();
-    var windowWidth = $( window ).width();
+    var windowWidth = $( window ) .width();
     var heightNormalizer = windowHeight / 1050;
     var widthNormalizer =  windowWidth / 1680;
 
@@ -115,6 +115,12 @@ $(document).ready(function(){
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 0}),2);
     twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 0}),2);
     twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .8, {transform: "translateX(0px)"}),2);
+    twnYachtScene1.add(TweenMax.to("#imgYachtText2", .8, {opacity: 1}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText2", .8, {opacity: 0}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .0001, {opacity: 0}) ,3);
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .0001, {opacity: 1}) ,3);
+    twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 1}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 0}));
 
     var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtScene1)

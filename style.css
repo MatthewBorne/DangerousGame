@@ -165,6 +165,27 @@ html {
     opacity: 1;
 }
 
+#imgYachtScene3 {
+    position: absolute;
+    width: 140%;
+    tranform: translateX(0px);
+    opacity: 0;
+}
+
+#imgYachtText2{
+    position: absolute;
+    margin-top: 8%;
+    z-index: 3;
+    opacity: 0;
+}
+
+#imgYachtText3{
+    position: absolute;
+    margin-top: 8%;
+    z-index: 3;
+    opacity: 0;
+}
+
 
 /*
     #divTrigGate {
