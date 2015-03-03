@@ -77,9 +77,9 @@ $(document).ready(function(){
 */
 
 
-    var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, scale: 1.5, onComplete:playSFXSpaceWhoosh});
+    var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, scale: 1.5});
 
-    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true})
+    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true, /*onComplete:playSFXSpaceWhoosh*/})
     .setTween(twnGlobeAppear)
     .setPin("#divTrigGlobe", {pushFollowers: false})
     .addTo(controller);
@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 
     var twnPlaneAppear = new TimelineMax();   
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1   }, onComplete:playSFXJetSound)); 
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1   })); 
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.35}));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
@@ -103,8 +103,8 @@ $(document).ready(function(){
     
 
     var twnYachtAppear = new TimelineMax();   
-    twnYachtAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 0}, onComplete:playSFXBoatOnOcean)); 
-    twnYachtAppear.add(TweenMax.to("#imgYacht", .225, {opacity: 1}));
+    twnYachtAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 0})); 
+    twnYachtAppear.add(TweenMax.to("#imgYacht", .225, {opacity: 1}, /*onComplete:playSFXBoatOnOcean*/));
 
     var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 500*widthNormalizer, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtAppear)
