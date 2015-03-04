@@ -31,7 +31,7 @@ $(document).ready(function(){
      vidIntroVideo.on('ended', giveBackScroll);
 
 
-
+     var sfxJetSound = new Audio('./resources/sfx/sfxJetSound.ogg');
      var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
 
 
@@ -47,7 +47,6 @@ $(document).ready(function(){
 	}
 	
 	function playSFXJetSound (event) {
-		var sfxJetSound = new Audio('./resources/sfx/sfxJetSound.ogg');
 		sfxJetSound.play();
 	}
 	
@@ -59,6 +58,10 @@ $(document).ready(function(){
 	function playSFXBoatOnOcean (event) {
 		sfxBoatOnOcean.play();
 	}
+
+    function stopSFXJetSound () {
+        sfxJetSound.pause();
+    }
 
     function stopSFXBoatOnOcean() {
         sfxBoatOnOcean.pause();
@@ -96,7 +99,7 @@ $(document).ready(function(){
 
 
     var twnPlaneAppear = new TimelineMax();   
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1   })); 
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1 , onStart:playSFXJetSound})); 
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.35}));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
@@ -112,7 +115,7 @@ $(document).ready(function(){
     
 
     var twnYachtAppear = new TimelineMax();   
-    twnYachtAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 0})); 
+    twnYachtAppear.add(TweenMax.to("#imgPlane", .05,  {opacity: 0, onStart:stopSFXJetSound})); 
     twnYachtAppear.add(TweenMax.to("#imgYacht", .225, {opacity: 1}));
 
     var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 500*widthNormalizer, triggerHook: 0.0, reverse: true})
@@ -137,18 +140,18 @@ $(document).ready(function(){
     twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .3, {opacity: 1, onStart:playSFXBoatOnOcean})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .3, {opacity: 1})  ,0);
     twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 1}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 0}),2);
-    twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 0}),2);
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 0})   ,2);
+    twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 0})   ,2);
     twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .8, {transform: "translateX(0px)"}),2);
-    twnYachtScene1.add(TweenMax.to("#imgYachtText2", .8, {opacity: 1}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtText2", .8, {opacity: 0}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText2",  .8, {opacity: 1}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText2",  .8, {opacity: 0}));
     twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .0001, {opacity: 0}) ,3);
     twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .0001, {opacity: 1}) ,3);
-    twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 1}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtText3", .2, {opacity: 0}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText3",  .2, {opacity: 1}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText3",  .2, {opacity: 0}));
     twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .8, {transform: "translateX(-600px)"}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 1}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtText4", .2, {opacity: 0}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText4",  .2, {opacity: 1}));
+    twnYachtScene1.add(TweenMax.to("#imgYachtText4",  .2, {opacity: 0}));
     twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .4, {opacity: 0})  ,6);  
     twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .2, {opacity: 0})  ,6);
 
