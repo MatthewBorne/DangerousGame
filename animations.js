@@ -31,7 +31,7 @@ $(document).ready(function(){
      vidIntroVideo.on('ended', giveBackScroll);
 
 
-     var sfxJetSound = new Audio('./resources/sfx/sfxJetSound.ogg');
+     var sfxJetSound    = new Audio('./resources/sfx/sfxJetSound.ogg');
      var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
 
 
@@ -54,6 +54,11 @@ $(document).ready(function(){
 		var sfxZoomLens = new Audio('./resources/sfx/sfxZoomLens.ogg');
 		sfxZoomLens.play();
 	}
+
+    function playSFXLighter (event) {
+        var sfxLighter = new Audio('./resources/sfx/sfxLighter.ogg');
+        sfxLighter.play();
+    }
 	
 	function playSFXBoatOnOcean (event) {
 		sfxBoatOnOcean.play();
@@ -145,7 +150,7 @@ $(document).ready(function(){
     twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .8, {transform: "translateX(0px)"}),2);
     twnYachtScene1.add(TweenMax.to("#imgYachtText2",  .8, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText2",  .8, {opacity: 0}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .0001, {opacity: 0}) ,3);
+    twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .0001, {opacity: 0, onStart:playSFXLighter}) ,3);
     twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .0001, {opacity: 1}) ,3);
     twnYachtScene1.add(TweenMax.to("#imgYachtText3",  .2, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText3",  .2, {opacity: 0}));
