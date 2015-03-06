@@ -189,12 +189,13 @@ html {
 #imgYachtScene4{
     position: absolute;
     width: 140%;
+    tranform: translateX(0px);
     opacity: 0;
 }
 
 #imgYachtText4{
     position: absolute;
-    margin-top: 2%;
+    margin-top: 8%;
     z-index: 4;
     opacity: 0;
 }

@@ -72,6 +72,11 @@ $(document).ready(function(){
         sfxBoatOnOcean.pause();
     }
 
+    function stopAllMusic() {
+        sfxJetSound.pause();
+        sfxBoatOnOcean.pause();
+    }
+
     $(document).ready(function(){ vidIntroVideo.play(); }) 
 
     var controller = new ScrollMagic();                // init scrollMagic controller
@@ -137,7 +142,7 @@ $(document).ready(function(){
     var scnEndGlobeScene = new ScrollScene({triggerElement: "#divTrigEndGlobeScene", duration: 400, triggerHook: 0.0, reverse: true})
     .setTween(twnEndGlobeScene)
     .addTo(controller);
-    scnEndGlobeScene.addIndicators();
+    //scnEndGlobeScene.addIndicators();
 
 
 
@@ -145,26 +150,29 @@ $(document).ready(function(){
     twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .3, {opacity: 1, onStart:playSFXBoatOnOcean})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .3, {opacity: 1})  ,0);
     twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 1}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene1", .2, {opacity: 0})   ,2);
-    twnYachtScene1.add(TweenMax.to("#imgYachtText1",  .2, {opacity: 0})   ,2);
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .8, {transform: "translateX(0px)"}),2);
+    twnYachtScene1.add( [TweenMax.to("#imgYachtScene1", .2, {opacity: 0}),
+                         TweenMax.to("#imgYachtText1",  .2, {opacity: 0}),
+                         TweenMax.to("#imgYachtScene2", .8, {transform: "translateX(0px)"})]);
     twnYachtScene1.add(TweenMax.to("#imgYachtText2",  .8, {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText2",  .8, {opacity: 0}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene2", .0001, {opacity: 0, onStart:playSFXLighter}) ,3);
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .0001, {opacity: 1}) ,3);
+    twnYachtScene1.add(  [TweenMax.to("#imgYachtScene2", .0001, {opacity: 0, onStart:playSFXLighter}),
+                          TweenMax.to("#imgYachtScene3", .0001, {opacity: 1})]);
     twnYachtScene1.add(TweenMax.to("#imgYachtText3",  .2, {opacity: 1}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtText3",  .2, {opacity: 0}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .8, {transform: "translateX(-600px)"}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtText4",  .2, {opacity: 1}));
-    twnYachtScene1.add(TweenMax.to("#imgYachtText4",  .2, {opacity: 0}));
-    twnYachtScene1.add(TweenMax.to("#vidDarkWater",   .4, {opacity: 0})  ,6);  
-    twnYachtScene1.add(TweenMax.to("#imgYachtScene3", .2, {opacity: 0})  ,6);
+    twnYachtScene1.add(TweenMax.to("#imgYachtText3",  .2, {opacity: 0, delay:.2}));
+    twnYachtScene1.add( [TweenMax.to("#imgYachtScene3", .8, {transform: "translateX(-" +(windowWidth/3) +"px)"}),
+                         TweenMax.to("#imgYachtScene4", .8, {transform: "translateX(-" +(windowWidth/3) +"px)"})]);
+    twnYachtScene1.add( [TweenMax.to("#imgYachtText4",  .2, {opacity: 1}),
+                         TweenMax.to("#imgYachtScene4", .2, {opacity: 1})]);
+    twnYachtScene1.add([TweenMax.to("#vidDarkWater",   .4, {opacity: 0}), 
+                         TweenMax.to("#imgYachtScene3", .001, {opacity: 0}),
+                         TweenMax.to("#imgYachtScene4", .2, {opacity: 0}),
+                         TweenMax.to("#imgYachtText4",  .6, {opacity: 0, delay:.8})]);
 
-    var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 3000, triggerHook: 0.0, reverse: true})
+    var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 3050, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtScene1)
     .setPin("#divTrigYachtScene1", {pushFollowers: false})
     .addTo(controller);
-    scnYachtScene1.addIndicators();
+    //scnYachtScene1.addIndicators();
 
 
 
@@ -184,7 +192,7 @@ $(document).ready(function(){
     .setTween(twnYachtGunShots)
     .setPin("#divTrigYachtGunShots", {pushFollowers: false})
     .addTo(controller);
-    scnYachtGunShots.addIndicators();
+    //scnYachtGunShots.addIndicators();
     //scnYachtGunShots.on("start", playSFXGunShot);
 
 
