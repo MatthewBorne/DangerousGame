@@ -119,12 +119,13 @@ $(document).ready(function(){
     twnYachtAppear.add(  [TweenMax.to("#imgPlane",      0.1,   {opacity: 0, onStart:stopSFXJetSound}),
                             TweenMax.to("#imgGlobeYacht", 0.3,   {opacity: 1}),
                             TweenMax.to("#imgGlobe",      0.1,   {opacity: 1})]);
-    twnYachtAppear.add(  [TweenMax.to("#imgGlobeYacht",      1.0,   {transform: "scale(3,3)" })]);
+    twnYachtAppear.add(  [TweenMax.to("#imgGlobeYacht",      1.0,   {transform: "scale(4,4)" })]);
     twnYachtAppear.add(  [TweenMax.to("#imgGlobe",  .1,   {opacity: 0}),            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
-                            TweenMax.to("#imgGlobeYacht", 1,   {opacity: 0})]);
+                            TweenMax.to("#imgGlobeYacht", .5,   {opacity: 0})]);
+    twnYachtAppear.add( TweenMax.to("#imgGlobe",  1.9,   {opacity: 0}));
 
     //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
-    var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 500*widthNormalizer, triggerHook: 0.0, reverse: true, offset: 100})
+    var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 1500*widthNormalizer, triggerHook: 0.0, reverse: true, offset: 100})
     .setTween(twnYachtAppear)
     .addTo(controller);
     scnYachtAppear.addIndicators();
