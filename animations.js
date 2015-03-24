@@ -6,11 +6,16 @@
 
 $(document).ready(function(){
 
+
+    //Get the height and width of the browser
     var windowHeight = $( window ).height();
     var windowWidth = $( window ) .width();
+
+    //Values used to normalize the user's scroll distances with Matt's development distances, 1680 x 1050
     var heightNormalizer = windowHeight / 1050;
     var widthNormalizer  = windowWidth  / 1680;
 
+    //Force the webpage to refresh when the page is resized
     $(window).resize(function(){location.reload();});
 
     //object which references intro video
@@ -22,65 +27,75 @@ $(document).ready(function(){
         vidIntroVideo.play();
     }
 
+    //function used to re-enable browser scrolling after a portion that locks site scrolling (e.g. videos that must be watched)
     function giveBackScroll () {
         var body = document.body;
         body.style.overflowY = "visible";
     }
 
 
-     vidIntroVideo.on('ended', giveBackScroll);
+    //When intro video ends, give the user back the ability to scroll
+    //We should also give them the ability to scroll if they click on the page
+    vidIntroVideo.on('ended', giveBackScroll);
 
-
+     var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
      var sfxJetSound    = new Audio('./resources/sfx/sfxJetSound.ogg');
      var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
+     var sfxZoomLens    = new Audio('./resources/sfx/sfxZoomLens.ogg');
+     var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
+     
+     //array containing all lengthy Audio objects
+     var longAudioObjects = [sfxJetSound, sfxBoatOnOcean];
 
 
     //Play gunshot sound on call
     function playSFXGunShot (event) {
-        var sfxGunShot = new Audio('./resources/sfx/sfxGunShot.mp3');
+        var sfxGunShot  = new Audio('./resources/sfx/sfxGunShot.mp3');
         sfxGunShot.play();
     }
 	
+    //Play Woosh sound effect for when globe zoomz in - scene0
 	function playSFXSpaceWhoosh (event) {
-		var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
-		sfxSpaceWhoosh.play();
+        sfxSpaceWhoosh.currentTime = 0;
+        $(sfxSpaceWhoosh).each(function(){this.play(); $(this).animate({volume:1},1000)});
 	}
 	
+    //Play sound effect for Jet flying over the earth - scene0
 	function playSFXJetSound (event) {
-		sfxJetSound.play();
+		sfxJetSound.currentTime = 0;
+        $(sfxJetSound).each(function(){this.play(); $(this).animate({volume:1},1000)});
 	}
 	
+
 	function playSFXZoomLens (event) {
-		var sfxZoomLens = new Audio('./resources/sfx/sfxZoomLens.ogg');
-		sfxZoomLens.play();
+        sfxZoomLens.currentTime = 0;
+        $(sfxZoomLens).each(function(){this.play(); $(this).animate({volume:1},1000)});
 	}
 
+    //Play sound effect for lighter lighting the pipe - scene1
     function playSFXLighter (event) {
-        var sfxLighter = new Audio('./resources/sfx/sfxLighter.ogg');
-        sfxLighter.play();
+        sfxLighter.currentTime = 0;
+        $(sfxLighter).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
+    //Play background audio for boat scene - scene 1
 	function playSFXBoatOnOcean (event) {
-		sfxBoatOnOcean.play();
+        sfxBoatOnOcean.currentTime = 0;
+        $(sfxBoatOnOcean).each(function(){this.play(); $(this).animate({volume:1},1000)});
 	}
 
-    function stopSFXJetSound () {
-        sfxJetSound.pause();
+    //Fades out all lengthy audio clips
+    function stopAllSFX() {
+        console.log("stopping audio");
+        $(longAudioObjects).stop().animate({volume:0},800,function(){ this.pause() })
     }
 
-    function stopSFXBoatOnOcean() {
-        sfxBoatOnOcean.pause();
-    }
-
-    function stopAllMusic() {
-        sfxJetSound.pause();
-        sfxBoatOnOcean.pause();
-    }
-
+    //Plays the intro video on page load
     $(document).ready(function(){ vidIntroVideo.play(); }) 
 
-    var controller = new ScrollMagic();                // init scrollMagic controller
 
+    // init scrollMagic controller
+    var controller = new ScrollMagic();
 
 
     //tween to make the globe pin and "zoom in"
@@ -96,7 +111,7 @@ $(document).ready(function(){
 
     //Tweens to make the plane grow and shrink while flying over ocean
     var twnPlaneAppear = new TimelineMax();   
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1 , onStart:playSFXJetSound})); 
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1})); 
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.35}));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
@@ -105,6 +120,8 @@ $(document).ready(function(){
     var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration:1000*widthNormalizer, triggerHook: 0.0, reverse: true})
     .setTween(twnPlaneAppear)
     .setPin("#divTrigPlane",  {pushFollowers: false})
+    .on("enter", playSFXJetSound)   //Play the Jet Sound Effect
+    .on("leave", stopAllSFX)        //Fade out the Jet Sound Effect
     .addTo(controller);
     scnPlaneAppear.addIndicators();
 
@@ -116,13 +133,14 @@ $(document).ready(function(){
     //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var twnYachtAppear = new TimelineMax();   
 
-    twnYachtAppear.add(  [TweenMax.to("#imgPlane",      0.1,   {opacity: 0, onStart:stopSFXJetSound}),
+    twnYachtAppear.add(  [TweenMax.to("#imgPlane",      0.1,   {opacity: 0, onStart:stopAllSFX}),
                             TweenMax.to("#imgGlobeYacht", 0.3,   {opacity: 1}),
                             TweenMax.to("#imgGlobe",      0.1,   {opacity: 1})]);
     twnYachtAppear.add(  [TweenMax.to("#imgGlobeYacht",      1.0,   {transform: "scale(4,4)" })]);
     twnYachtAppear.add(  [TweenMax.to("#imgGlobe",  .1,   {opacity: 0}),            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
                             TweenMax.to("#imgGlobeYacht", .5,   {opacity: 0})]);
     twnYachtAppear.add( TweenMax.to("#imgGlobe",  1.9,   {opacity: 0}));
+
 
     //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 1500*widthNormalizer, triggerHook: 0.0, reverse: true, offset: 100})
@@ -131,10 +149,9 @@ $(document).ready(function(){
     scnYachtAppear.addIndicators();
 
 
-
-    //Timeline whic
+    //Timeline for Scene1 - The Yacht scene
     var twnYachtScene1 = new TimelineMax();   
-    twnYachtScene1.add(TweenMax.to("#vidDarkWater",      .3,    {opacity: 1, onStart:playSFXBoatOnOcean})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
+    twnYachtScene1.add(TweenMax.to("#vidDarkWater",      .3,    {opacity: 1})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1",    .3,    {opacity: 1})  ,0);
     twnYachtScene1.add(TweenMax.to("#imgYachtText1",     .8,    {opacity: 1}));
     twnYachtScene1.add( [TweenMax.to("#imgYachtScene1",  .2,    {opacity: 0}),
@@ -158,14 +175,15 @@ $(document).ready(function(){
     var scnYachtScene1 = new ScrollScene({triggerElement: "#divTrigYachtScene1", duration: 10000, triggerHook: 0.0, reverse: true})
     .setTween(twnYachtScene1)
     .setPin("#divTrigYachtScene1", {pushFollowers: false})
+    .on("enter", playSFXBoatOnOcean)
     .addTo(controller);
     //scnYachtScene1.addIndicators();
 
 
 
-
+    //Timeline to show gun shots that happen at the end of scene1
     var twnYachtGunShots = new TimelineMax()  
-    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot, onStart: stopSFXBoatOnOcean}));
+    twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot, onStart: stopAllSFX}));
     twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 0})); 
     twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .4, {opacity: 0}));
     twnYachtGunShots.add(TweenMax.to("#gunShotFlash", .1, {opacity: 1, onComplete:playSFXGunShot}));
