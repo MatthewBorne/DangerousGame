@@ -211,6 +211,16 @@ $(document).ready(function(){
     .addTo(controller);
     scnGlobeAppear.addIndicators();
 
+    var twnWaterScene = new TimelineMax();
+    twnWaterScene.add(TweenMax.to("#imgWaterText1", .5, {opacity: 1}));
+    twnWaterScene.add(TweenMax.to("#imgWaterText1", .5, {opacity: 0}));
+
+    var scnWaterScene = new ScrollScene({triggerElement: "#divTrigWaterScene", duration:10000, triggerHook: 0.0, reverse:true})
+    .setTween(twnWaterScene)
+    .setPin("#divTrigWaterScene" , {pushFollowers: false})
+    .addTo(controller);
+    scnWaterScene.addIndicators();
+
 
 /*
     //Scene 3 Gate Left
