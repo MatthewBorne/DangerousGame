@@ -32,83 +32,98 @@
 <body>
     <title>Dangerous Game</title>
 
-    <div id="divTrigIntroVideo" style="height:1000px">
-        <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="true"
-        preload="auto" data-setup="{}" width="auto" height="auto">
-        <source src="./resources/vid/scene0/vidIntroVideo.mp4" type='video/mp4'>
-          <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-        </video>
-    </div>
+    <!-- Beginning of Scene 0 -->
+    <!-- Contains intro video, globe zoom, plane flying, zoom into yacht -->
+    <section id="scene0">
 
-    <div class="spacer" style="height:300px">     <!-- 300 as a spacer before earth starts fade in -->
-        Spacer Div #1 here!!
-    </div>
-
-    <div id="divGlobeScene">
-
-        <div id="divTrigGlobe" style="height:1100px">
-            <img id="imgGlobe"  class="classGlobe"  src="./resources/img/scene0/imgGlobe3.png">
+        <div id="divTrigIntroVideo" style="height:1000px">
+            <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="true"
+            preload="auto" data-setup="{}" width="auto" height="auto">
+            <source src="./resources/vid/scene0/vidIntroVideo.mp4" type='video/mp4'>
+              <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+            </video>
         </div>
 
-        <img id="imgGlobeYacht" class="classGlobe" src="./resources/img/scene0/imgGlobe3Yacht.jpg">
-
-        <div id="divTrigPlane">
-            <img id="imgPlane" src="./resources/img/scene0/imgPlane.png">
+        <div class="spacer" style="height:300px">     <!-- 300 as a spacer before earth starts fade in -->
+            Spacer Div #1 here!!
         </div>
 
-        <div id="divTrigYacht" style="height:2000px">
-            <img id="imgYacht" src="./resources/img/scene0/imgYacht.png">
+        <div id="divGlobeScene">
+
+            <div id="divTrigGlobe" style="height:1100px">
+                <img id="imgGlobe"  class="classGlobe"  src="./resources/img/scene0/imgGlobe3.png">
+            </div>
+
+            <img id="imgGlobeYacht" class="classGlobe" src="./resources/img/scene0/imgGlobe3Yacht.jpg">
+
+            <div id="divTrigPlane">
+                <img id="imgPlane" src="./resources/img/scene0/imgPlane.png">
+            </div>
+
+            <div id="divTrigYacht" style="height:2000px">
+                <img id="imgYacht" src="./resources/img/scene0/imgYacht.png">
+            </div>
+
+            <div id="divTrigEndGlobeScene" style="height:200px">
+            </div>
+
+            <div class="spacer" style="height:50px"> 
+            </div>
         </div>
-
-        <div id="divTrigEndGlobeScene" style="height:200px">
-        </div>
-
-        <div class="spacer" style="height:50px"> 
-        </div>
-    </div>
+    </section>
 
 
-    
     <div class="spacer" style="height:200px">   
         Spacer Div #2 here!!
     </div>
 
-    <div id="divTrigYachtScene1" style="height:10000px">
-        <div id="divTrigWaterGif" >
-            <img id="vidDarkWater" src="./resources/vid/vidDarkWater.gif" >
+    <!-- Beginning of Scene 1 -->
+    <!-- Contains talking on the Yacht, Lighter flashing, and ends with gunshots heard from the yacht-->
+    <section id="scene1">
+        <div id="divTrigYachtScene1" style="height:10000px">
+            <div id="divTrigWaterGif" >
+                <img id="vidDarkWater" src="./resources/vid/vidDarkWater.gif" >
+            </div>
+
+            <img id="imgYachtScene1" src="./resources/img/scene1/imgYachtScene1.png" >
+
+            <img id="imgYachtText1" src="./resources/img/scene1/text/imgYachtText1.png" >
+
+            <img id="imgYachtScene2" src="./resources/img/scene1/imgYachtScene2.png" >
+
+            <img id="imgYachtText2" src="./resources/img/scene1/text/imgYachtText2.png" >
+
+            <img id="imgYachtScene3" src="./resources/img/scene1/imgYachtScene3.png" >
+
+            <img id="imgYachtText3" src="./resources/img/scene1/text/imgYachtText3.png" >
+
+            <img id="imgYachtScene4" src="./resources/img/scene1/imgYachtScene4.png" > 
+
+            <img id="imgYachtText4" src="./resources/img/scene1/text/imgYachtText4.png" >
         </div>
 
-        <img id="imgYachtScene1" src="./resources/img/scene1/imgYachtScene1.png" >
+        <div class="spacer" style="height:30px"> 
+            Spacer Div #2 here!!
+        </div>
 
-        <img id="imgYachtText1" src="./resources/img/scene1/text/imgYachtText1.png" >
 
-        <img id="imgYachtScene2" src="./resources/img/scene1/imgYachtScene2.png" >
+        <div id="divTrigYachtGunShots" style="height:30px">
+            <div id="divTrigGunShotFlash1" >
+                <img id="gunShotFlash" src="./resources/img/scene1/imgYachtGunShots.png" >
+            </div>
+        </div>
+    </section>
 
-        <img id="imgYachtText2" src="./resources/img/scene1/text/imgYachtText2.png" >
-
-        <img id="imgYachtScene3" src="./resources/img/scene1/imgYachtScene3.png" >
-
-        <img id="imgYachtText3" src="./resources/img/scene1/text/imgYachtText3.png" >
-
-        <img id="imgYachtScene4" src="./resources/img/scene1/imgYachtScene4.png" > 
-
-        <img id="imgYachtText4" src="./resources/img/scene1/text/imgYachtText4.png" >
-    </div>
-
-    <div class="spacer" style="height:600px"> 
+    <div class="spacer" style="height:2500px"> 
         Spacer Div #2 here!!
     </div>
 
 
-    <div id="divTrigYachtGunShots" style="height:30px">
-        <div id="divTrigGunShotFlash1" >
-            <img id="gunShotFlash" src="./resources/img/scene1/imgYachtGunShots.png" >
-        </div>
-    </div>
+    <!-- Beginning of Scene 2 -->
+    <section id="scene2">
 
-    <div class="spacer" style="height:6000px"> 
-        Spacer Div #2 here!!
-    </div>
+    </section>
+
 <!--
     <div class="spacer" style="height:3000px;">
         Spacer Div here

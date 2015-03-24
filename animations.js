@@ -149,7 +149,7 @@ $(document).ready(function(){
     scnYachtAppear.addIndicators();
 
 
-    //Timeline for Scene1 - The Yacht scene
+    //Timeline for the majority of Scene1 - The Yacht scene
     var twnYachtScene1 = new TimelineMax();   
     twnYachtScene1.add(TweenMax.to("#vidDarkWater",      .3,    {opacity: 1})  ,0);            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
     twnYachtScene1.add(TweenMax.to("#imgYachtScene1",    .3,    {opacity: 1})  ,0);
@@ -199,6 +199,17 @@ $(document).ready(function(){
     .addTo(controller);
     //scnYachtGunShots.addIndicators();
     //scnYachtGunShots.on("start", playSFXGunShot);
+
+
+    //Timeline for the beginning of scene 2
+    var twnGlobeAppear = TweenMax.to("#imgWaterText1", 1, {opacity: 1});
+
+    //Scene to make the globe pin and "zoom in"
+    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true})
+    .setTween(twnGlobeAppear)
+    .setPin("#divTrigGlobe" ,{pushFollowers: false})
+    .addTo(controller);
+    scnGlobeAppear.addIndicators();
 
 
 /*
