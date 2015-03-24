@@ -27,6 +27,20 @@ $(document).ready(function(){
         vidIntroVideo.play();
     }
 
+    //object which references the video of main character falling off yacht
+    var vidWaterVideo = videojs('vidWaterVideo');
+
+    //Start falling into water video
+    function playVidWaterVideo (event) {
+        vidWaterVideo.play();
+    }
+
+    //function used to prevent page scrolling
+    function preventScroll () {
+        var body = document.body;
+        body.style.overflowY = "hidden";
+    }
+
     //function used to re-enable browser scrolling after a portion that locks site scrolling (e.g. videos that must be watched)
     function giveBackScroll () {
         var body = document.body;
@@ -34,9 +48,10 @@ $(document).ready(function(){
     }
 
 
-    //When intro video ends, give the user back the ability to scroll
+    //When videos end, give the user back the ability to scroll
     //We should also give them the ability to scroll if they click on the page
     vidIntroVideo.on('ended', giveBackScroll);
+    vidWaterVideo.on('ended', giveBackScroll);
 
      var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
      var sfxJetSound    = new Audio('./resources/sfx/sfxJetSound.ogg');
@@ -201,25 +216,29 @@ $(document).ready(function(){
     //scnYachtGunShots.on("start", playSFXGunShot);
 
 
-    //Timeline for the beginning of scene 2
-    var twnGlobeAppear = TweenMax.to("#imgWaterText1", 1, {opacity: 1});
-
-    //Scene to make the globe pin and "zoom in"
-    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true})
-    .setTween(twnGlobeAppear)
-    .setPin("#divTrigGlobe" ,{pushFollowers: false})
-    .addTo(controller);
-    scnGlobeAppear.addIndicators();
-
+    //Tween to play the "What was that" text after the gunshots
     var twnWaterScene = new TimelineMax();
-    twnWaterScene.add(TweenMax.to("#imgWaterText1", .5, {opacity: 1}));
-    twnWaterScene.add(TweenMax.to("#imgWaterText1", .5, {opacity: 0}));
+    twnWaterScene.add(TweenMax.to("#imgWaterText1", .25, {opacity: 1}));
+    twnWaterScene.add(TweenMax.to("#imgWaterText1", .5,  {opacity: 1}));
+    twnWaterScene.add(TweenMax.to("#imgWaterText1", .25, {opacity: 0}));
 
-    var scnWaterScene = new ScrollScene({triggerElement: "#divTrigWaterScene", duration:10000, triggerHook: 0.0, reverse:true})
+    var scnWaterScene = new ScrollScene({triggerElement: "#divTrigWaterScene", duration:1000, triggerHook: 0.0, reverse:true})
     .setTween(twnWaterScene)
     .setPin("#divTrigWaterScene" , {pushFollowers: false})
     .addTo(controller);
     scnWaterScene.addIndicators();
+
+
+    //Tween to fade in and play the video in which main character falls into water
+    var twnVidWaterVideo = new TimelineMax();
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .0001, {opacity: 1, onStart:playVidWaterVideo}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .25,   {opacity: 1, onStart:preventScroll}));
+
+    var scnVidWaterVideo = new ScrollScene({triggerElement: "#divTrigWaterVideo", duration:300, triggerHook: 0.0, reverse:true})
+    .setTween(twnVidWaterVideo)
+    .setPin("#vidWaterVideo" , {pushFollowers: false})
+    .addTo(controller);
+    scnVidWaterVideo.addIndicators();
 
 
 /*

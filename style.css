@@ -218,14 +218,22 @@ html {
     opacity:0;
 }
 
+#divTrigWaterScene {
+    text-align: center;
+}
+
 #vidWaterVideo {
+    position: relative;
     height: 100%;
     width:100%;
     opacity:0;
 }
 
 #imgWaterText1{
+    margin-top: 15%;
+    position: relative;
     opacity: 0;
+    width: 80%;
 }
 
 #imgFootprints {
