@@ -35,6 +35,10 @@ $(document).ready(function(){
         vidWaterVideo.play();
     }
 
+    $('html').click(function() {
+        giveBackScroll();
+    });
+
     //function used to prevent page scrolling
     function preventScroll () {
         var body = document.body;
@@ -218,8 +222,7 @@ $(document).ready(function(){
 
     //Tween to play the "What was that" text after the gunshots
     var twnWaterScene = new TimelineMax();
-    twnWaterScene.add(TweenMax.to("#imgWaterText1", .25, {opacity: 1}));
-    twnWaterScene.add(TweenMax.to("#imgWaterText1", .5,  {opacity: 1}));
+    twnWaterScene.add(TweenMax.to("#imgWaterText1", .75,  {opacity: 1}));
     twnWaterScene.add(TweenMax.to("#imgWaterText1", .25, {opacity: 0}));
 
     var scnWaterScene = new ScrollScene({triggerElement: "#divTrigWaterScene", duration:1000, triggerHook: 0.0, reverse:true})
@@ -232,13 +235,24 @@ $(document).ready(function(){
     //Tween to fade in and play the video in which main character falls into water
     var twnVidWaterVideo = new TimelineMax();
     twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .0001, {opacity: 1, onStart:playVidWaterVideo}));
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .25,   {opacity: 1, onStart:preventScroll}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .0001,   {opacity: 1, onStart:preventScroll}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .9998, {opacity: 0}));
 
-    var scnVidWaterVideo = new ScrollScene({triggerElement: "#divTrigWaterVideo", duration:300, triggerHook: 0.0, reverse:true})
+    var scnVidWaterVideo = new ScrollScene({triggerElement: "#divTrigWaterVideo", duration:300, triggerHook: 0.0, reverse:false})
     .setTween(twnVidWaterVideo)
     .setPin("#vidWaterVideo" , {pushFollowers: false})
     .addTo(controller);
     scnVidWaterVideo.addIndicators();
+
+    var twnAfterWaterVideo = new TimelineMax();
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .5, {opacity: 1}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .5, {transform: "translateY(50px)"}))
+
+    var scnAfterWaterVideo = new ScrollScene({triggerElement: "divTrigAfterWaterScene", duration:1000, triggerHook: 1.0, reverse:true})
+    .setTween(twnAfterWaterVideo)
+    .setPin("#divTrigAfterWaterScene", {pushFollowers: false})
+    .addTo(controller);
+    scnAfterWaterVideo.addIndicators();
 
 
 /*

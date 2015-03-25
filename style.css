@@ -61,8 +61,7 @@ body
     /*width: 1680px;
     height:1050px;*/
     overflow-x: hidden;
-
-    /*overflow-y: hidden;*/
+    overflow-y: hidden;
 }
 
 html {
@@ -237,8 +236,9 @@ html {
 }
 
 #imgFootprints {
-    width:100%;
+    width:50%;
     opacity: 0;
+    vertical-align: bottom;
 }
 
 
