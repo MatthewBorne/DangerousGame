@@ -6,6 +6,15 @@
 
 $(document).ready(function(){
 
+    var debug = false;
+
+    function pageScroll() {
+        if(document.body.style.overflowY != "hidden") {
+            window.scrollBy(0,2);
+        }
+    }
+
+    window.setInterval(pageScroll, 1);
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -39,10 +48,15 @@ $(document).ready(function(){
         giveBackScroll();
     });
 
+    preventScroll();
+
     //function used to prevent page scrolling
     function preventScroll () {
-        var body = document.body;
-        body.style.overflowY = "hidden";
+        if(!debug)
+        {
+            var body = document.body;
+            body.style.overflowY = "hidden";
+        }
     }
 
     //function used to re-enable browser scrolling after a portion that locks site scrolling (e.g. videos that must be watched)
@@ -246,35 +260,64 @@ $(document).ready(function(){
 
     var twnAfterWaterVideo = new TimelineMax();
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .5, {opacity: 1}));
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .5, {transform: "translateY(50px)"}))
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .5, {transform: "translateY(500px)"}));
 
-    var scnAfterWaterVideo = new ScrollScene({triggerElement: "divTrigAfterWaterScene", duration:1000, triggerHook: 1.0, reverse:true})
+    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigAfterWaterScene", duration:1000, triggerHook: 0, reverse:true})
     .setTween(twnAfterWaterVideo)
     .setPin("#divTrigAfterWaterScene", {pushFollowers: false})
     .addTo(controller);
     scnAfterWaterVideo.addIndicators();
 
 
-/*
-    //Scene 3 Gate Left
-    var twnGateLeftOpen = TweenMax.to("#imgGateLeft", 5, {rotationY:50, transformOrigin:"26%"});    //tween to make the gate rotate in Z
 
-    var scnGateLeftOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 2000, triggerHook: 0.0, reverse: true})
-    .setTween(twnGateLeftOpen)
-    .addTo(controller);
-    //scnGateLeftOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+    //Getthe height of the imgGateHand image so we can translate it accordingly
+    var handHeight = $("#imgGateHand").height();
 
+    //Scene 3 gates open
+    var twnGatesOpen = new TimelineMax();
 
-    //Scene 3 Gate Right
-    var twnGateRightOpen = TweenMax.to("#imgGateRight", 5, {rotationY:-50, transformOrigin:"74%"});    //tween to make the gate rotate in Z  
+    //Fade images into view (castle, gates, and hand images)
+    twnGatesOpen.add(  [TweenMax.to("#imgCastleBackground",  2.5, {opacity: 1}),
+                        TweenMax.to("#imgGateHand",  2.5, {opacity: 1}),
+                        TweenMax.to("#imgGateLeft",  2.5, {opacity: 1}),  
+                        TweenMax.to("#imgGateRight", 2.5, {opacity: 1})  ]);
 
-    var scnGateOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 2000, triggerHook: 0.0, reverse: true})
-    .setTween(twnGateRightOpen)
+    //Animate the hand opening the gates
+    twnGatesOpen.add(TweenMax.to("#imgGateHand", 2, {transform: "translateY(-"+ handHeight/5 +"px)"}));
+    twnGatesOpen.add(  [TweenMax.to("#imgGateHand",  4, {transform: "translateY(-"+ handHeight/4 +"px)"}),
+                        TweenMax.to("#imgGateLeft",  5, {rotationY:50,  transformOrigin:"26%"}),   //tween to make the gate rotate in Z
+                        TweenMax.to("#imgGateRight", 5, {rotationY:-50, transformOrigin:"74%"})  ]);
+
+    //Fade the images out of view
+    twnGatesOpen.add(  [TweenMax.to("#imgCastleBackground",  2.5, {opacity: 0}),
+                        TweenMax.to("#imgGateHand",  2.5, {opacity: 0}),
+                        TweenMax.to("#imgGateLeft",  2.5, {opacity: 0}),  
+                        TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
+
+    //Scene in which the gates to Zaroff's castle are opened (in scene3)
+    var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true})
+    .setTween(twnGatesOpen)
     .setPin("#divTrigGate")
     .addTo(controller);
-    //scnGateRightOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
 
-*/
+
+
+
+    //Scene 3 knock on door - gargoyles
+    var twnGargoyles = new TimelineMax();
+
+    twnGargoyles.add(TweenMax.to("#imgGargoyle1", .5, {opacity: 1}));
+
+    twnGargoyles.add(   [TweenMax.to("#imgGargoyle1", .5, {opacity: 0}),
+                         TweenMax.to("#imgGargoyle2", .5, {opacity: 1})]);
+
+    var scnGargoyles = new ScrollScene({triggerElement: "#divTrigGargoyles", duration: 1000, triggerHook: 0.0, reverse: true})
+    .setTween(twnGargoyles)
+    .setPin("#divTrigGargoyles")
+    .addTo(controller);
+    scnGargoyles.addIndicators();                  //uncomment this line to See Debug Triggers
+
 
     /*
     //Gun Point Image Code
