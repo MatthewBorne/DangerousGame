@@ -6,7 +6,7 @@
 
 $(document).ready(function(){
 
-    var debug = false;
+    var debug = true;
 
     function pageScroll() {
         if(document.body.style.overflowY != "hidden") {
@@ -14,7 +14,7 @@ $(document).ready(function(){
         }
     }
 
-    window.setInterval(pageScroll, 1);
+    /* window.setInterval(pageScroll, 1); */
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -259,8 +259,8 @@ $(document).ready(function(){
     scnVidWaterVideo.addIndicators();
 
     var twnAfterWaterVideo = new TimelineMax();
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .5, {opacity: 1}));
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .5, {transform: "translateY(500px)"}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(1700px)"}));
 
     var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigAfterWaterScene", duration:1000, triggerHook: 0, reverse:true})
     .setTween(twnAfterWaterVideo)
