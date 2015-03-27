@@ -2,12 +2,10 @@
 
 //Note to other Programmers: Do not pin and tween the same object at the same time!!!
 //                           Pin the containing div, and tween the object inside
-
-
 $(document).ready(function(){
 
-    var debug = true;
-    var location = 33000;
+    var debug = false;
+    var location = 20000;
 
 
 
@@ -27,7 +25,7 @@ $(document).ready(function(){
 
 
 
-    /* window.setInterval(pageScroll, 1); */
+    //window.setInterval(pageScroll, 1);
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -38,7 +36,7 @@ $(document).ready(function(){
     var widthNormalizer  = windowWidth  / 1680;
 
     //Force the webpage to refresh when the page is resized
-    $(window).resize(function(){location.reload();});
+    $(window).resize(function(){window.location.reload();});
 
     //object which references intro video
     var vidIntroVideo = videojs('vidIntroVideo');
@@ -55,6 +53,8 @@ $(document).ready(function(){
     //Start falling into water video
     function playVidWaterVideo (event) {
         vidWaterVideo.play();
+        $(window).scrollTop($('#vidWaterVideo').offset().top + 80);
+        //jumpScroll($('#vidWaterVideo').scrollTop());
     }
 
     $('html').click(function() {
@@ -155,15 +155,17 @@ $(document).ready(function(){
     scnGlobeAppear.addIndicators();
 
 
+    var widthNormalizerPlane = $('#imgGlobe').height()/1.8;
+
     //Tweens to make the plane grow and shrink while flying over ocean
     var twnPlaneAppear = new TimelineMax();   
-    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1})); 
+    twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1   })); 
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.35}));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
     twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
 
     //Scene to make the plane grow and shrink while flying over ocean. Plane is pinned while the globe naturally scrolls to simulate plane movement
-    var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration:1000*widthNormalizer, triggerHook: 0.0, reverse: true})
+    var scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration:widthNormalizerPlane, triggerHook: 0.0, reverse: true})
     .setTween(twnPlaneAppear)
     .setPin("#divTrigPlane",  {pushFollowers: false})
     .on("enter", playSFXJetSound)   //Play the Jet Sound Effect
@@ -173,7 +175,7 @@ $(document).ready(function(){
 
 
     //Set the scroll distance of the plane in relation to the width of the page.
-    $("#divTrigPlane").height(1000*widthNormalizer + "px");
+    $("#divTrigPlane").height(widthNormalizerPlane + "px");
 
 
     //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
@@ -213,7 +215,7 @@ $(document).ready(function(){
                          TweenMax.to("#imgYachtScene4",  .8,    {transform: "translateX(-" +(windowWidth/3) +"px)"})]);
     twnYachtScene1.add( [TweenMax.to("#imgYachtText4",   .2,    {opacity: 1}),
                          TweenMax.to("#imgYachtScene4",  .2,    {opacity: 1})]);
-    twnYachtScene1.add([TweenMax.to("#vidDarkWater",     .4,    {opacity: 0}), 
+    twnYachtScene1.add( [TweenMax.to("#vidDarkWater",     .4,    {opacity: 0}), 
                          TweenMax.to("#imgYachtScene3",  .001,  {opacity: 0}),
                          TweenMax.to("#imgYachtScene4",  .2,    {opacity: 0}),
                          TweenMax.to("#imgYachtText4",   .6,    {opacity: 0, delay:.8})]);
@@ -254,18 +256,18 @@ $(document).ready(function(){
 
     var scnWaterScene = new ScrollScene({triggerElement: "#divTrigWaterScene", duration:1000, triggerHook: 0.0, reverse:true})
     .setTween(twnWaterScene)
-    .setPin("#divTrigWaterScene" , {pushFollowers: false})
+    .setPin("#divPinWaterText1" , {pushFollowers: false})
     .addTo(controller);
     scnWaterScene.addIndicators();
 
 
     //Tween to fade in and play the video in which main character falls into water
     var twnVidWaterVideo = new TimelineMax();
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .0001, {opacity: 1, onStart:playVidWaterVideo}));
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .0001,   {opacity: 1, onStart:preventScroll}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {opacity: 1, onStart:playVidWaterVideo}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001,   {opacity: 1, onStart:preventScroll}));
     twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .9998, {opacity: 0}));
 
-    var scnVidWaterVideo = new ScrollScene({triggerElement: "#divTrigWaterVideo", duration:300, triggerHook: 0.0, reverse:false})
+    var scnVidWaterVideo = new ScrollScene({triggerElement: "#divTrigWaterVideo", duration:300, triggerHook: 0.0, reverse:true})
     .setTween(twnVidWaterVideo)
     .setPin("#vidWaterVideo" , {pushFollowers: false})
     .addTo(controller);
@@ -275,7 +277,7 @@ $(document).ready(function(){
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(1700px)"}));
 
-    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigAfterWaterScene", duration:1000, triggerHook: 0, reverse:true})
+    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigAfterWaterScene", duration:3000, triggerHook: 0, reverse:true})
     .setTween(twnAfterWaterVideo)
     .setPin("#divTrigAfterWaterScene", {pushFollowers: false})
     .addTo(controller);

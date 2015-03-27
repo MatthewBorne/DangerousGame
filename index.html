@@ -16,6 +16,10 @@
 <script type="text/javascript" src="./resources/js/scrollmagic/jquery.scrollmagic.min.js"></script>
 <script type="text/javascript" src="./resources/js/scrollmagic/jquery.scrollmagic.debug.js"></script>
 
+
+<!-- Possible letterbox library -->
+<script type="text/javascript" src="./resources/js/jquery.resizeimagetoparent.js"></script>
+
 <!--  video.js plugin for video playback -->
 <link href="http://vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
 <script src="http://vjs.zencdn.net/4.11/video.js"></script> 
@@ -80,7 +84,7 @@
     <!-- Beginning of Scene 1 -->
     <!-- Contains talking on the Yacht, Lighter flashing, and ends with gunshots heard from the yacht-->
     <section id="scene1">
-        <div id="divTrigYachtScene1" style="height:10000px">
+        <div id="divTrigYachtScene1">
             <div id="divTrigWaterGif" >
                 <img id="vidDarkWater" src="./resources/vid/vidDarkWater.gif" >
             </div>
@@ -102,19 +106,20 @@
             <img id="imgYachtText4" src="./resources/img/scene1/text/imgYachtText4.png" >
         </div>
 
-        <div class="spacer" style="height:30px"> 
+        <!-- 10000 pixels needed for tweening above images, 1000px for small pause before gunshots -->
+        <div class="spacer" style="height:11000px"> 
             Spacer Div #2 here!!
         </div>
 
 
-        <div id="divTrigYachtGunShots" style="height:30px">
+        <div id="divTrigYachtGunShots">
             <div id="divTrigGunShotFlash1" >
                 <img id="gunShotFlash" src="./resources/img/scene1/imgYachtGunShots.png" >
             </div>
         </div>
     </section>
 
-    <div class="spacer" style="height:2500px"> 
+    <div class="spacer" style="height:2100px"> 
         Spacer Div #2 here!!
     </div>
 
@@ -122,9 +127,16 @@
     <!-- Beginning of Scene 2 -->
     <section id="scene2">
 
-        <div id="divTrigWaterScene" style="height:10000px">
+        <div id="divTrigWaterScene">
 
-            <img id="imgWaterText1" src="./resources/img/scene2/text/imgWaterText1.png" >
+            <div id="divPinWaterText1">
+                <img id="imgWaterText1" src="./resources/img/scene2/text/imgWaterText1.png" >
+            </div>
+
+            <!-- gives the imgWaterText1 image 1000 px to fade in, pin, and fade out -->
+             <div class="spacer" style="height:900px"> 
+                Spacer Div #2 here!!
+            </div>
 
 
             <div id="divTrigWaterVideo">
@@ -135,7 +147,7 @@
                 </video>
             </div>
 
-            <div class="spacer" style="height:2500px"> 
+            <div class="spacer" style="height:300px"> 
                 Spacer Div #2 here!!
             </div>
 
