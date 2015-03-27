@@ -273,13 +273,17 @@ $(document).ready(function(){
     .addTo(controller);
     scnVidWaterVideo.addIndicators();
 
+
+    $('#imgFootprints').css("transform","translateY(-" + ($('#imgFootprints').height() - windowHeight - 100) + "px)");
+
     var twnAfterWaterVideo = new TimelineMax();
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1}));
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(1700px)"}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(0px)"}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 0}));
 
-    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigAfterWaterScene", duration:3000, triggerHook: 0, reverse:true})
+    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divFootPrints", duration:3000, triggerHook: 0, reverse:true})
     .setTween(twnAfterWaterVideo)
-    .setPin("#divTrigAfterWaterScene", {pushFollowers: false})
+    .setPin("#divFootPrints", {pushFollowers: false})
     .addTo(controller);
     scnAfterWaterVideo.addIndicators();
 
