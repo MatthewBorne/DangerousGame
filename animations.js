@@ -7,12 +7,25 @@
 $(document).ready(function(){
 
     var debug = true;
+    var location = 33000;
+
+
 
     function pageScroll() {
         if(document.body.style.overflowY != "hidden") {
             window.scrollBy(0,2);
         }
     }
+
+    function jumpScroll(loc) {
+        window.scrollTo(0,loc);
+    }
+
+    window.onkeyup = function(e) {
+        jumpScroll(location)
+    }
+
+
 
     /* window.setInterval(pageScroll, 1); */
 
@@ -283,7 +296,7 @@ $(document).ready(function(){
                         TweenMax.to("#imgGateRight", 2.5, {opacity: 1})  ]);
 
     //Animate the hand opening the gates
-    twnGatesOpen.add(TweenMax.to("#imgGateHand", 2, {transform: "translateY(-"+ handHeight/5 +"px)"}));
+    twnGatesOpen.add(TweenMax.to("#imgGateHand",     2, {transform: "translateY(-"+ handHeight/5 +"px)"}));
     twnGatesOpen.add(  [TweenMax.to("#imgGateHand",  4, {transform: "translateY(-"+ handHeight/4 +"px)"}),
                         TweenMax.to("#imgGateLeft",  5, {rotationY:50,  transformOrigin:"26%"}),   //tween to make the gate rotate in Z
                         TweenMax.to("#imgGateRight", 5, {rotationY:-50, transformOrigin:"74%"})  ]);
