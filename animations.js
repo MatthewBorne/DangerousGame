@@ -84,19 +84,21 @@ $(document).ready(function(){
     vidIntroVideo.on('ended', giveBackScroll);
     vidWaterVideo.on('ended', giveBackScroll);
 
-     var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
-     var sfxJetSound    = new Audio('./resources/sfx/sfxJetSound.ogg');
-     var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
-     var sfxZoomLens    = new Audio('./resources/sfx/sfxZoomLens.ogg');
-     var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
+    var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
+    var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
+    var sfxJetSound    = new Audio('./resources/sfx/sfxJetSound.ogg');
+    var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
+    var sfxZoomLens    = new Audio('./resources/sfx/sfxZoomLens.ogg');
+    var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
+
      
      //array containing all lengthy Audio objects
-     var longAudioObjects = [sfxJetSound, sfxBoatOnOcean];
+    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter];
 
 
     //Play gunshot sound on call
     function playSFXGunShot (event) {
-        var sfxGunShot  = new Audio('./resources/sfx/sfxGunShot.mp3');
+        var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
         sfxGunShot.play();
     }
 	
@@ -281,11 +283,24 @@ $(document).ready(function(){
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(0px)"}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 0}));
 
-    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divFootPrints", duration:3000, triggerHook: 0, reverse:true})
+    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigFootPrints", duration:3000, triggerHook: 0, reverse:true})
     .setTween(twnAfterWaterVideo)
-    .setPin("#divFootPrints", {pushFollowers: false})
+    .setPin("#divTrigFootPrints", {pushFollowers: false})
     .addTo(controller);
     scnAfterWaterVideo.addIndicators();
+
+
+
+    var twnJungleRunning = new TimelineMax();
+    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
+    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
+    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0}));
+
+    var scnJungleRunning = new ScrollScene({triggerElement: "#divTrigJungleRunning", duration:2000, triggerHook: 0, reverse:true})
+    .setTween(twnJungleRunning)
+    .setPin("#divTrigJungleRunning", {pushFollowers: false})
+    .addTo(controller);
+    scnJungleRunning.addIndicators();
 
 
 

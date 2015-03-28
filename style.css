@@ -319,6 +319,11 @@ html {
     opacity:0;
 }
 
+#imgJungleRunning{
+    width:100%;
+    opacity:0;
+}
+
 /*
     #imgGateLeft{
         vertical-align: right;
