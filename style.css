@@ -338,6 +338,12 @@ html {
     opacity:0;
 }
 
+.doorOpen {
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+
 /*
     #imgGateLeft{
         vertical-align: right;

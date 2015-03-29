@@ -376,6 +376,7 @@ $(document).ready(function(){
 
 
     //Scene 3 knock on door - gargoyles
+    //Door opens with yellow flash, Zaroff points gun at you, then offers a handshake
     var twnGargoyles = new TimelineMax();
 
     twnGargoyles.add(TweenMax.to("#imgGargoyle1", .5, {opacity: 1}));
@@ -395,7 +396,33 @@ $(document).ready(function(){
     twnGargoyles.add(   [TweenMax.to("#imgGargoyle3", .5, {opacity: 0}),
                          TweenMax.to("#imgGargoyle2", .5, {opacity: 1})]);
 
-    var scnGargoyles = new ScrollScene({triggerElement: "#divTrigGargoyles", duration: 1400, triggerHook: 0.0, reverse: true})
+    twnGargoyles.add(   [TweenMax.to("#imgGargoyle2", .2, {opacity: 0}),
+                         TweenMax.to("#imgYellowGunshot", .2, {opacity: 1})]);
+
+    twnGargoyles.add(   [TweenMax.to("#imgYellowGunshot", .2, {opacity: 0}),
+                         TweenMax.to("#imgGunPoint", .2, {opacity: 1})]);
+
+    twnGargoyles.add(TweenMax.to("#imgGunPoint", .9, {opacity: 1}));
+
+    twnGargoyles.add(   [TweenMax.to("#imgGunPoint", .4, {opacity: 0}),
+                         TweenMax.to("#imgYellowGunshot", .4, {opacity: 1})]);
+
+    twnGargoyles.add(   [TweenMax.to("#imgYellowGunshot", .2, {opacity: 0}),
+                         TweenMax.to("#imgHandShake", .2, {opacity: 1})]);
+
+    twnGargoyles.add(TweenMax.to("#imgHandShake", .9, {opacity: 1}));
+    twnGargoyles.add(TweenMax.to("#imgHandShake", .2, {opacity: 0}));
+
+    twnGargoyles.add(TweenMax.to("#imgDinnerText1", 2, {opacity: 1}));
+
+    twnGargoyles.add(   [TweenMax.to("#imgDinnerText1", 1, {opacity: 0}),
+                         TweenMax.to("#imgDinnerText2", 1, {opacity: 1})]);
+
+    twnGargoyles.add(TweenMax.to("#imgDinnerText2", 2.5, {opacity: 1}));
+
+    twnGargoyles.add(TweenMax.to("#imgDinnerText2", .5, {opacity: 0}));
+
+    var scnGargoyles = new ScrollScene({triggerElement: "#divTrigGargoyles", duration: 5000, triggerHook: 0.0, reverse: true})
     .setTween(twnGargoyles)
     .setPin("#divTrigGargoyles")
     .addTo(controller);
