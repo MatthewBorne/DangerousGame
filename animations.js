@@ -147,7 +147,6 @@ $(document).ready(function(){
 
     //Fades out all lengthy audio clips
     function stopAllSFX() {
-        console.log("stopping audio");
         $(longAudioObjects).stop().animate({volume:0},800,function(){ this.pause() })
     }
 
@@ -329,6 +328,19 @@ $(document).ready(function(){
 
 
 
+    var twnWildCastleAppears = new TimelineMax();
+    twnWildCastleAppears.add(TweenMax.to("#imgZaroffCastle", .1, {opacity: 1, transform: "translateY(0px)"}));
+    twnWildCastleAppears.add(TweenMax.to("#imgZaroffCastle", .1, {opacity: 1}));
+    twnWildCastleAppears.add(TweenMax.to("#imgZaroffCastle", .1, {opacity: 0}));
+
+    var scnWildCastleAppears = new ScrollScene({triggerElement: "#divTrigZaroffCastle", duration:1000, triggerHook: 0, reverse:true})
+    .setTween(twnWildCastleAppears)
+    .setPin("#divTrigZaroffCastle", {pushFollowers: false})
+    .addTo(controller);
+    scnWildCastleAppears.addIndicators();
+
+
+
     //Getthe height of the imgGateHand image so we can translate it accordingly
     var handHeight = $("#imgGateHand").height();
 
@@ -371,7 +383,19 @@ $(document).ready(function(){
     twnGargoyles.add(   [TweenMax.to("#imgGargoyle1", .5, {opacity: 0}),
                          TweenMax.to("#imgGargoyle2", .5, {opacity: 1})]);
 
-    var scnGargoyles = new ScrollScene({triggerElement: "#divTrigGargoyles", duration: 1000, triggerHook: 0.0, reverse: true})
+    twnGargoyles.add(   [TweenMax.to("#imgGargoyle2", .5, {opacity: 0}),
+                         TweenMax.to("#imgGargoyle3", .5, {opacity: 1})]);
+
+    twnGargoyles.add(   [TweenMax.to("#imgGargoyle3", .5, {opacity: 0}),
+                         TweenMax.to("#imgGargoyle2", .5, {opacity: 1})]);
+
+    twnGargoyles.add(   [TweenMax.to("#imgGargoyle2", .5, {opacity: 0}),
+                         TweenMax.to("#imgGargoyle3", .5, {opacity: 1})]);
+
+    twnGargoyles.add(   [TweenMax.to("#imgGargoyle3", .5, {opacity: 0}),
+                         TweenMax.to("#imgGargoyle2", .5, {opacity: 1})]);
+
+    var scnGargoyles = new ScrollScene({triggerElement: "#divTrigGargoyles", duration: 1400, triggerHook: 0.0, reverse: true})
     .setTween(twnGargoyles)
     .setPin("#divTrigGargoyles")
     .addTo(controller);
