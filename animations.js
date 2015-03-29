@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
     var debug = false;
-    var location = 30000;
+    var location = 45000;
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -427,6 +427,34 @@ $(document).ready(function(){
     .setPin("#divTrigGargoyles")
     .addTo(controller);
     scnGargoyles.addIndicators();                  //uncomment this line to See Debug Triggers
+
+
+
+
+    var twnPanZaroffAtTable = new TimelineMax();
+    //twnPanZaroffAtTable.add(TweenMax.to("#imgRainsfordPersp2", .1, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgRainsfordPersp2", .9, {opacity: 1, transform: "translateY(0px)"}));
+    
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 0}));
+
+    //Fade out image of zaroff at table, fade in closeup of zaroff
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgRainsfordPersp2", .4, {opacity: 0}),
+                         TweenMax.to("#imgZTightShot", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText4", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText4", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText4", 2, {opacity: 0}));
+   
+
+    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:8000, triggerHook: 0, reverse:true})
+    .setTween(twnPanZaroffAtTable)
+    .setPin("#divTrigDinner", {pushFollowers: false})
+    .addTo(controller);
+    scnPanZaroffAtTable.addIndicators();
 
 
     /*
