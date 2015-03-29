@@ -5,7 +5,15 @@
 $(document).ready(function(){
 
     var debug = false;
-    var location = 20000;
+    var location = 30000;
+
+    //Get the height and width of the browser
+    var windowHeight = $( window ).height();
+    var windowWidth  = $( window ).width();
+
+    //Values used to normalize the user's scroll distances with Matt's development distances, 1680 x 1050
+    var heightNormalizer = windowHeight / 1050;
+    var widthNormalizer  = windowWidth  / 1680;
 
 
 
@@ -23,17 +31,22 @@ $(document).ready(function(){
         jumpScroll(location)
     }
 
+    //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
+    $('.center').each(
+        function(index){
+            $(this).load(function() {
+                var spacer = $('<div> Spacer </div>');
+                spacer.css("height", (windowHeight - $(this).height()) / 2);
+
+                $(this).before(spacer);
+                //$(this).css("height",windowHeight/2 - $(this).naturalHeight/2);
+            });
+        }
+    );
 
 
-    //window.setInterval(pageScroll, 1);
+    window.setInterval(pageScroll, 1);
 
-    //Get the height and width of the browser
-    var windowHeight = $( window ).height();
-    var windowWidth = $( window ) .width();
-
-    //Values used to normalize the user's scroll distances with Matt's development distances, 1680 x 1050
-    var heightNormalizer = windowHeight / 1050;
-    var widthNormalizer  = windowWidth  / 1680;
 
     //Force the webpage to refresh when the page is resized
     $(window).resize(function(){window.location.reload();});
@@ -53,7 +66,7 @@ $(document).ready(function(){
     //Start falling into water video
     function playVidWaterVideo (event) {
         vidWaterVideo.play();
-        $(window).scrollTop($('#vidWaterVideo').offset().top + 80);
+        $(window).scrollTop($('#vidWaterVideo').offset().top + 50);
         //jumpScroll($('#vidWaterVideo').scrollTop());
     }
 
@@ -283,7 +296,7 @@ $(document).ready(function(){
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(0px)"}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 0}));
 
-    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigFootPrints", duration:3000, triggerHook: 0, reverse:true})
+    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigFootPrints", duration:4000, triggerHook: 0, reverse:true})
     .setTween(twnAfterWaterVideo)
     .setPin("#divTrigFootPrints", {pushFollowers: false})
     .addTo(controller);
@@ -294,13 +307,25 @@ $(document).ready(function(){
     var twnJungleRunning = new TimelineMax();
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
-    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0}));
+    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0, onComplete:playSFXGunShot}));
 
     var scnJungleRunning = new ScrollScene({triggerElement: "#divTrigJungleRunning", duration:2000, triggerHook: 0, reverse:true})
     .setTween(twnJungleRunning)
     .setPin("#divTrigJungleRunning", {pushFollowers: false})
     .addTo(controller);
     scnJungleRunning.addIndicators();
+
+
+    var twnWaterTextTwo = new TimelineMax();
+    twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
+    twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
+    twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 0}));
+
+    var scnWaterTextTwo = new ScrollScene({triggerElement: "#divTrigWaterText2", duration:1000, triggerHook: 0, reverse:true})
+    .setTween(twnWaterTextTwo)
+    .setPin("#divTrigWaterText2", {pushFollowers: false})
+    .addTo(controller);
+    scnWaterTextTwo.addIndicators();
 
 
 
@@ -333,7 +358,7 @@ $(document).ready(function(){
     .setTween(twnGatesOpen)
     .setPin("#divTrigGate")
     .addTo(controller);
-    //scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+    scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
 
 
 
