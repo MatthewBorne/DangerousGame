@@ -372,6 +372,21 @@ html {
     opacity:0;
 }
 
+#imgZaroffHand {
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+
+#imgDinnerText5 {
+    position:absolute;
+    width:30%;
+    margin-top:0%;
+    margin-left:70%;
+    text-align: left;
+    opacity:0;
+}
+
 /*
     #imgGateLeft{
         vertical-align: right;

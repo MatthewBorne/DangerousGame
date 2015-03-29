@@ -448,6 +448,16 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText4", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText4", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText4", 2, {opacity: 0}));
+
+
+    //Fade out closeup image, fade in image of zaroff's hand at table
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZTightShot", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffHand", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText5", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText5", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText5", 2, {opacity: 0}));
    
 
     var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:8000, triggerHook: 0, reverse:true})
