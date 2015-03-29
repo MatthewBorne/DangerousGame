@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
     var debug = false;
-    var location = 45000;
+    var location = 49000;
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -25,6 +25,7 @@ $(document).ready(function(){
 
     function jumpScroll(loc) {
         window.scrollTo(0,loc);
+        stopAllSFX();
     }
 
     window.onkeyup = function(e) {
@@ -458,6 +459,46 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText5", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText5", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText5", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText6", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText6", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText6", 2, {opacity: 0}));
+
+    //Fade out image of zaroff's hand at table, fade in wine image
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffHand", .4, {opacity: 0}),
+                         TweenMax.to("#imgWine1", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText7", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText7", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText7", 2, {opacity: 0}));
+
+    //Fade out focused zaroff wine image, fade in unfocused image
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine1", .4, {opacity: 0}),
+                         TweenMax.to("#imgWine2", .4, {opacity: 1})]);
+
+    twnPanZaroffAtTable.add(TweenMax.to("#imgWinePouring1", 2, {opacity: 1}));
+
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWinePouring1", .4, {opacity: 0}),
+                         TweenMax.to("#imgWinePouring2", .4, {opacity: 1})]);
+
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWinePouring2", .4, {opacity: 0}),
+                         TweenMax.to("#imgWinePouring3", .4, {opacity: 1})]);
+
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWinePouring3", .4, {opacity: 0}),
+                         TweenMax.to("#imgWinePouring4", .4, {opacity: 1})]);
+
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWinePouring4", .4, {opacity: 0}),
+                         TweenMax.to("#imgWinePouring5", .4, {opacity: 1})]);
+
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWinePouring5", .4, {opacity: 0}),
+                         TweenMax.to("#imgWinePouring6", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText8", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText8", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText8", 2, {opacity: 0}));
    
 
     var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:8000, triggerHook: 0, reverse:true})

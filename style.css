@@ -387,6 +387,54 @@ html {
     opacity:0;
 }
 
+#imgDinnerText6 {
+    position:absolute;
+    width:80%;
+    margin-top:15%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgWine1 {
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+
+#imgDinnerText7 {
+    position:absolute;
+    width:80%;
+    margin-top:43%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgWine2 {
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+
+.wine {
+    margin-left:5%;
+    /*margin-top:23%;*/
+    position:absolute;
+    width:85%;
+    opacity:0;
+}
+
+#imgDinnerText8 {
+    position:absolute;
+    width:100%;
+    margin-top:0%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+
 /*
     #imgGateLeft{
         vertical-align: right;
