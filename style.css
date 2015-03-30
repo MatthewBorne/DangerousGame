@@ -434,6 +434,55 @@ html {
     opacity:0;
 }
 
+#imgZaroffSide {
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+
+#imgDinnerText9 {
+    position:absolute;
+    width:70%;
+    margin-top:0%;
+    margin-left:30%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText10 {
+    position:absolute;
+    width:70%;
+    margin-top:40%;
+    margin-left:30%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgZaroffHandsFolded {
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+
+#imgDinnerText11 {
+    position:absolute;
+    width:70%;
+    margin-top:25%;
+    margin-left:10%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText12 {
+    position:absolute;
+    width:70%;
+    margin-top:40%;
+    margin-left:10%;
+    text-align: left;
+    opacity:0;
+}
+
+
 
 /*
     #imgGateLeft{

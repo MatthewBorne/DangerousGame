@@ -499,9 +499,39 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText8", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText8", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText8", 2, {opacity: 0}));
+
+
+    //Fade out unfocused wine image, fade in picture of zaroff's side
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine2", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffSide", .4, {opacity: 1})]);
    
 
-    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:8000, triggerHook: 0, reverse:true})
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText9", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText9", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText9", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText10", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText10", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText10", 2, {opacity: 0}));
+
+    //Fade out unfocused wine image, fade in picture of zaroff's side
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffSide", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffHandsFolded", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText11", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText11", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText11", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText12", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText12", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText12", 2, {opacity: 0}));
+   
+
+    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:12000, triggerHook: 0, reverse:true})
     .setTween(twnPanZaroffAtTable)
     .setPin("#divTrigDinner", {pushFollowers: false})
     .addTo(controller);
