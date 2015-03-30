@@ -344,10 +344,13 @@ html {
     opacity:0;
 }
 
-#imgRainsfordPersp2 {
+.dinnerImage {
     position:absolute;
     width:100%;
     opacity:0;
+}
+
+#imgRainsfordPersp2 {
     transform: translateY(-1000px);
 }
 
@@ -363,18 +366,6 @@ html {
     width:50%;
     margin-top:0%;
     text-align: left;
-    opacity:0;
-}
-
-#imgZTightShot {
-    position:absolute;
-    width:100%;
-    opacity:0;
-}
-
-#imgZaroffHand {
-    position:absolute;
-    width:100%;
     opacity:0;
 }
 
@@ -396,24 +387,12 @@ html {
     opacity:0;
 }
 
-#imgWine1 {
-    position:absolute;
-    width:100%;
-    opacity:0;
-}
-
 #imgDinnerText7 {
     position:absolute;
     width:80%;
     margin-top:43%;
     margin-left:0%;
     text-align: left;
-    opacity:0;
-}
-
-#imgWine2 {
-    position:absolute;
-    width:100%;
     opacity:0;
 }
 
@@ -431,12 +410,6 @@ html {
     margin-top:0%;
     margin-left:0%;
     text-align: left;
-    opacity:0;
-}
-
-#imgZaroffSide {
-    position:absolute;
-    width:100%;
     opacity:0;
 }
 
@@ -458,12 +431,6 @@ html {
     opacity:0;
 }
 
-#imgZaroffHandsFolded {
-    position:absolute;
-    width:100%;
-    opacity:0;
-}
-
 #imgDinnerText11 {
     position:absolute;
     width:70%;
@@ -482,6 +449,77 @@ html {
     opacity:0;
 }
 
+#imgDinnerText13 {
+    position:absolute;
+    width:70%;
+    margin-top:25%;
+    margin-left:15%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText14 {
+    position:absolute;
+    width:80%;
+    margin-top:35%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText15 {
+    position:absolute;
+    width:80%;
+    margin-top:35%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText16 {
+    position:absolute;
+    width:80%;
+    margin-top:35%;
+    margin-left:10%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText17 {
+    position:absolute;
+    width:80%;
+    margin-top:35%;
+    margin-left:10%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText18 {
+    position:absolute;
+    width:80%;
+    margin-top:45%;
+    margin-left:10%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText19 {
+    position:absolute;
+    width:80%;
+    margin-top:33%;
+    margin-left:10%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText20 {
+    position:absolute;
+    width:80%;
+    margin-top:40%;
+    margin-left:10%;
+    text-align: left;
+    opacity:0;
+}
 
 
 /*

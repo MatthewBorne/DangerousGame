@@ -19,7 +19,7 @@ $(document).ready(function(){
 
     function pageScroll() {
         if(document.body.style.overflowY != "hidden") {
-            window.scrollBy(0,2);
+            window.scrollBy(0,4);
         }
     }
 
@@ -516,7 +516,7 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText10", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText10", 2, {opacity: 0}));
 
-    //Fade out unfocused wine image, fade in picture of zaroff's side
+    //Fade out
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffSide", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffHandsFolded", .4, {opacity: 1})]);
 
@@ -529,9 +529,79 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText12", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText12", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText12", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffHandsFolded", .4, {opacity: 0}),
+                         TweenMax.to("#imgCreepySmileNOEYES", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText13", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText13", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText13", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgCreepySmileNOEYES", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffCloseUp", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText14", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText14", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText14", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText15", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText15", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText15", 2, {opacity: 0}));
+
+    //Fade out
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffCloseUp", .4, {opacity: 0}),
+                         TweenMax.to("#imgRainsfordHand1", .4, {opacity: 1})]);
+
+    twnPanZaroffAtTable.add(TweenMax.to("#imgRainsfordHand1", 2, {opacity: 1}));
+
+    //Fade out
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgRainsfordHand1", .4, {opacity: 0}),
+                         TweenMax.to("#imgRainsfordHand2", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText16", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText16", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText16", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgRainsfordHand2", .4, {opacity: 0}),
+                         TweenMax.to("#imgRainsfordPersp1", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText17", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText17", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText17", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText18", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText18", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText18", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgRainsfordPersp1", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffEvilLook", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText19", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText19", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText19", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffEvilLook", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffGesture", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 0}));
    
 
-    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:12000, triggerHook: 0, reverse:true})
+    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:30000, triggerHook: 0, reverse:true})
     .setTween(twnPanZaroffAtTable)
     .setPin("#divTrigDinner", {pushFollowers: false})
     .addTo(controller);
