@@ -114,6 +114,7 @@ $(document).ready(function(){
 	var sfxGunClick = new Audio('./resources/sfx/sfxGunClick.mp3');
 	var sfxFoghorn = new Audio('./resources/sfx/sfxFoghorn.mp3');
 	var sfxLargeSplash = new Audio('./resources/sfx/sfxLargeSplash.mp3');
+	var sfxFastFootsteps = new Audio('./resources/sfx/sfxFastFootsteps.mp3');
 	
 	
 
@@ -198,6 +199,12 @@ $(document).ready(function(){
 	function playSFXBoatOnOcean (event) {
         sfxBoatOnOcean.currentTime = 0;
         $(sfxBoatOnOcean).each(function(){this.play(); $(this).animate({volume:1},1000)});
+	}
+	
+	//Play background audio for boat scene - scene 1
+	function playSFXFastFootsteps (event) {
+        sfxFastFootsteps.currentTime = 0;
+        $(sfxFastFootsteps).each(function(){this.play(); $(this).animate({volume:1},1000)});
 	}
 
     //Fades out all lengthy audio clips
@@ -348,7 +355,7 @@ $(document).ready(function(){
 
     //Tween to fade in and play the video in which main character falls into water
     var twnVidWaterVideo = new TimelineMax();
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {opacity: 1, onStart:playVidWaterVideo}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {opacity: 1, onStart:playVidWaterVideo, onComplete:playSFXLargeSplash}));
     twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001,   {opacity: 1, onStart:preventScroll}));
     twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .9998, {opacity: 0}));
 
@@ -362,7 +369,7 @@ $(document).ready(function(){
     $('#imgFootprints').css("transform","translateY(-" + ($('#imgFootprints').height() - windowHeight - 100) + "px)");
 
     var twnAfterWaterVideo = new TimelineMax();
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1, onStart:playSFXForestNoise, onComplete:playSFXSlowFootsteps}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(0px)"}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 0}));
 
@@ -375,7 +382,7 @@ $(document).ready(function(){
 
 
     var twnJungleRunning = new TimelineMax();
-    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
+    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1, onComplete:playSFXFastFootsteps}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0, onComplete:playSFXGunShot}));
 
@@ -437,7 +444,7 @@ $(document).ready(function(){
                         TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
 
     //Scene in which the gates to Zaroff's castle are opened (in scene3)
-    var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true})
+    var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXCreakingGate})
     .setTween(twnGatesOpen)
     .setPin("#divTrigGate")
     .addTo(controller);
@@ -450,7 +457,7 @@ $(document).ready(function(){
     //Door opens with yellow flash, Zaroff points gun at you, then offers a handshake
     var twnGargoyles = new TimelineMax();
 
-    twnGargoyles.add(TweenMax.to("#imgGargoyle1", .5, {opacity: 1}));
+    twnGargoyles.add(TweenMax.to("#imgGargoyle1", .5, {opacity: 1, onComplete:playSFXDoorKnocker}));
 
     twnGargoyles.add(   [TweenMax.to("#imgGargoyle1", .5, {opacity: 0}),
                          TweenMax.to("#imgGargoyle2", .5, {opacity: 1})]);
@@ -473,7 +480,7 @@ $(document).ready(function(){
     twnGargoyles.add(   [TweenMax.to("#imgYellowGunshot", .2, {opacity: 0}),
                          TweenMax.to("#imgGunPoint", .2, {opacity: 1})]);
 
-    twnGargoyles.add(TweenMax.to("#imgGunPoint", .9, {opacity: 1}));
+    twnGargoyles.add(TweenMax.to("#imgGunPoint", .9, {opacity: 1, onComplete:playSFXGunClick}));
 
     twnGargoyles.add(   [TweenMax.to("#imgGunPoint", .4, {opacity: 0}),
                          TweenMax.to("#imgYellowGunshot", .4, {opacity: 1})]);
@@ -548,7 +555,7 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine1", .4, {opacity: 0}),
                          TweenMax.to("#imgWine2", .4, {opacity: 1})]);
 
-    twnPanZaroffAtTable.add(TweenMax.to("#imgWinePouring1", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgWinePouring1", 2, {opacity: 1, onComplete:playSFXPouringADrink}));
 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWinePouring1", .4, {opacity: 0}),
                          TweenMax.to("#imgWinePouring2", .4, {opacity: 1})]);
@@ -573,7 +580,7 @@ $(document).ready(function(){
 
     //Fade out unfocused wine image, fade in picture of zaroff's side
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine2", .4, {opacity: 0}),
-                                TweenMax.to("#imgWinePouring6", .4, {opacity: 0}),
+                                TweenMax.to("#imgWinePouring6", .4, {opacity: 0, onComplete:playSFXPouringADrink}),
                          TweenMax.to("#imgZaroffSide", .4, {opacity: 1})]);
    
 
