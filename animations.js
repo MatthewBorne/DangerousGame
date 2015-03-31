@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
     var debug = false;
-    var location = 49000;
+    var location = 65000;
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -626,6 +626,50 @@ $(document).ready(function(){
                          TweenMax.to("#imgWindowCliffsLightsOn", 4, {opacity: 1})]);
 
     twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 1, {opacity: 1, transform: "scale(1.5,1.5)"}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWindowCliffsLightsOn", .4, {opacity: 0}),
+                         TweenMax.to("#imgWindowCliffsLargeView", 4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText21", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText21", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText21", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText22", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText22", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText22", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgWindowCliffsLargeView", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffWindow", 4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText23", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText23", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText23", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText24", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText24", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText24", 2, {opacity: 0}));
+
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffWindow", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffWindow2", 4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText25", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText25", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText25", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText26", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText26", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText26", 2, {opacity: 0}));
+
    
 
     var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:30000, triggerHook: 0, reverse:true})
