@@ -139,7 +139,7 @@ $(document).ready(function(){
     var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
 	var sfxForestNoise = new Audio('./resources/sfx/sfxForestNoise.mp3');
 	var sfxSlowFootsteps = new Audio('./resources/sfx/sfxSlowFootsteps.mp3');
-	var sfxPouringADrink = new Audio('./resources/sfx/sfxPouringADrink.mp3');
+	var sfxFillingGlass = new Audio('./resources/sfx/sfxFillingGlass.mp3');
 	var sfxCreakingGate = new Audio('./resources/sfx/sfxCreakingGate.mp3');
 	var sfxSilverwareSounds = new Audio('./resources/sfx/sfxSilverwareSounds.mp3');
 	var sfxDoorKnocker = new Audio('./resources/sfx/sfxDoorKnocker.mp3');
@@ -228,9 +228,9 @@ $(document).ready(function(){
     }
 	
 	//Play sound effect for knocking on the door
-	function playSFXPouringADrink (event) {
-        sfxPouringADrink.currentTime = 0;
-        $(sfxPouringADrink).each(function(){this.play(); $(this).animate({volume:1},1000)});
+	function playSFXFillingGlass (event) {
+        sfxFillingGlass.currentTime = 0;
+        $(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
 	//Play sound effect for knocking on the door
@@ -620,7 +620,7 @@ $(document).ready(function(){
 
     //Fade out unfocused wine image, fade in picture of zaroff's side
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine2", .4, {opacity: 0}),
-                                TweenMax.to("#imgWinePouring6", .4, {opacity: 0, onComplete:playSFXPouringADrink}),
+                                TweenMax.to("#imgWinePouring6", .4, {opacity: 0, onComplete:playSFXFillingGlass}),
                          TweenMax.to("#imgZaroffSide", .4, {opacity: 1})]);
    
 
