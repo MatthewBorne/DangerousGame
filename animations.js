@@ -29,7 +29,9 @@ $(document).ready(function(){
     }
 
     window.onkeyup = function(e) {
-        jumpScroll(location)
+        if(debug){
+        jumpScroll(location);
+        }
     }
 
     //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
@@ -272,7 +274,7 @@ $(document).ready(function(){
     .setTween(twnGlobeAppear)
     .setPin("#divTrigGlobe" ,{pushFollowers: false})
     .addTo(controller);
-    scnGlobeAppear.addIndicators();
+    //scnGlobeAppear.addIndicators();
 
 
     var widthNormalizerPlane;
@@ -305,7 +307,7 @@ $(document).ready(function(){
         .on("enter", playSFXJetSound)   //Play the Jet Sound Effect
         .on("leave", stopAllSFX)        //Fade out the Jet Sound Effect
         .addTo(controller);
-        scnPlaneAppear.addIndicators();
+        //scnPlaneAppear.addIndicators();
     });
 
 
@@ -326,7 +328,7 @@ $(document).ready(function(){
     var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 1500*widthNormalizer, triggerHook: 0.0, reverse: true, offset: 100})
     .setTween(twnYachtAppear)
     .addTo(controller);
-    scnYachtAppear.addIndicators();
+    //scnYachtAppear.addIndicators();
 
 
     //Timeline for the majority of Scene1 - The Yacht scene
@@ -390,7 +392,7 @@ $(document).ready(function(){
     .setTween(twnWaterScene)
     .setPin("#divPinWaterText1" , {pushFollowers: false})
     .addTo(controller);
-    scnWaterScene.addIndicators();
+    //scnWaterScene.addIndicators();
 
 
     //Tween to fade in and play the video in which main character falls into water
@@ -403,7 +405,7 @@ $(document).ready(function(){
     .setTween(twnVidWaterVideo)
     .setPin("#vidWaterVideo" , {pushFollowers: false})
     .addTo(controller);
-    scnVidWaterVideo.addIndicators();
+    //scnVidWaterVideo.addIndicators();
 
 
     $('#imgFootprints').css("transform","translateY(-" + ($('#imgFootprints').height() - windowHeight - 100) + "px)");
@@ -418,7 +420,7 @@ $(document).ready(function(){
     .setPin("#divTrigFootPrints", {pushFollowers: false})
 	.on("leave", stopAllSFX) 
     .addTo(controller);
-    scnAfterWaterVideo.addIndicators();
+    //scnAfterWaterVideo.addIndicators();
 
 
 
@@ -443,7 +445,7 @@ $(document).ready(function(){
     .setTween(twnWaterTextTwo)
     .setPin("#divTrigWaterText2", {pushFollowers: false})
     .addTo(controller);
-    scnWaterTextTwo.addIndicators();
+    //scnWaterTextTwo.addIndicators();
 
 
 
@@ -456,7 +458,7 @@ $(document).ready(function(){
     .setTween(twnWildCastleAppears)
     .setPin("#divTrigZaroffCastle", {pushFollowers: false})
     .addTo(controller);
-    scnWildCastleAppears.addIndicators();
+    //scnWildCastleAppears.addIndicators();
 
 
 
@@ -489,7 +491,7 @@ $(document).ready(function(){
     .setTween(twnGatesOpen)
     .setPin("#divTrigGate")
     .addTo(controller);
-    scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
 
 
 
@@ -545,7 +547,7 @@ $(document).ready(function(){
     .setTween(twnGargoyles)
     .setPin("#divTrigGargoyles")
     .addTo(controller);
-    scnGargoyles.addIndicators();                  //uncomment this line to See Debug Triggers
+    //scnGargoyles.addIndicators();                  //uncomment this line to See Debug Triggers
 
 
 
@@ -596,7 +598,7 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine1", .4, {opacity: 0}),
                          TweenMax.to("#imgWine2", .4, {opacity: 1})]);
 
-    twnPanZaroffAtTable.add(TweenMax.to("#imgWinePouring1", 2, {opacity: 1, onComplete:playSFXPouringADrink}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgWinePouring1", 2, {opacity: 1, onComplete:playSFXFillingGlass}));
 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWinePouring1", .4, {opacity: 0}),
                          TweenMax.to("#imgWinePouring2", .4, {opacity: 1})]);
@@ -823,7 +825,7 @@ $(document).ready(function(){
     .setTween(twnPanZaroffAtTable)
     .setPin("#divTrigDinner", {pushFollowers: false})
     .addTo(controller);
-    scnPanZaroffAtTable.addIndicators();
+    //scnPanZaroffAtTable.addIndicators();
 
 
     /* 
