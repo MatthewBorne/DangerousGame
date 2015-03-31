@@ -33,24 +33,57 @@ $(document).ready(function(){
     }
 
     //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
-    $('.center').each(
+    $('.centerVertically').each(
         function(index){
             $(this).load(function() {
                 var spacer = $('<div> Spacer </div>');
                 spacer.css("height", (windowHeight - $(this).height()) / 2);
 
-                $(this).before(spacer);
+                if(windowHeight > $(this).height())
+                {
+                    $(this).before(spacer);
+                }
+            });
+        }
+    );
+
+    //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
+    $('.centerHorizontally').each(
+        function(index){
+            $(this).load(function() {
+
+                if(windowWidth > $(this).width())
+                {
+                    console.log(windowWidth);
+                    $(this).css("margin-left", (windowWidth - $(this).width()) / 2);
+                }
+
+                //$(this).css("height",windowHeight/2 - $(this).naturalHeight/2);
+            });
+        }
+    );
+
+    $('.centerTxtHoriz').each(
+        function(index){
+            $(this).load(function() {
+
+                if(windowWidth > 1280)
+                {
+                    console.log(windowWidth);
+                    $(this).css("margin-left", (windowWidth - 1280) / 2);
+                }
+
                 //$(this).css("height",windowHeight/2 - $(this).naturalHeight/2);
             });
         }
     );
 
 
-    window.setInterval(pageScroll, 1);
+    //window.setInterval(pageScroll, 1);
 
 
     //Force the webpage to refresh when the page is resized
-    $(window).resize(function(){window.location.reload();});
+    //$(window).resize(function(){window.location.reload();});
 
     //object which references intro video
     var vidIntroVideo = videojs('vidIntroVideo');
@@ -116,7 +149,6 @@ $(document).ready(function(){
 	var sfxLargeSplash = new Audio('./resources/sfx/sfxLargeSplash.mp3');
 	var sfxFastFootsteps = new Audio('./resources/sfx/sfxFastFootsteps.mp3');
 	
-	
 
      
      //array containing all lengthy Audio objects
@@ -165,6 +197,7 @@ $(document).ready(function(){
         $(sfxForestNoise).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 
+    //play sound effect of gate creaking open
     function playSFXCreakingGate (event) {
         sfxCreakingGate.currentTime = 0;
         $(sfxCreakingGate).each(function(){this.play(); $(this).animate({volume:1},1000)});
@@ -182,6 +215,7 @@ $(document).ready(function(){
         $(sfxDoorKnocker).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 
+    //Play sound effect of gun clicking
     function playSFXGunClick (event) {
         sfxGunClick.currentTime = 0;
         $(sfxGunClick).each(function(){this.play(); $(this).animate({volume:1},1000)});
@@ -257,16 +291,12 @@ $(document).ready(function(){
         //Set the scroll distance of the plane in relation to the width of the page.
         $("#divTrigPlane").css("height", widthNormalizerPlane + "px");
 
-        console.log(widthNormalizerPlane);
-
         twnPlaneAppear = new TimelineMax();   
 
         twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1   })); 
         twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.35}));
         twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
         twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
-
-        console.log(widthNormalizerPlane);
 
         //Scene to make the plane grow and shrink while flying over ocean. Plane is pinned while the globe naturally scrolls to simulate plane movement
         scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration:widthNormalizerPlane, triggerHook: 0.0, reverse: true})
