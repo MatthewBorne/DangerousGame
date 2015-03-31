@@ -19,7 +19,7 @@ $(document).ready(function(){
 
     function pageScroll() {
         if(document.body.style.overflowY != "hidden") {
-            window.scrollBy(0,4);
+            window.scrollBy(0,2);
         }
     }
 
@@ -503,6 +503,7 @@ $(document).ready(function(){
 
     //Fade out unfocused wine image, fade in picture of zaroff's side
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine2", .4, {opacity: 0}),
+                                TweenMax.to("#imgWinePouring6", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffSide", .4, {opacity: 1})]);
    
 
@@ -599,6 +600,16 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffGesture", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffBack", 4, {opacity: 1, transform: "translateY(0px)"})]);
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .4, {opacity: 0}),
+                         TweenMax.to("#imgWindowCliffsLightsOn", 4, {opacity: 1})]);
+
+    twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 1, {opacity: 1, transform: "scale(1.5,1.5)"}));
    
 
     var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:30000, triggerHook: 0, reverse:true})

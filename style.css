@@ -521,6 +521,9 @@ html {
     opacity:0;
 }
 
+#imgZaroffBack {
+    transform: translateY(-3000px);
+}
 
 /*
     #imgGateLeft{
