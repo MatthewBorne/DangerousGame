@@ -152,7 +152,7 @@ $(document).ready(function(){
 
      
      //array containing all lengthy Audio objects
-    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter];
+    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter, sfxForestNoise];
 
 
     //Play gunshot sound on call
@@ -425,6 +425,7 @@ $(document).ready(function(){
     var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigFootPrints", duration:4000, triggerHook: 0, reverse:true})
     .setTween(twnAfterWaterVideo)
     .setPin("#divTrigFootPrints", {pushFollowers: false})
+	.on("leave", stopAllSFX) 
     .addTo(controller);
     if(debug){
 		scnAfterWaterVideo.addIndicators();
@@ -841,7 +842,7 @@ $(document).ready(function(){
 		scnPanZaroffAtTable.addIndicators();
 	}
 
-    /*
+    /* 
     //Gun Point Image Code
     var twnGunPoint = TweenMax.to("#divTrigGunPoint", 5, {transform: "translateX(1500px)", scale: 1.8});    //tween to make the image larger on scroll
 
