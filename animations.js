@@ -670,6 +670,51 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText26", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText26", 2, {opacity: 0}));
 
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffWindow2", .4, {opacity: 0}),
+                         TweenMax.to("#imgCreepy", 4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText27", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText27", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText27", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText28", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText28", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText28", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgCreepy", .4, {opacity: 0}),
+                         TweenMax.to("#imgStraight", 4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText29", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText29", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText29", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgStraight", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffBack", .4, {opacity: 1, transform: "translateY(0px)"})]);
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText30", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText30", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText30", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText31", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText31", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText31", 2, {opacity: 0}));
+
+    //Fade out 
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffLAMPOFF", .4, {opacity: 1, transform: "translateY(0px)"})]);
+
+    twnPanZaroffAtTable.add(TweenMax.to("#imgZaroffLAMPOFF", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgZaroffLAMPOFF", 2, {opacity: 0}));
+
+
    
 
     var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:30000, triggerHook: 0, reverse:true})

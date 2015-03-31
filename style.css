@@ -575,6 +575,51 @@ html {
     opacity:0;
 }
 
+#imgDinnerText27 {
+    position:absolute;
+    width:80%;
+    margin-top:35%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText28 {
+    position:absolute;
+    width:40%;
+    margin-top:0%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText29 {
+    position:absolute;
+    width:80%;
+    margin-top:35%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText30 {
+    position:absolute;
+    width:100%;
+    margin-top:35%;
+    margin-left:5%;
+    text-align: left;
+    opacity:0;
+}
+
+#imgDinnerText31 {
+    position:absolute;
+    width:100%;
+    margin-top:35%;
+    margin-left:0%;
+    text-align: left;
+    opacity:0;
+}
+
 #imgZaroffBack {
     transform: translateY(-3000px);
 }
