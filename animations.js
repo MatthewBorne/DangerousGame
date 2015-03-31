@@ -104,6 +104,16 @@ $(document).ready(function(){
     var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
     var sfxZoomLens    = new Audio('./resources/sfx/sfxZoomLens.ogg');
     var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
+	var sfxForestNoise = new Audio('./resources/sfx/sfxForestNoise.mp3');
+	var sfxSlowFootsteps = new Audio('./resources/sfx/sfxSlowFootsteps.mp3');
+	//var sfxPouringADrink = new Audio('');
+	var sfxCreakingGate = new Audio('./resources/sfx/sfxCreakingGate.mp3');
+	var sfxSilverwareSounds = new Audio('.resources/sfx/sfxSilverwareSounds.mp3');
+	var sfxDoorKnocker = new Audio('.resources/sfx/sfxDoorKnocker.mp3');
+	var sfxDoorOpening = new Audio('.resources/sfx/sfxDoorOpening.mp3');
+	var sfxGunClick = new Audio('.resources/sfx/sfxGunClick.mp3');
+	
+	
 
      
      //array containing all lengthy Audio objects
@@ -128,7 +138,7 @@ $(document).ready(function(){
         $(sfxJetSound).each(function(){this.play(); $(this).animate({volume:1},1000)});
 	}
 	
-
+	//Play sound effect for a lens zooming
 	function playSFXZoomLens (event) {
         sfxZoomLens.currentTime = 0;
         $(sfxZoomLens).each(function(){this.play(); $(this).animate({volume:1},1000)});
@@ -138,6 +148,30 @@ $(document).ready(function(){
     function playSFXLighter (event) {
         sfxLighter.currentTime = 0;
         $(sfxLighter).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for footsteps in the forest
+	function playSFXSlowFootsteps (event) {
+        sfxSlowFootsteps.currentTime = 0;
+        $(sfxSlowFootsteps).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for jungle/forest noises
+	function playSFXForestNoise (event) {
+        sfxForestNoise.currentTime = 0;
+        $(sfxForestNoise).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for silverware/plate noises
+	function playSFXSilverwareSounds (event) {
+        sfxSilverwareSounds.currentTime = 0;
+        $(sfxSilverwareSounds).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for knocking on the door
+	function playSFXDoorKnocker (event) {
+        sfxDoorKnocker.currentTime = 0;
+        $(sfxDoorKnocker).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
     //Play background audio for boat scene - scene 1
