@@ -272,8 +272,9 @@ $(document).ready(function(){
     .setTween(twnGlobeAppear)
     .setPin("#divTrigGlobe" ,{pushFollowers: false})
     .addTo(controller);
-    scnGlobeAppear.addIndicators();
-
+	if(debug){
+		scnGlobeAppear.addIndicators();
+	}
 
     var widthNormalizerPlane;
 
@@ -305,8 +306,10 @@ $(document).ready(function(){
         .on("enter", playSFXJetSound)   //Play the Jet Sound Effect
         .on("leave", stopAllSFX)        //Fade out the Jet Sound Effect
         .addTo(controller);
-        scnPlaneAppear.addIndicators();
-    });
+		if(debug){
+			scnPlaneAppear.addIndicators();
+		}
+	});
 
 
     //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
@@ -326,8 +329,9 @@ $(document).ready(function(){
     var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 1500*widthNormalizer, triggerHook: 0.0, reverse: true, offset: 100})
     .setTween(twnYachtAppear)
     .addTo(controller);
-    scnYachtAppear.addIndicators();
-
+    if(debug){
+		scnYachtAppear.addIndicators();
+	}
 
     //Timeline for the majority of Scene1 - The Yacht scene
     var twnYachtScene1 = new TimelineMax();   
@@ -357,8 +361,9 @@ $(document).ready(function(){
     .setPin("#divTrigYachtScene1", {pushFollowers: false})
     .on("enter", playSFXBoatOnOcean)
     .addTo(controller);
-    //scnYachtScene1.addIndicators();
-
+    if(debug){
+		scnYachtScene1.addIndicators();
+	}
 
 
     //Timeline to show gun shots that happen at the end of scene1
@@ -377,7 +382,9 @@ $(document).ready(function(){
     .setTween(twnYachtGunShots)
     .setPin("#divTrigYachtGunShots", {pushFollowers: false})
     .addTo(controller);
-    //scnYachtGunShots.addIndicators();
+    if(debug){
+		scnYachtGunShots.addIndicators();
+	}
     //scnYachtGunShots.on("start", playSFXGunShot);
 
 
@@ -390,8 +397,9 @@ $(document).ready(function(){
     .setTween(twnWaterScene)
     .setPin("#divPinWaterText1" , {pushFollowers: false})
     .addTo(controller);
-    scnWaterScene.addIndicators();
-
+    if(debug){
+		scnWaterScene.addIndicators();
+	}
 
     //Tween to fade in and play the video in which main character falls into water
     var twnVidWaterVideo = new TimelineMax();
@@ -403,8 +411,9 @@ $(document).ready(function(){
     .setTween(twnVidWaterVideo)
     .setPin("#vidWaterVideo" , {pushFollowers: false})
     .addTo(controller);
-    scnVidWaterVideo.addIndicators();
-
+    if(debug){
+		scnVidWaterVideo.addIndicators();
+	}
 
     $('#imgFootprints').css("transform","translateY(-" + ($('#imgFootprints').height() - windowHeight - 100) + "px)");
 
@@ -417,8 +426,9 @@ $(document).ready(function(){
     .setTween(twnAfterWaterVideo)
     .setPin("#divTrigFootPrints", {pushFollowers: false})
     .addTo(controller);
-    scnAfterWaterVideo.addIndicators();
-
+    if(debug){
+		scnAfterWaterVideo.addIndicators();
+	}
 
 
     var twnJungleRunning = new TimelineMax();
@@ -430,8 +440,9 @@ $(document).ready(function(){
     .setTween(twnJungleRunning)
     .setPin("#divTrigJungleRunning", {pushFollowers: false})
     .addTo(controller);
-    scnJungleRunning.addIndicators();
-
+    if(debug){    
+		scnJungleRunning.addIndicators();
+	}
 
     var twnWaterTextTwo = new TimelineMax();
     twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
@@ -442,8 +453,9 @@ $(document).ready(function(){
     .setTween(twnWaterTextTwo)
     .setPin("#divTrigWaterText2", {pushFollowers: false})
     .addTo(controller);
-    scnWaterTextTwo.addIndicators();
-
+    if(debug){
+		scnWaterTextTwo.addIndicators();
+	}
 
 
     var twnWildCastleAppears = new TimelineMax();
@@ -455,8 +467,9 @@ $(document).ready(function(){
     .setTween(twnWildCastleAppears)
     .setPin("#divTrigZaroffCastle", {pushFollowers: false})
     .addTo(controller);
-    scnWildCastleAppears.addIndicators();
-
+    if(debug){
+		scnWildCastleAppears.addIndicators();
+	}
 
 
     //Getthe height of the imgGateHand image so we can translate it accordingly
@@ -488,8 +501,9 @@ $(document).ready(function(){
     .setTween(twnGatesOpen)
     .setPin("#divTrigGate")
     .addTo(controller);
-    scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
-
+    if(debug){
+		scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+	}
 
 
 
@@ -544,8 +558,9 @@ $(document).ready(function(){
     .setTween(twnGargoyles)
     .setPin("#divTrigGargoyles")
     .addTo(controller);
-    scnGargoyles.addIndicators();                  //uncomment this line to See Debug Triggers
-
+    if(debug){
+		scnGargoyles.addIndicators();                  //uncomment this line to See Debug Triggers
+	}
 
 
 
@@ -822,8 +837,9 @@ $(document).ready(function(){
     .setTween(twnPanZaroffAtTable)
     .setPin("#divTrigDinner", {pushFollowers: false})
     .addTo(controller);
-    scnPanZaroffAtTable.addIndicators();
-
+    if(debug){
+		scnPanZaroffAtTable.addIndicators();
+	}
 
     /*
     //Gun Point Image Code
