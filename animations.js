@@ -619,17 +619,17 @@ $(document).ready(function(){
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffGesture", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffBack", 4, {opacity: 1, transform: "translateY(0px)"})]);
+                         TweenMax.to("#imgZaroffBack", .4, {opacity: 1, transform: "translateY(0px)"})]);
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .4, {opacity: 0}),
-                         TweenMax.to("#imgWindowCliffsLightsOn", 4, {opacity: 1})]);
+                         TweenMax.to("#imgWindowCliffsLightsOn", .4, {opacity: 1})]);
 
     twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 1, {opacity: 1, transform: "scale(1.5,1.5)"}));
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWindowCliffsLightsOn", .4, {opacity: 0}),
-                         TweenMax.to("#imgWindowCliffsLargeView", 4, {opacity: 1})]);
+                         TweenMax.to("#imgWindowCliffsLargeView", .4, {opacity: 1})]);
 
     //Text fade in, sit still, and fade out
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText21", 2, {opacity: 1}));
@@ -643,7 +643,7 @@ $(document).ready(function(){
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWindowCliffsLargeView", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffWindow", 4, {opacity: 1})]);
+                         TweenMax.to("#imgZaroffWindow", .4, {opacity: 1})]);
 
     //Text fade in, sit still, and fade out
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText23", 2, {opacity: 1}));
@@ -658,7 +658,7 @@ $(document).ready(function(){
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffWindow", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffWindow2", 4, {opacity: 1})]);
+                         TweenMax.to("#imgZaroffWindow2", .4, {opacity: 1})]);
 
     //Text fade in, sit still, and fade out
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText25", 2, {opacity: 1}));
@@ -672,7 +672,7 @@ $(document).ready(function(){
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffWindow2", .4, {opacity: 0}),
-                         TweenMax.to("#imgCreepy", 4, {opacity: 1})]);
+                         TweenMax.to("#imgCreepy", .4, {opacity: 1})]);
 
     //Text fade in, sit still, and fade out
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText27", 2, {opacity: 1}));
@@ -686,7 +686,7 @@ $(document).ready(function(){
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgCreepy", .4, {opacity: 0}),
-                         TweenMax.to("#imgStraight", 4, {opacity: 1})]);
+                         TweenMax.to("#imgStraight", .4, {opacity: 1})]);
 
     //Text fade in, sit still, and fade out
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText29", 2, {opacity: 1}));
