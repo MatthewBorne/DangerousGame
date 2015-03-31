@@ -164,6 +164,11 @@ $(document).ready(function(){
         sfxForestNoise.currentTime = 0;
         $(sfxForestNoise).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
+
+    function playSFXCreakingGate (event) {
+        sfxCreakingGate.currentTime = 0;
+        $(sfxCreakingGate).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
 	
 	//Play sound effect for silverware/plate noises
 	function playSFXSilverwareSounds (event) {
@@ -175,6 +180,11 @@ $(document).ready(function(){
 	function playSFXDoorKnocker (event) {
         sfxDoorKnocker.currentTime = 0;
         $(sfxDoorKnocker).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+
+    function playSFXGunClick (event) {
+        sfxGunClick.currentTime = 0;
+        $(sfxGunClick).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
 	//Play sound effect for knocking on the door
