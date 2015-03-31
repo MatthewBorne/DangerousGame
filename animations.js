@@ -106,12 +106,14 @@ $(document).ready(function(){
     var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
 	var sfxForestNoise = new Audio('./resources/sfx/sfxForestNoise.mp3');
 	var sfxSlowFootsteps = new Audio('./resources/sfx/sfxSlowFootsteps.mp3');
-	//var sfxPouringADrink = new Audio('');
+	var sfxPouringADrink = new Audio('./resources/sfx/sfxPouringADrink.mp3');
 	var sfxCreakingGate = new Audio('./resources/sfx/sfxCreakingGate.mp3');
-	var sfxSilverwareSounds = new Audio('.resources/sfx/sfxSilverwareSounds.mp3');
-	var sfxDoorKnocker = new Audio('.resources/sfx/sfxDoorKnocker.mp3');
-	var sfxDoorOpening = new Audio('.resources/sfx/sfxDoorOpening.mp3');
-	var sfxGunClick = new Audio('.resources/sfx/sfxGunClick.mp3');
+	var sfxSilverwareSounds = new Audio('./resources/sfx/sfxSilverwareSounds.mp3');
+	var sfxDoorKnocker = new Audio('./resources/sfx/sfxDoorKnocker.mp3');
+	var sfxDoorOpening = new Audio('./resources/sfx/sfxDoorOpening.mp3');
+	var sfxGunClick = new Audio('./resources/sfx/sfxGunClick.mp3');
+	var sfxFoghorn = new Audio('./resources/sfx/sfxFoghorn.mp3');
+	var sfxLargeSplash = new Audio('./resources/sfx/sfxLargeSplash.mp3');
 	
 	
 
@@ -172,6 +174,24 @@ $(document).ready(function(){
 	function playSFXDoorKnocker (event) {
         sfxDoorKnocker.currentTime = 0;
         $(sfxDoorKnocker).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for knocking on the door
+	function playSFXFoghorn (event) {
+        sfxFoghorn.currentTime = 0;
+        $(sfxFoghorn).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for knocking on the door
+	function playSFXPouringADrink (event) {
+        sfxPouringADrink.currentTime = 0;
+        $(sfxPouringADrink).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for knocking on the door
+	function playSFXLargeSplash (event) {
+        sfxLargeSplash.currentTime = 0;
+        $(sfxLargeSplash).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
     //Play background audio for boat scene - scene 1
