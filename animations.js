@@ -15,6 +15,12 @@ $(document).ready(function(){
     var heightNormalizer = windowHeight / 1050;
     var widthNormalizer  = windowWidth  / 1680;
 
+    var imageHeight = (windowWidth / 16) * 9; 
+    console.log(imageHeight);
+
+
+    $("#topBorder").css("height", (windowHeight - imageHeight) / 2);
+    $("#bottomBorder").css("height", (windowHeight - imageHeight) / 2);
 
 
     function pageScroll() {
@@ -50,13 +56,21 @@ $(document).ready(function(){
     );
 
     //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
+    $('.centerDiv').each(
+        function(index){
+            //console.log(windowHeight)
+            //console.log((windowHeight - 720) / 2)
+            $(this).css("height", (windowHeight - imageHeight) / 2);
+        }
+    );
+
+    //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
     $('.centerHorizontally').each(
         function(index){
             $(this).load(function() {
 
                 if(windowWidth > $(this).width())
                 {
-                    console.log(windowWidth);
                     $(this).css("margin-left", (windowWidth - $(this).width()) / 2);
                 }
 
@@ -71,7 +85,6 @@ $(document).ready(function(){
 
                 if(windowWidth > 1280)
                 {
-                    console.log(windowWidth);
                     $(this).css("margin-left", (windowWidth - 1280) / 2);
                 }
 
@@ -85,7 +98,7 @@ $(document).ready(function(){
 
 
     //Force the webpage to refresh when the page is resized
-    //$(window).resize(function(){window.location.reload();});
+    $(window).resize(function(){window.location.reload();});
 
     //object which references intro video
     var vidIntroVideo = videojs('vidIntroVideo');
@@ -102,8 +115,13 @@ $(document).ready(function(){
     //Start falling into water video
     function playVidWaterVideo (event) {
         vidWaterVideo.play();
-        $(window).scrollTop($('#vidWaterVideo').offset().top + 50);
-        //jumpScroll($('#vidWaterVideo').scrollTop());
+        $(window).scrollTop($('#videoWaterVidCenterer').offset().top + 15);
+        $("#vidWaterVideo").css("opacity",1);
+        //jumpScroll($('#vidWaterVideo').scrollTop(
+    }
+
+    function vidWaterVidDissapear() {
+        $("#vidWaterVideo").css("opacity",0);
     }
 
     $('html').click(function() {
@@ -132,6 +150,7 @@ $(document).ready(function(){
     //We should also give them the ability to scroll if they click on the page
     vidIntroVideo.on('ended', giveBackScroll);
     vidWaterVideo.on('ended', giveBackScroll);
+    vidWaterVideo.on('ended', vidWaterVidDissapear);
 
     var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
     var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
@@ -318,7 +337,7 @@ $(document).ready(function(){
                             TweenMax.to("#imgGlobeYacht", 0.3,   {opacity: 1}),
                             TweenMax.to("#imgGlobe",      0.1,   {opacity: 1})]);
     twnYachtAppear.add( TweenMax.to("#imgPlane",      0.0001,   {opacity: 0, transform: "translateX(-2000px)"}));
-    twnYachtAppear.add(  [TweenMax.to("#imgGlobeYacht",      1.0,   {transform: "scale(4,4)" })]);
+    twnYachtAppear.add(  [TweenMax.to("#imgGlobeYacht",      1.0,   {transform: "scale(3.3,3.3)" })]);
     twnYachtAppear.add(  [TweenMax.to("#imgGlobe",  .1,   {opacity: 0}),            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
                             TweenMax.to("#imgGlobeYacht", .5,   {opacity: 0})]);
     twnYachtAppear.add( TweenMax.to("#imgGlobe",  1.9,   {opacity: 0}));
@@ -397,9 +416,9 @@ $(document).ready(function(){
 
     //Tween to fade in and play the video in which main character falls into water
     var twnVidWaterVideo = new TimelineMax();
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {opacity: 1, onStart:playVidWaterVideo, onComplete:playSFXLargeSplash}));
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001,   {opacity: 1, onStart:preventScroll}));
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .9998, {opacity: 0}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {onReverseComplete:vidWaterVidDissapear, onStart:playVidWaterVideo, onComplete:playSFXLargeSplash}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {onStart:preventScroll}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .9998,  {opacity: 0}));
 
     var scnVidWaterVideo = new ScrollScene({triggerElement: "#divTrigWaterVideo", duration:300, triggerHook: 0.0, reverse:true})
     .setTween(twnVidWaterVideo)
@@ -623,7 +642,7 @@ $(document).ready(function(){
 
     //Fade out unfocused wine image, fade in picture of zaroff's side
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWine2", .4, {opacity: 0}),
-                                TweenMax.to("#imgWinePouring6", .4, {opacity: 0, onComplete:playSFXFillingGlass}),
+                                TweenMax.to("#imgWinePouring6", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffSide", .4, {opacity: 1})]);
    
 
@@ -722,14 +741,14 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 0}));
 
     //Fade out 
-    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffGesture", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffBack", .4, {opacity: 1, transform: "translateY(0px)"})]);
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffGesture", 3, {opacity: 0}),
+                         TweenMax.to("#imgZaroffBack", 3, {opacity: 1, transform: "translateY(0px)"})]);
 
     //Fade out 
-    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .4, {opacity: 0}),
-                         TweenMax.to("#imgWindowCliffsLightsOn", .4, {opacity: 1})]);
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .7, {opacity: 0}),
+                         TweenMax.to("#imgWindowCliffsLightsOn", .7, {opacity: 1})]);
 
-    twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 1, {opacity: 1, transform: "scale(1.5,1.5)"}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 3, {opacity: 1, transform: "scale(1.5,1.5)"}));
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWindowCliffsLightsOn", .4, {opacity: 0}),
@@ -821,7 +840,7 @@ $(document).ready(function(){
 
    
 
-    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:30000, triggerHook: 0, reverse:true})
+    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:40000, triggerHook: 0, reverse:true})
     .setTween(twnPanZaroffAtTable)
     .setPin("#divTrigDinner", {pushFollowers: false})
     .addTo(controller);
