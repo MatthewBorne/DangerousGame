@@ -4,7 +4,7 @@
 //                           Pin the containing div, and tween the object inside
 $(document).ready(function(){
 
-    var debug = false;
+    var debug = true;
     var location = 65000;
 
     //Get the height and width of the browser
@@ -79,13 +79,17 @@ $(document).ready(function(){
         }
     );
 
+    console.log(windowWidth);
+
     $('.centerTxtHoriz').each(
         function(index){
             $(this).load(function() {
 
                 if(windowWidth > 1280)
                 {
-                    $(this).css("margin-left", (windowWidth - 1280) / 2);
+                    console.log(windowWidth);
+
+                    $(this).css("margin-left", (windowWidth - $(this).width()) / 2);
                 }
 
                 //$(this).css("height",windowHeight/2 - $(this).naturalHeight/2);
