@@ -551,7 +551,6 @@ $(document).ready(function(){
                          TweenMax.to("#imgHandShake", .2, {opacity: 1})]);
 
     twnGargoyles.add(TweenMax.to("#imgHandShake", .9, {opacity: 1}));
-    twnGargoyles.add(TweenMax.to("#imgHandShake", .2, {opacity: 0}));
 
     twnGargoyles.add(TweenMax.to("#imgDinnerText1", 2, {opacity: 1}));
 
@@ -561,6 +560,8 @@ $(document).ready(function(){
     twnGargoyles.add(TweenMax.to("#imgDinnerText2", 2.5, {opacity: 1}));
 
     twnGargoyles.add(TweenMax.to("#imgDinnerText2", .5, {opacity: 0}));
+
+    twnGargoyles.add(TweenMax.to("#imgHandShake", .2, {opacity: 0}));
 
     var scnGargoyles = new ScrollScene({triggerElement: "#divTrigGargoyles", duration: 5000, triggerHook: 0.0, reverse: true})
     .setTween(twnGargoyles)
@@ -748,7 +749,7 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .7, {opacity: 0}),
                          TweenMax.to("#imgWindowCliffsLightsOn", .7, {opacity: 1})]);
 
-    twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 3, {opacity: 1, transform: "scale(1.5,1.5)"}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 5, {opacity: 1, transform: "scale(1.5,1.5)"}));
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWindowCliffsLightsOn", .4, {opacity: 0}),
@@ -840,7 +841,7 @@ $(document).ready(function(){
 
    
 
-    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:40000, triggerHook: 0, reverse:true})
+    var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:50000, triggerHook: 0, reverse:true})
     .setTween(twnPanZaroffAtTable)
     .setPin("#divTrigDinner", {pushFollowers: false})
     .addTo(controller);
