@@ -4,7 +4,7 @@
 //                           Pin the containing div, and tween the object inside
 $(document).ready(function(){
 
-    var debug = true;
+    var debug = false;
     var location = 65000;
 
     //Get the height and width of the browser
@@ -16,7 +16,6 @@ $(document).ready(function(){
     var widthNormalizer  = windowWidth  / 1680;
 
     var imageHeight = (windowWidth / 16) * 9; 
-    console.log(imageHeight);
 
 
     $("#topBorder").css("height", (windowHeight - imageHeight) / 2);
@@ -58,8 +57,6 @@ $(document).ready(function(){
     //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
     $('.centerDiv').each(
         function(index){
-            //console.log(windowHeight)
-            //console.log((windowHeight - 720) / 2)
             $(this).css("height", (windowHeight - imageHeight) / 2);
         }
     );
@@ -79,7 +76,6 @@ $(document).ready(function(){
         }
     );
 
-    console.log(windowWidth);
 
     $('.centerTxtHoriz').each(
         function(index){
@@ -87,7 +83,6 @@ $(document).ready(function(){
 
                 if(windowWidth > 1280)
                 {
-                    console.log(windowWidth);
 
                     $(this).css("margin-left", (windowWidth - $(this).width()) / 2);
                 }
@@ -485,7 +480,7 @@ $(document).ready(function(){
 
 
 
-    //Getthe height of the imgGateHand image so we can translate it accordingly
+    //Get the height of the imgGateHand image so we can translate it accordingly
     var handHeight = $("#imgGateHand").height();
 
     //Scene 3 gates open

@@ -73,9 +73,9 @@ table {
 body
 {
     line-height: 1;
-    max-width: 1680px;
+    /*max-width: 1680px;
     max-height:1050px;
-    /*width: 1680px;
+    width: 1680px;
     height:1050px;*/
     overflow-x: hidden;
 }
@@ -250,6 +250,7 @@ html {
 
 #imgWaterText1{
     position: relative;
+    margin-top:15%;
     opacity: 0;
     width: 80%;
 }
@@ -393,7 +394,7 @@ html {
 
 
 #imgDinnerText4 {
-    width:40%;
+    width:60%;
     margin-top:0%;
 }
 
@@ -512,13 +513,13 @@ html {
 }
 
 #imgDinnerText23 {
-    width:80%;
+    width:85%;
     margin-top:40%;
     margin-left:0%;
 }
 
 #imgDinnerText24 {
-    width:80%;
+    width:85%;
     margin-top:40%;
     margin-left:0%;
 }
@@ -530,13 +531,13 @@ html {
 }
 
 #imgDinnerText26 {
-    width:80%;
+    width:85%;
     margin-top:35%;
     margin-left:0%;
 }
 
 #imgDinnerText27 {
-    width:80%;
+    width:85%;
     margin-top:35%;
     margin-left:0%;
 }
@@ -548,7 +549,7 @@ html {
 }
 
 #imgDinnerText29 {
-    width:80%;
+    width:85%;
     margin-top:35%;
     margin-left:0%;
 }
