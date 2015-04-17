@@ -169,7 +169,7 @@ $(document).ready(function(){
 	var sfxFoghorn = new Audio('./resources/sfx/sfxFoghorn.mp3');
 	var sfxLargeSplash = new Audio('./resources/sfx/sfxLargeSplash.mp3');
 	var sfxFastFootsteps = new Audio('./resources/sfx/sfxFastFootsteps.mp3');
-	
+	//comment to test things; please delete
 
      
      //array containing all lengthy Audio objects
