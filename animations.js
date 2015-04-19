@@ -4,7 +4,9 @@
 //                           Pin the containing div, and tween the object inside
 $(document).ready(function(){
 
+    //setting debug to true allows debug functions such as page jump on button press.
     var debug = false;
+    //location to which the debug page jump goes to
     var location = 65000;
 
     //Get the height and width of the browser
@@ -17,22 +19,24 @@ $(document).ready(function(){
 
     var imageHeight = (windowWidth / 16) * 9; 
 
-
+    //Sets the height of the fixed black bars at the top and bottom of the web page.
     $("#topBorder").css("height", (windowHeight - imageHeight) / 2);
     $("#bottomBorder").css("height", (windowHeight - imageHeight) / 2);
 
-
+    //function to scroll the page down slightly
     function pageScroll() {
         if(document.body.style.overflowY != "hidden") {
             window.scrollBy(0,2);
         }
     }
 
+    //Scrolls the browser window to the accepted parameter location
     function jumpScroll(loc) {
         window.scrollTo(0,loc);
         stopAllSFX();
     }
 
+    //Debug function to allow us to skip down the page if we press a button
     window.onkeyup = function(e) {
         if(debug){
         jumpScroll(location);
@@ -54,45 +58,15 @@ $(document).ready(function(){
         }
     );
 
-    //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
+    //Takes every element in the html with class "center" and adds a spacer div immediately before it in order to center the elements below
     $('.centerDiv').each(
         function(index){
             $(this).css("height", (windowHeight - imageHeight) / 2);
         }
     );
 
-    //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
-    $('.centerHorizontally').each(
-        function(index){
-            $(this).load(function() {
 
-                if(windowWidth > $(this).width())
-                {
-                    $(this).css("margin-left", (windowWidth - $(this).width()) / 2);
-                }
-
-                //$(this).css("height",windowHeight/2 - $(this).naturalHeight/2);
-            });
-        }
-    );
-
-
-    $('.centerTxtHoriz').each(
-        function(index){
-            $(this).load(function() {
-
-                if(windowWidth > 1280)
-                {
-
-                    $(this).css("margin-left", (windowWidth - $(this).width()) / 2);
-                }
-
-                //$(this).css("height",windowHeight/2 - $(this).naturalHeight/2);
-            });
-        }
-    );
-
-
+    //uncomment the below line to enable autoscroll
     //window.setInterval(pageScroll, 1);
 
 
@@ -172,7 +146,7 @@ $(document).ready(function(){
 
      
      //array containing all lengthy Audio objects
-    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter, sfxForestNoise];
+    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter, sfxForestNoise, sfxSlowFootsteps, sfxFastFootsteps];
 
 
     //Play gunshot sound on call
@@ -426,7 +400,9 @@ $(document).ready(function(){
     //scnVidWaterVideo.addIndicators();
 
 
-    $('#imgFootprints').css("transform","translateY(-" + ($('#imgFootprints').height() - windowHeight - 100) + "px)");
+    $("#imgFootprints").load(function() {
+        $('#imgFootprints').css("transform","translateY(-" + ($('#imgFootprints').height() - windowHeight - 100) + "px)");
+    });
 
     var twnAfterWaterVideo = new TimelineMax();
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1, onStart:playSFXForestNoise, onComplete:playSFXSlowFootsteps}));
@@ -445,7 +421,7 @@ $(document).ready(function(){
     var twnJungleRunning = new TimelineMax();
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1, onComplete:playSFXFastFootsteps}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
-    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0, onComplete:playSFXGunShot}));
+    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0, onComplete:playSFXGunShot, onStart: stopAllSFX}));
 
     var scnJungleRunning = new ScrollScene({triggerElement: "#divTrigJungleRunning", duration:2000, triggerHook: 0, reverse:true})
     .setTween(twnJungleRunning)
@@ -481,35 +457,41 @@ $(document).ready(function(){
 
 
     //Get the height of the imgGateHand image so we can translate it accordingly
-    var handHeight = $("#imgGateHand").height();
+    //This code must be ran after the imgGateHand image loads so we can get the image's height
+    var handHeight
+    $("#imgGateHand").load(function() {
+        handHeight = $("#imgGateHand").height();
+        console.log(handHeight)
 
-    //Scene 3 gates open
-    var twnGatesOpen = new TimelineMax();
+        //Scene 3 gates open
+        var twnGatesOpen = new TimelineMax();
 
-    //Fade images into view (castle, gates, and hand images)
-    twnGatesOpen.add(  [TweenMax.to("#imgCastleBackground",  2.5, {opacity: 1}),
-                        TweenMax.to("#imgGateHand",  2.5, {opacity: 1}),
-                        TweenMax.to("#imgGateLeft",  2.5, {opacity: 1}),  
-                        TweenMax.to("#imgGateRight", 2.5, {opacity: 1})  ]);
+        //Fade images into view (castle, gates, and hand images)
+        twnGatesOpen.add(  [TweenMax.to("#imgCastleBackground",  2.5, {opacity: 1}),
+                            TweenMax.to("#imgGateHand",  2.5, {opacity: 1}),
+                            TweenMax.to("#imgGateLeft",  2.5, {opacity: 1}),  
+                            TweenMax.to("#imgGateRight", 2.5, {opacity: 1})  ]);
 
-    //Animate the hand opening the gates
-    twnGatesOpen.add(TweenMax.to("#imgGateHand",     2, {transform: "translateY(-"+ handHeight/5 +"px)"}));
-    twnGatesOpen.add(  [TweenMax.to("#imgGateHand",  4, {transform: "translateY(-"+ handHeight/4 +"px)"}),
-                        TweenMax.to("#imgGateLeft",  5, {rotationY:50,  transformOrigin:"26%"}),   //tween to make the gate rotate in Z
-                        TweenMax.to("#imgGateRight", 5, {rotationY:-50, transformOrigin:"74%"})  ]);
+        //Animate the hand opening the gates
+        twnGatesOpen.add(TweenMax.to("#imgGateHand",     2, {transform: "translateY(-"+ handHeight/5 +"px)"}));
+        twnGatesOpen.add(  [TweenMax.to("#imgGateHand",  4, {transform: "translateY(-"+ handHeight/4 +"px)"}),
+                            TweenMax.to("#imgGateLeft",  5, {rotationY:50,  transformOrigin:"26%"}),   //tween to make the gate rotate in Z
+                            TweenMax.to("#imgGateRight", 5, {rotationY:-50, transformOrigin:"74%"})  ]);
 
-    //Fade the images out of view
-    twnGatesOpen.add(  [TweenMax.to("#imgCastleBackground",  2.5, {opacity: 0}),
-                        TweenMax.to("#imgGateHand",  2.5, {opacity: 0}),
-                        TweenMax.to("#imgGateLeft",  2.5, {opacity: 0}),  
-                        TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
+        //Fade the images out of view
+        twnGatesOpen.add(  [TweenMax.to("#imgCastleBackground",  2.5, {opacity: 0}),
+                            TweenMax.to("#imgGateHand",  2.5, {opacity: 0}),
+                            TweenMax.to("#imgGateLeft",  2.5, {opacity: 0}),  
+                            TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
 
-    //Scene in which the gates to Zaroff's castle are opened (in scene3)
-    var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXCreakingGate})
-    .setTween(twnGatesOpen)
-    .setPin("#divTrigGate")
-    .addTo(controller);
-    //scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+        //Scene in which the gates to Zaroff's castle are opened (in scene3)
+        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXCreakingGate})
+        .setTween(twnGatesOpen)
+        .setPin("#divTrigGate")
+        .addTo(controller);
+        //scnGatesOpen.addIndicators();                  //uncomment this line to See Debug Triggers
+    });
+
 
 
 
@@ -741,14 +723,14 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText20", 2, {opacity: 0}));
 
     //Fade out 
-    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffGesture", 3, {opacity: 0}),
-                         TweenMax.to("#imgZaroffBack", 3, {opacity: 1, transform: "translateY(0px)"})]);
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffGesture", 4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffBack", 4, {opacity: 1, transform: "translateY(0px)"})]);
 
     //Fade out 
-    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .7, {opacity: 0}),
-                         TweenMax.to("#imgWindowCliffsLightsOn", .7, {opacity: 1})]);
+    twnPanZaroffAtTable.add(   [TweenMax.to("#imgZaroffBack", .8, {opacity: 0}),
+                         TweenMax.to("#imgWindowCliffsLightsOn", .8, {opacity: 1})]);
 
-    twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 5, {opacity: 1, transform: "scale(1.5,1.5)"}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgWindowCliffsLightsOn", 6, {opacity: 1, transform: "scale(1.5,1.5)"}));
 
     //Fade out 
     twnPanZaroffAtTable.add(   [TweenMax.to("#imgWindowCliffsLightsOn", .4, {opacity: 0}),
