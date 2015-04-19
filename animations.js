@@ -377,12 +377,25 @@ $(document).ready(function(){
 
     //Tween to play the "What was that" text after the gunshots
     var twnWaterScene = new TimelineMax();
+    twnWaterScene.add( [TweenMax.to("#vidDarkWaterAgain",   .5,   {opacity: 1}),
+                        TweenMax.to("#imgYachtScene1Again", .5,   {opacity: 1})]);
     twnWaterScene.add(TweenMax.to("#imgWaterText1", .75,  {opacity: 1}));
-    twnWaterScene.add(TweenMax.to("#imgWaterText1", .25, {opacity: 0}));
+    twnWaterScene.add(TweenMax.to("#imgWaterText1", .25,  {opacity: 0}));
+    twnWaterScene.add([TweenMax.to("#imgYachtScene1Again", .5,   {opacity: 0}),
+                        TweenMax.to("#imgYachtScene5", .5,   {opacity: 1})]);
+    twnWaterScene.add([TweenMax.to("#imgYachtScene5", .5,   {opacity: 0}),
+                        TweenMax.to("#imgYachtScene6",    .5,   {opacity: 1})]);
+    twnWaterScene.add([TweenMax.to("#imgYachtScene6",     .5,   {opacity: 0}),
+                        TweenMax.to("#vidDarkWaterAgain", .5,   {opacity: 0}),
+                        TweenMax.to("#imgYachtScene7",    .5,   {opacity: 1}),
+                        TweenMax.to("#imgYachtScene7_bg", .5,   {opacity: 1})]);
+    twnWaterScene.add( TweenMax.to("#imgYachtScene7_bg",  1,   {transform: "scale(2,2)"}));
+    twnWaterScene.add([TweenMax.to("#imgYachtScene7",    .5,   {opacity: 0}),
+                        TweenMax.to("#imgYachtScene7_bg", .5,   {opacity: 0})]);
 
-    var scnWaterScene = new ScrollScene({triggerElement: "#divTrigWaterScene", duration:1000, triggerHook: 0.0, reverse:true})
+    var scnWaterScene = new ScrollScene({triggerElement: "#divTrigYachtFallTransition", duration:5000, triggerHook: 0.0, reverse:true})
     .setTween(twnWaterScene)
-    .setPin("#divPinWaterText1" , {pushFollowers: false})
+    .setPin("#divTrigYachtFallTransition" , {pushFollowers: false})
     .addTo(controller);
     //scnWaterScene.addIndicators();
 
