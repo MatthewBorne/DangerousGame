@@ -415,7 +415,7 @@ html {
     transform: translateY(-1000px);
 }
 
-.dinnerImage {
+.fullScreenImage {
     position:absolute;
     width:100%;
     opacity:0;

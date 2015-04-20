@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
     //setting debug to true allows debug functions such as page jump on button press.
-    var debug = false;
+    var debug = true;
     //location to which the debug page jump goes to
     var location = 65000;
 
@@ -833,11 +833,37 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgZaroffLAMPOFF", 2, {opacity: 0}));
 
 
-   
-
     var scnPanZaroffAtTable = new ScrollScene({triggerElement: "#divTrigDinner", duration:50000, triggerHook: 0, reverse:true})
     .setTween(twnPanZaroffAtTable)
     .setPin("#divTrigDinner", {pushFollowers: false})
+    .addTo(controller);
+    //scnPanZaroffAtTable.addIndicators();
+
+
+
+
+    var twnZaroffRoom = new TimelineMax();
+
+    twnZaroffRoom.add(TweenMax.to("#imgZaroffRoom1", .9, {opacity: 1}));
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom1", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom2", .4, {opacity: 1})]);
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom2", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom3", .4, {opacity: 1})]);
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom3", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom4", .4, {opacity: 1})]);
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom6", .4, {opacity: 1})]);
+
+    twnZaroffRoom.add(TweenMax.to("#imgZaroffRoom7", .4, {opacity: 0}));
+
+
+    var scnZaroffRoom = new ScrollScene({triggerElement: "#divTrigZaroffRoom", duration:13000, triggerHook: 0, reverse:true})
+    .setTween(twnZaroffRoom)
+    .setPin("#divTrigZaroffRoom", {pushFollowers: false})
     .addTo(controller);
     //scnPanZaroffAtTable.addIndicators();
 
