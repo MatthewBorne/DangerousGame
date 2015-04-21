@@ -425,6 +425,7 @@ html {
     position:absolute;
     text-align: left;
     opacity:0;
+    z-index:10;
 }
 
 #imgDinnerText3 {
@@ -613,9 +614,38 @@ html {
     transform: translateY(-3000px);
 }
 
+#imgZaroffRoom2 {
+    z-index:1;
+}
+
 #imgBeforeHuntText1 {
     width:100%;
     margin-top:33%;
+}
+
+#imgBeforeHuntText2_yes {
+    width:35%;
+    margin-top:20%;
+    margin-left:10%;
+}
+
+#imgBeforeHuntText3_no {
+    width:25%;
+    margin-top:20%;
+    margin-left:60%;
+}
+
+#imgZaroffRoom2 {
+    z-index:2;
+}
+
+#imgZaroffRoom3 {
+    z-index:1;
+}
+
+#imgBeforeHuntText4 {
+    width:100%;
+    margin-top:43%;
 }
 
 /*

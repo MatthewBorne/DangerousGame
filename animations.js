@@ -857,11 +857,23 @@ $(document).ready(function(){
     twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText1", 2, {opacity: 1}));
     twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText1", 2, {opacity: 0}));
 
-    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom1", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffRoom2", .4, {opacity: 1})]);
+    twnZaroffRoom.add(TweenMax.to("#imgZaroffRoom2", .4, {opacity: 1}));
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add( [TweenMax.to("#imgBeforeHuntText2_yes", 2, {opacity: 1}),
+                      TweenMax.to("#imgBeforeHuntText3_no", 2, {opacity: 1}),
+                      TweenMax.to("#imgZaroffRoom1", 2, {opacity: 0})]);
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText2_yes", 2, {opacity: 1}));
+    twnZaroffRoom.add( [TweenMax.to("#imgBeforeHuntText2_yes", 2, {opacity: 0}),
+                      TweenMax.to("#imgBeforeHuntText3_no", 2, {opacity: 0})]);
 
     twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom2", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffRoom3", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText4", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText4", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText4", 2, {opacity: 0}));
 
     twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom3", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffRoom4", .4, {opacity: 1})]);
