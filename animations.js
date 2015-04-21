@@ -7,7 +7,7 @@ $(document).ready(function(){
     //setting debug to true allows debug functions such as page jump on button press.
     var debug = true;
     //location to which the debug page jump goes to
-    var location = 65000;
+    var location = 100000;
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -846,6 +846,11 @@ $(document).ready(function(){
 
     twnZaroffRoom.add(TweenMax.to("#imgZaroffRoom1", .9, {opacity: 1}));
 
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText1", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText1", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText1", 2, {opacity: 0}));
+
     twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom1", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffRoom2", .4, {opacity: 1})]);
 
@@ -861,7 +866,7 @@ $(document).ready(function(){
     twnZaroffRoom.add(TweenMax.to("#imgZaroffRoom7", .4, {opacity: 0}));
 
 
-    var scnZaroffRoom = new ScrollScene({triggerElement: "#divTrigZaroffRoom", duration:13000, triggerHook: 0, reverse:true})
+    var scnZaroffRoom = new ScrollScene({triggerElement: "#divTrigZaroffRoom", duration:30000, triggerHook: 0, reverse:true})
     .setTween(twnZaroffRoom)
     .setPin("#divTrigZaroffRoom", {pushFollowers: false})
     .addTo(controller);
