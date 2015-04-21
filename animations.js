@@ -142,7 +142,16 @@ $(document).ready(function(){
 	var sfxFoghorn = new Audio('./resources/sfx/sfxFoghorn.mp3');
 	var sfxLargeSplash = new Audio('./resources/sfx/sfxLargeSplash.mp3');
 	var sfxFastFootsteps = new Audio('./resources/sfx/sfxFastFootsteps.mp3');
+	var sfxHeavyDoorKnocker = new Audio('./resources/sfx/sfxHeavyDoorKnocker.ogg');
+	var bgmInTheCastle = new Audio('./resources/sfx/bgmInTheCastle.mp3');
+	var bgmNearShore = new Audio('./resources/sfx/bgmNearShore.mp3');
+	var bgmFarFromShore = new Audio('./resources/sfx/bgmFarFromShore.mp3');
 	//comment to test things; please delete
+	
+	bgmFarFromShore.loop = true;
+	bgmNearShore.loop = true;
+	bgmInTheCastle.loop = true;
+	//Is that right?
 
      
      //array containing all lengthy Audio objects
@@ -204,9 +213,9 @@ $(document).ready(function(){
     }
 	
 	//Play sound effect for knocking on the door
-	function playSFXDoorKnocker (event) {
-        sfxDoorKnocker.currentTime = 0;
-        $(sfxDoorKnocker).each(function(){this.play(); $(this).animate({volume:1},1000)});
+	function playSFXHeavyDoorKnocker (event) {
+        sfxHeavyDoorKnocker.currentTime = 0;
+        $(sfxHeavyDoorKnocker).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 
     //Play sound effect of gun clicking
@@ -513,7 +522,7 @@ $(document).ready(function(){
     //Door opens with yellow flash, Zaroff points gun at you, then offers a handshake
     var twnGargoyles = new TimelineMax();
 
-    twnGargoyles.add(TweenMax.to("#imgGargoyle1", .5, {opacity: 1, onComplete:playSFXDoorKnocker}));
+    twnGargoyles.add(TweenMax.to("#imgGargoyle1", .5, {opacity: 1, onComplete:playSFXHeavyDoorKnocker}));
 
     twnGargoyles.add(   [TweenMax.to("#imgGargoyle1", .5, {opacity: 0}),
                          TweenMax.to("#imgGargoyle2", .5, {opacity: 1})]);
