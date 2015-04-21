@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
     //setting debug to true allows debug functions such as page jump on button press.
-    var debug = true;
+    var debug = false;
     //location to which the debug page jump goes to
     var location = 103000;
 
@@ -536,7 +536,7 @@ $(document).ready(function(){
                             TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
 
         //Scene in which the gates to Zaroff's castle are opened (in scene3)
-        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXSqeakingGate})
+        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXSqueakingGate})
         .setTween(twnGatesOpen)
         .setPin("#divTrigGate")
         .addTo(controller);
@@ -935,7 +935,7 @@ $(document).ready(function(){
     });
 
     $('#imgBeforeHuntText3_no').click( function() {
-        jumpScroll($(document).scrollTop() + 10300);
+        jumpScroll($(document).scrollTop() + 10500);
     });
 
 
@@ -982,6 +982,8 @@ $(document).ready(function(){
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 0}));
+
+    twnZaroffRoomNo.add(TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}));
 
 
     var scnZaroffRoomNo = new ScrollScene({triggerElement: "#divTrigZaroffRoomNo", duration:15000, triggerHook: 0, reverse:true})
