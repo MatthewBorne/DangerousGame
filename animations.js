@@ -450,7 +450,7 @@ $(document).ready(function(){
     });
 
     var twnAfterWaterVideo = new TimelineMax();
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1, onStart:stopAllSFX, onComplete:playSFXSlowFootsteps}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1, onStart:playBGMNearShore, onComplete:playSFXSlowFootsteps}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(0px)"}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 0}));
 
@@ -489,7 +489,7 @@ $(document).ready(function(){
 
 
     var twnWildCastleAppears = new TimelineMax();
-    twnWildCastleAppears.add(TweenMax.to("#imgZaroffCastle", .1, {opacity: 1, transform: "translateY(0px)"}));
+    twnWildCastleAppears.add(TweenMax.to("#imgZaroffCastle", .1, {opacity: 1, transform: "translateY(0px)", onComplete:playBGMFarFromShore}));
     twnWildCastleAppears.add(TweenMax.to("#imgZaroffCastle", .1, {opacity: 1}));
     twnWildCastleAppears.add(TweenMax.to("#imgZaroffCastle", .1, {opacity: 0}));
 
@@ -568,7 +568,7 @@ $(document).ready(function(){
     twnGargoyles.add(   [TweenMax.to("#imgYellowGunshot", .2, {opacity: 0}),
                          TweenMax.to("#imgGunPoint", .2, {opacity: 1})]);
 
-    twnGargoyles.add(TweenMax.to("#imgGunPoint", .9, {opacity: 1, onStart:stopAllSFX, onComplete:playSFXGunClick}));
+    twnGargoyles.add(TweenMax.to("#imgGunPoint", .9, {opacity: 1, onComplete:playSFXGunClick}));
 
     twnGargoyles.add(   [TweenMax.to("#imgGunPoint", .4, {opacity: 0}),
                          TweenMax.to("#imgYellowGunshot", .4, {opacity: 1})]);
@@ -609,8 +609,8 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgRainsfordPersp2", .9, {opacity: 1, transform: "translateY(0px)"}));
     
     //Text fade in, sit still, and fade out
-    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1, onComplete: playBGMInTheCastle}));
-    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1, onStart: stopAllSFX}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1, onStart: playBGMInTheCastle}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 0}));
 
     //Fade out image of zaroff at table, fade in closeup of zaroff
