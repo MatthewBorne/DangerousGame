@@ -7,7 +7,7 @@ $(document).ready(function(){
     //setting debug to true allows debug functions such as page jump on button press.
     var debug = true;
     //location to which the debug page jump goes to
-    var location = 100000;
+    var location = 103000;
 
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
@@ -878,10 +878,52 @@ $(document).ready(function(){
     twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom3", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffRoom4", .4, {opacity: 1})]);
 
-    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}),
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText5", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText5", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText5", 2, {opacity: 0}));
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom4", .4, {opacity: 0}),
                          TweenMax.to("#imgZaroffRoom6", .4, {opacity: 1})]);
 
-    twnZaroffRoom.add(TweenMax.to("#imgZaroffRoom7", .4, {opacity: 0}));
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 0}));
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom6", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom5", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 0}));
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom7", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 0}));
+
+    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom7", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom5", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
+    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 0}));
 
 
     var scnZaroffRoom = new ScrollScene({triggerElement: "#divTrigZaroffRoom", duration:30000, triggerHook: 0, reverse:true})
