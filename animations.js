@@ -155,9 +155,8 @@ $(document).ready(function(){
 
      
      //array containing all lengthy Audio objects
-    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter, sfxForestNoise, sfxSlowFootsteps, sfxFastFootsteps];
-
-
+    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter, sfxForestNoise, sfxSlowFootsteps, sfxFastFootsteps, bgmFarFromShore, bgmInTheCastle, bgmNearShore];
+	
     //Play gunshot sound on call
     function playSFXGunShot (event) {
         var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
@@ -188,10 +187,34 @@ $(document).ready(function(){
         $(sfxLighter).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
+	//Play sound effect for squeaking gate
+    function playSFXSqueakingGate (event) {
+        sfxSqueakingGate.currentTime = 0;
+        $(sfxSqueakingGate).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
 	//Play sound effect for footsteps in the forest
 	function playSFXSlowFootsteps (event) {
         sfxSlowFootsteps.currentTime = 0;
         $(sfxSlowFootsteps).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for forest sound near the beach
+	function playBGMNearShore (event) {
+        bgmNearShore.currentTime = 0;
+        $(bgmNearShore).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for forest sound away from beach
+	function playBGMFarFromShore (event) {
+        bgmFarFromShore.currentTime = 0;
+        $(bgmFarFromShore).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	//Play sound effect for ambient castle sound
+	function playBGMInTheCastle (event) {
+        bgmInTheCastle.currentTime = 0;
+        $(bgmInTheCastle).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
 	//Play sound effect for jungle/forest noises
@@ -427,7 +450,7 @@ $(document).ready(function(){
     });
 
     var twnAfterWaterVideo = new TimelineMax();
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1, onStart:playSFXForestNoise, onComplete:playSFXSlowFootsteps}));
+    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1, onStart:stopAllSFX, onComplete:playSFXSlowFootsteps}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(0px)"}));
     twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 0}));
 
@@ -441,7 +464,7 @@ $(document).ready(function(){
 
 
     var twnJungleRunning = new TimelineMax();
-    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1, onComplete:playSFXFastFootsteps}));
+    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1, onStart:playBGMFarFromShore, onComplete:playSFXFastFootsteps}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0, onComplete:playSFXGunShot, onStart: stopAllSFX}));
 
@@ -507,7 +530,7 @@ $(document).ready(function(){
                             TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
 
         //Scene in which the gates to Zaroff's castle are opened (in scene3)
-        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXCreakingGate})
+        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXSqeakingGate})
         .setTween(twnGatesOpen)
         .setPin("#divTrigGate")
         .addTo(controller);
@@ -545,7 +568,7 @@ $(document).ready(function(){
     twnGargoyles.add(   [TweenMax.to("#imgYellowGunshot", .2, {opacity: 0}),
                          TweenMax.to("#imgGunPoint", .2, {opacity: 1})]);
 
-    twnGargoyles.add(TweenMax.to("#imgGunPoint", .9, {opacity: 1, onComplete:playSFXGunClick}));
+    twnGargoyles.add(TweenMax.to("#imgGunPoint", .9, {opacity: 1, onStart:stopAllSFX, onComplete:playSFXGunClick}));
 
     twnGargoyles.add(   [TweenMax.to("#imgGunPoint", .4, {opacity: 0}),
                          TweenMax.to("#imgYellowGunshot", .4, {opacity: 1})]);
@@ -586,7 +609,7 @@ $(document).ready(function(){
     twnPanZaroffAtTable.add(TweenMax.to("#imgRainsfordPersp2", .9, {opacity: 1, transform: "translateY(0px)"}));
     
     //Text fade in, sit still, and fade out
-    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1}));
+    twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1, onComplete: playBGMInTheCastle}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 1}));
     twnPanZaroffAtTable.add(TweenMax.to("#imgDinnerText3", 2, {opacity: 0}));
 
