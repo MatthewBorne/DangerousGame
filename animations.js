@@ -65,6 +65,12 @@ $(document).ready(function(){
         }
     );
 
+    $('.pageHeight').each(
+        function(index){
+            $(this).css("height", windowHeight);
+        }
+    );
+
 
     //uncomment the below line to enable autoscroll
     //window.setInterval(pageScroll, 1);
@@ -915,54 +921,74 @@ $(document).ready(function(){
     twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText5", 2, {opacity: 1}));
     twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText5", 2, {opacity: 0}));
 
-    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom4", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffRoom6", .4, {opacity: 1})]);
-
-    //Text fade in, sit still, and fade out
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 0}));
-
-    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom6", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffRoom5", .4, {opacity: 1})]);
-
-    //Text fade in, sit still, and fade out
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 0}));
-
-    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffRoom7", .4, {opacity: 1})]);
-
-    //Text fade in, sit still, and fade out
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 0}));
-
-    twnZaroffRoom.add([TweenMax.to("#imgZaroffRoom7", .4, {opacity: 0}),
-                         TweenMax.to("#imgZaroffRoom5", .4, {opacity: 1})]);
-
-    //Text fade in, sit still, and fade out
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 0}));
-
-    //Text fade in, sit still, and fade out
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 0}));
-
-    //Text fade in, sit still, and fade out
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
-    twnZaroffRoom.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 0}));
+    twnZaroffRoom.add(TweenMax.to("#imgZaroffRoom4", .4, {opacity: 0}));
 
 
-    var scnZaroffRoom = new ScrollScene({triggerElement: "#divTrigZaroffRoom", duration:30000, triggerHook: 0, reverse:true})
+    var scnZaroffRoom = new ScrollScene({triggerElement: "#divTrigZaroffRoom", duration:15000, triggerHook: 0, reverse:true})
     .setTween(twnZaroffRoom)
     .setPin("#divTrigZaroffRoom", {pushFollowers: false})
     .addTo(controller);
-    //scnPanZaroffAtTable.addIndicators();
+    //scnZaroffRoom.addIndicators();
+
+    $('#imgBeforeHuntText2_yes').click( function() {
+        jumpScroll($(document).scrollTop() + 150);
+    });
+
+    $('#imgBeforeHuntText3_no').click( function() {
+        jumpScroll($(document).scrollTop() + 10300);
+    });
+
+
+    var twnZaroffRoomNo = new TimelineMax();
+
+    twnZaroffRoomNo.add([TweenMax.to("#imgZaroffRoom4", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom6", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText6", 2, {opacity: 0}));
+
+    twnZaroffRoomNo.add([TweenMax.to("#imgZaroffRoom6", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom5", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText7", 2, {opacity: 0}));
+
+    twnZaroffRoomNo.add([TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom7", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText8", 2, {opacity: 0}));
+
+    twnZaroffRoomNo.add([TweenMax.to("#imgZaroffRoom7", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom5", .4, {opacity: 1})]);
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 0}));
+
+    //Text fade in, sit still, and fade out
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 0}));
+
+
+    var scnZaroffRoomNo = new ScrollScene({triggerElement: "#divTrigZaroffRoomNo", duration:15000, triggerHook: 0, reverse:true})
+    .setTween(twnZaroffRoomNo)
+    .setPin("#divTrigZaroffRoomNo", {pushFollowers: false})
+    .addTo(controller);
+    //scnZaroffRoomNo.addIndicators();
 
 
     /* 
