@@ -579,11 +579,13 @@ $(document).ready(function(){
     twnGargoyles.add(   [TweenMax.to("#imgGunPoint", .4, {opacity: 0}),
                          TweenMax.to("#imgGunPoint2", .4, {opacity: 1})]);
 						 
-	twnGargoyles.add([TweenMax.to("#imgGunPoint2", .4, {opacity: 0}),
-                         TweenMax.to("#imgYellowGunshot", .4, {opacity: 1})]);
+	/*twnGargoyles.add([TweenMax.to("#imgGunPoint2", .4, {opacity: 0}),
+                         TweenMax.to("#imgYellowGunshot", .4, {opacity: 1})]);*/
 						 
 	twnGargoyles.add(TweenMax.to("#imgEasyIvanText", 2, {opacity: 1}));
 	twnGargoyles.add(TweenMax.to("#imgEasyIvanText", 2, {opacity: 0}));
+	
+	
 
     twnGargoyles.add(   [TweenMax.to("#imgGunPoint2", .2, {opacity: 0}),
                          TweenMax.to("#imgHandShake", .2, {opacity: 1})]);
