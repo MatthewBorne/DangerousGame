@@ -41,6 +41,9 @@ $(document).ready(function(){
         if(debug){
         jumpScroll(location);
         }
+        else {
+            window.open("./index.html", "Most Dangerous Game", "fullscreen=yes");
+        }
     }
 
     //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
