@@ -39,256 +39,269 @@
     <div id="topBorder"> </div>
     <div id="bottomBorder"> </div>
 
-    <!-- Beginning of Scene 0 -->
-    <!-- Contains intro video, globe zoom, plane flying, zoom into yacht -->
-    <section id="scene0">
+    <table id="contentTable">
+        <tr>
+            <td id="leftBorder">
+                <div id="leftBorderContent"> test </div>
+            </td>
 
-        <div id="divTrigIntroVideo" style="height:1000px">
-            <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="true"
-            preload="auto" data-setup="{}" width="auto" height="auto">
-            <source src="./resources/vid/scene0/vidIntroVideo.mp4" type='video/mp4'>
-              <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-            </video>
-        </div>
+            <td>
+                <div id="chapter1Content">
+                    <!-- Beginning of Scene 0 -->
+                    <!-- Contains intro video, globe zoom, plane flying, zoom into yacht -->
+                    <section id="scene0">
 
-        <!-- <button id="fullscreenButton" type="button">Click Me to reopen in fullscreen!</button> -->
+                        <div id="divTrigIntroVideo" style="height:1000px">
+                            <video id="vidIntroVideo" class="video-js vjs-default-skin" autoplay="true"
+                            preload="auto" data-setup="{}" width="auto" height="auto">
+                            <source src="./resources/vid/scene0/vidIntroVideo.mp4" type='video/mp4'>
+                              <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                            </video>
+                        </div>
 
-        <div class="spacer" style="height:300px">     <!-- 300 as a spacer before earth starts fade in -->
-        </div>
+                        <!-- <button id="fullscreenButton" type="button">Click Me to reopen in fullscreen!</button> -->
 
-        <div id="divGlobeScene">
+                        <div class="spacer" style="height:300px">     <!-- 300 as a spacer before earth starts fade in -->
+                        </div>
 
-            <div class="centerDiv">
-            </div>
+                        <div id="divGlobeScene">
 
-            <div id="divTrigGlobe" style="height:1100px">
-                 <div class="centerDiv">
+                            <div class="centerDiv">
+                            </div>
+
+                            <div id="divTrigGlobe" style="height:1100px">
+                                 <div class="centerDiv">
+                                </div>
+                                <img id="imgGlobe"  class="classGlobe"  src="./resources/img/scene0/imgGlobe3.png">
+
+                                <img id="imgGlobeYacht" class="classGlobe" src="./resources/img/scene0/imgGlobe3Yacht.jpg">
+                            </div>
+
+
+                            <div id="divTrigPlane">
+                                 <div class="centerDiv">
+                                </div>
+                                <img id="imgPlane" src="./resources/img/scene0/imgPlane.png">
+                            </div>
+
+                            <div id="divTrigYacht" style="height:2400px">
+                                <div class="centerDiv"> </div>
+                                <img id="imgYacht" src="./resources/img/scene0/imgYacht.png">
+                            </div>
+
+                            <div id="divTrigEndGlobeScene" style="height:200px">
+                            </div>
+
+                            <div class="spacer" style="height:500px"> 
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <div class="spacer" style="height:200px">   
+                    </div>
+
+                    <!-- Beginning of Scene 1 -->
+                    <!-- Contains talking on the Yacht, Lighter flashing, and ends with gunshots heard from the yacht-->
+                    <section id="scene1">
+                        <div id="divTrigYachtScene1">
+
+                            <div class="centerDiv">
+                            </div>
+
+                            <img id="vidDarkWater" src="./resources/vid/vidDarkWater.gif" >
+
+                            <img id="imgYachtScene1" src="./resources/img/scene1/imgYachtScene1.png" >
+
+                            <img id="imgYachtText1" src="./resources/img/scene1/text/imgYachtText1.png" >
+
+                            <img id="imgYachtScene2" src="./resources/img/scene1/imgYachtScene2.png" >
+
+                            <img id="imgYachtText2" src="./resources/img/scene1/text/imgYachtText2.png" >
+
+                            <img id="imgYachtScene3" src="./resources/img/scene1/imgYachtScene3.png" >
+
+                            <img id="imgYachtText3" src="./resources/img/scene1/text/imgYachtText3.png" >
+
+                            <img id="imgYachtScene4" src="./resources/img/scene1/imgYachtScene4.png" > 
+
+                            <img id="imgYachtText4" src="./resources/img/scene1/text/imgYachtText4.png" >
+                        </div>
+
+                        <!-- 10000 pixels needed for tweening above images, 1000px for small pause before gunshots -->
+                        <div class="spacer" style="height:11000px"> 
+                        </div>
+
+
+                        <div id="divTrigYachtGunShots">
+                            <div class="centerDiv">
+                            </div>
+
+                            <div id="divTrigGunShotFlash1" >
+                                <img id="gunShotFlash" src="./resources/img/scene1/imgYachtGunShots.png" >
+                            </div>
+                        </div>
+
+                        <div id="divTrigYachtFallTransition">
+
+                            <div class="centerDiv">
+                            </div>
+
+                            <img id="vidDarkWaterAgain" src="./resources/vid/vidDarkWater.gif" >
+
+                            <img id="imgYachtScene1Again" src="./resources/img/scene1/imgYachtScene1.png" >
+
+                            <img id="imgYachtScene5" src="./resources/img/scene1/imgYachtScene5.png" >
+
+                            <img id="imgYachtScene6" src="./resources/img/scene1/imgYachtScene6.png" >
+
+                            <img id="imgYachtScene7" src="./resources/img/scene1/imgYachtScene7.png" >
+
+                            <img id="imgYachtScene7_bg" src="./resources/img/scene1/imgYachtScene7_bg.png" >
+
+
+                            <div id="divPinWaterText1">
+                                <img class="center" id="imgWaterText1" src="./resources/img/scene2/text/imgWaterText1.png" >
+                            </div>
+                        </div>
+
+                        <!-- gives the imgWaterText1 image 1000 px to fade in, pin, and fade out -->
+                         <div class="spacer" style="height:5000px"> 
+                        </div>
+
+                    </section>
+
+                    <div class="spacer" style="height:2100px"> 
+                    </div>
+
+
+                    <!-- Beginning of Scene 2 -->
+                    <section id="scene2">
+
+                        <div id="divTrigWaterScene">
+
+                            <div class="centerDiv">
+                            </div>
+
+
+                            <div id="divTrigWaterVideo">
+                                <div id="videoWaterVidCenterer" class="centerDiv">
+                                </div>
+
+                                <video id="vidWaterVideo" class="video-js vjs-default-skin"
+                                preload="auto" data-setup="{}" width="auto" height="auto">
+                                <source src="./resources/vid/vidWaterFalling.mp4" type='video/mp4'>
+                                <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                                </video>
+                            </div>
+
+                            <div class="spacer" style="height:400px"> 
+                            </div>
+
+                            
+                            <div id="divTrigFootPrints">
+                                 <div class="centerDiv">
+                                </div>
+                                <img id="imgFootprints" src="./resources/img/scene2/imgFootprints.png">
+                            </div>
+
+
+                            <div id="divTrigJungleRunning">
+                                 <div class="centerDiv">
+                                </div>
+                                <img id="imgJungleRunning" src="./resources/img/scene2/imgRunningThruTrees.gif">
+                            </div>
+
+                            <!-- spacer div to provide space for the jungle running animation -->
+                            <div class="spacer" style="height:1000px"> 
+                            </div>
+
+                            <div id="divTrigWaterText2">
+                                 <div class="centerDiv">
+                                </div>
+                                <img class="center" id="imgWaterText2" src="./resources/img/scene2/text/imgWaterText2.png" >
+                            </div>
+
+                        </div>
+
+                        <div class="spacer" style="height:1000px"> 
+                        </div>
+
+                        <div id="divTrigZaroffCastle">
+                             <div class="centerDiv">
+                            </div>
+
+                            <img id="imgZaroffCastle" src="./resources/img/scene2/imgZaroffCastle.png">
+                        </div>
+
+                        <div class="spacer" style="height:1000px"> 
+                        </div>
+
+                        <div id="divTrigGate">
+                            <div class="centerDiv"></div>
+
+                            <img id="imgCastleBackground" src="./resources/img/scene2/imgCastleClose.png">
+
+                            <div id="divGateCenter">
+
+                                <img class="classGate" id="imgGateLeft" src="./resources/img/scene2/imgGateLeft.png">
+
+                                <img class="classGate" id="imgGateRight" src="./resources/img/scene2/imgGateRight.png">
+
+                                <img id="imgGateHand" src="./resources/img/scene2/imgHandTransparent.png">
+                            </div>
+
+                        </div>
+
+                        <div id="divTrigGargoyles">
+
+                            <div class="centerDiv">
+                            </div>
+
+                            <img class="center" id="imgGargoyle1" src="./resources/img/scene2/imgGargoyle1.png">
+
+                            <img id="imgGargoyle2" src="./resources/img/scene2/imgGargoyle2.png">
+
+                            <img id="imgGargoyle3" src="./resources/img/scene2/imgGargoyle3.png">
+
+                            <img class="doorOpen" id="imgYellowGunshot" src="./resources/img/scene2/imgYellowGunshot.png">
+
+                            <img class="doorOpen" id="imgGunPoint" src="./resources/img/scene2/imgGunPoint.png">
+                			
+                			<img class="doorOpen" id="imgGunPoint2" src="./resources/img/scene2/imgGunPoint2.png">
+                			
+                			<img class="doorOpen" id="imgEasyIvanText" src="./resources/img/scene2/text/imgEasyIvanText.png">
+
+                            <img class="doorOpen" id="imgHandShake" src="./resources/img/scene2/imgHandShake.png">
+
+                            <img class="doorOpen" id="imgDinnerText1" src="./resources/img/scene3/text/imgDinnerScene1.png">
+
+                            <img class="doorOpen center" id="imgDinnerText2" src="./resources/img/scene3/text/imgDinnerScene2.png">
+
+                            <div class="spacer" style="height:1000px"> 
+                            </div>
+                        </div>
+
+
+                    </section>
+
+
+                    <div class="spacer" style="height:1000px;">
+                        Spacer Div here
+                    </div>
+
+
+                    <form action="./Chapter2HTML.html">
+                        <input type="submit" value="Click Me to go to Chapter 2!">
+                    </form>
+
+                    <div class="spacer" style="height:200px;">
+                        Spacer Div here
+                    </div>
                 </div>
-                <img id="imgGlobe"  class="classGlobe"  src="./resources/img/scene0/imgGlobe3.png">
-
-                <img id="imgGlobeYacht" class="classGlobe" src="./resources/img/scene0/imgGlobe3Yacht.jpg">
-            </div>
-
-
-            <div id="divTrigPlane">
-                 <div class="centerDiv">
-                </div>
-                <img id="imgPlane" src="./resources/img/scene0/imgPlane.png">
-            </div>
-
-            <div id="divTrigYacht" style="height:2400px">
-                <div class="centerDiv"> </div>
-                <img id="imgYacht" src="./resources/img/scene0/imgYacht.png">
-            </div>
-
-            <div id="divTrigEndGlobeScene" style="height:200px">
-            </div>
-
-            <div class="spacer" style="height:500px"> 
-            </div>
-        </div>
-    </section>
-
-
-    <div class="spacer" style="height:200px">   
-    </div>
-
-    <!-- Beginning of Scene 1 -->
-    <!-- Contains talking on the Yacht, Lighter flashing, and ends with gunshots heard from the yacht-->
-    <section id="scene1">
-        <div id="divTrigYachtScene1">
-
-            <div class="centerDiv">
-            </div>
-
-            <img id="vidDarkWater" src="./resources/vid/vidDarkWater.gif" >
-
-            <img id="imgYachtScene1" src="./resources/img/scene1/imgYachtScene1.png" >
-
-            <img id="imgYachtText1" src="./resources/img/scene1/text/imgYachtText1.png" >
-
-            <img id="imgYachtScene2" src="./resources/img/scene1/imgYachtScene2.png" >
-
-            <img id="imgYachtText2" src="./resources/img/scene1/text/imgYachtText2.png" >
-
-            <img id="imgYachtScene3" src="./resources/img/scene1/imgYachtScene3.png" >
-
-            <img id="imgYachtText3" src="./resources/img/scene1/text/imgYachtText3.png" >
-
-            <img id="imgYachtScene4" src="./resources/img/scene1/imgYachtScene4.png" > 
-
-            <img id="imgYachtText4" src="./resources/img/scene1/text/imgYachtText4.png" >
-        </div>
-
-        <!-- 10000 pixels needed for tweening above images, 1000px for small pause before gunshots -->
-        <div class="spacer" style="height:11000px"> 
-        </div>
-
-
-        <div id="divTrigYachtGunShots">
-            <div class="centerDiv">
-            </div>
-
-            <div id="divTrigGunShotFlash1" >
-                <img id="gunShotFlash" src="./resources/img/scene1/imgYachtGunShots.png" >
-            </div>
-        </div>
-
-        <div id="divTrigYachtFallTransition">
-
-            <div class="centerDiv">
-            </div>
-
-            <img id="vidDarkWaterAgain" src="./resources/vid/vidDarkWater.gif" >
-
-            <img id="imgYachtScene1Again" src="./resources/img/scene1/imgYachtScene1.png" >
-
-            <img id="imgYachtScene5" src="./resources/img/scene1/imgYachtScene5.png" >
-
-            <img id="imgYachtScene6" src="./resources/img/scene1/imgYachtScene6.png" >
-
-            <img id="imgYachtScene7" src="./resources/img/scene1/imgYachtScene7.png" >
-
-            <img id="imgYachtScene7_bg" src="./resources/img/scene1/imgYachtScene7_bg.png" >
-
-
-            <div id="divPinWaterText1">
-                <img class="center" id="imgWaterText1" src="./resources/img/scene2/text/imgWaterText1.png" >
-            </div>
-        </div>
-
-        <!-- gives the imgWaterText1 image 1000 px to fade in, pin, and fade out -->
-         <div class="spacer" style="height:5000px"> 
-        </div>
-
-    </section>
-
-    <div class="spacer" style="height:2100px"> 
-    </div>
-
-
-    <!-- Beginning of Scene 2 -->
-    <section id="scene2">
-
-        <div id="divTrigWaterScene">
-
-            <div class="centerDiv">
-            </div>
-
-
-            <div id="divTrigWaterVideo">
-                <div id="videoWaterVidCenterer" class="centerDiv">
-                </div>
-
-                <video id="vidWaterVideo" class="video-js vjs-default-skin"
-                preload="auto" data-setup="{}" width="auto" height="auto">
-                <source src="./resources/vid/vidWaterFalling.mp4" type='video/mp4'>
-                <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-                </video>
-            </div>
-
-            <div class="spacer" style="height:400px"> 
-            </div>
-
-            
-            <div id="divTrigFootPrints">
-                 <div class="centerDiv">
-                </div>
-                <img id="imgFootprints" src="./resources/img/scene2/imgFootprints.png">
-            </div>
-
-
-            <div id="divTrigJungleRunning">
-                 <div class="centerDiv">
-                </div>
-                <img id="imgJungleRunning" src="./resources/img/scene2/imgRunningThruTrees.gif">
-            </div>
-
-            <!-- spacer div to provide space for the jungle running animation -->
-            <div class="spacer" style="height:1000px"> 
-            </div>
-
-            <div id="divTrigWaterText2">
-                 <div class="centerDiv">
-                </div>
-                <img class="center" id="imgWaterText2" src="./resources/img/scene2/text/imgWaterText2.png" >
-            </div>
-
-        </div>
-
-        <div class="spacer" style="height:1000px"> 
-        </div>
-
-        <div id="divTrigZaroffCastle">
-             <div class="centerDiv">
-            </div>
-
-            <img id="imgZaroffCastle" src="./resources/img/scene2/imgZaroffCastle.png">
-        </div>
-
-        <div class="spacer" style="height:1000px"> 
-        </div>
-
-        <div id="divTrigGate">
-            <div class="centerDiv"></div>
-
-            <img id="imgCastleBackground" src="./resources/img/scene2/imgCastleClose.png">
-
-            <div id="divGateCenter">
-
-                <img class="classGate" id="imgGateLeft" src="./resources/img/scene2/imgGateLeft.png">
-
-                <img class="classGate" id="imgGateRight" src="./resources/img/scene2/imgGateRight.png">
-
-                <img id="imgGateHand" src="./resources/img/scene2/imgHandTransparent.png">
-            </div>
-
-        </div>
-
-        <div id="divTrigGargoyles">
-
-            <div class="centerDiv">
-            </div>
-
-            <img class="center" id="imgGargoyle1" src="./resources/img/scene2/imgGargoyle1.png">
-
-            <img id="imgGargoyle2" src="./resources/img/scene2/imgGargoyle2.png">
-
-            <img id="imgGargoyle3" src="./resources/img/scene2/imgGargoyle3.png">
-
-            <img class="doorOpen" id="imgYellowGunshot" src="./resources/img/scene2/imgYellowGunshot.png">
-
-            <img class="doorOpen" id="imgGunPoint" src="./resources/img/scene2/imgGunPoint.png">
-			
-			<img class="doorOpen" id="imgGunPoint2" src="./resources/img/scene2/imgGunPoint2.png">
-			
-			<img class="doorOpen" id="imgEasyIvanText" src="./resources/img/scene2/text/imgEasyIvanText.png">
-
-            <img class="doorOpen" id="imgHandShake" src="./resources/img/scene2/imgHandShake.png">
-
-            <img class="doorOpen" id="imgDinnerText1" src="./resources/img/scene3/text/imgDinnerScene1.png">
-
-            <img class="doorOpen center" id="imgDinnerText2" src="./resources/img/scene3/text/imgDinnerScene2.png">
-
-            <div class="spacer" style="height:1000px"> 
-            </div>
-        </div>
-
-
-    </section>
-
-
-    <div class="spacer" style="height:1000px;">
-        Spacer Div here
-    </div>
-
-
-    <form action="./Chapter2HTML.html">
-        <input type="submit" value="Click Me to go to Chapter 2!">
-    </form>
-
-    <div class="spacer" style="height:200px;">
-        Spacer Div here
-    </div>
-
+            </td>
+        <td id="rightBorder">
+            <div id="rightBorderContent"> </div>
+        </td>
+    </table>
 </body>

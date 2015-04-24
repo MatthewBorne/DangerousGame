@@ -18,10 +18,17 @@ $(document).ready(function(){
     var widthNormalizer  = windowWidth  / 1680;
 
     var imageHeight = (windowWidth / 16) * 9; 
+    var imageWidth  = (windowHeight / 9) * 16; 
+
+    var leftRightBorderWidth = ((windowWidth - imageWidth) / 2);
 
     //Sets the height of the fixed black bars at the top and bottom of the web page.
     $("#topBorder").css("height", (windowHeight - imageHeight) / 2);
     $("#bottomBorder").css("height", (windowHeight - imageHeight) / 2);
+    $("#leftBorder").css("width",  leftRightBorderWidth);
+    $("#rightBorder").css("width", leftRightBorderWidth);
+
+    console.log(((windowWidth - imageWidth) / 2) + "px;");
 
     //function to scroll the page down slightly
     function pageScroll() {
@@ -378,8 +385,8 @@ $(document).ready(function(){
                           TweenMax.to("#imgYachtScene3", .0001, {opacity: 1})]);
     twnYachtScene1.add(TweenMax.to("#imgYachtText3",     .8,    {opacity: 1}));
     twnYachtScene1.add(TweenMax.to("#imgYachtText3",     .8,    {opacity: 0, delay:.2}));
-    twnYachtScene1.add( [TweenMax.to("#imgYachtScene3",  .8,    {transform: "translateX(-" +(windowWidth/3) +"px)"}),
-                         TweenMax.to("#imgYachtScene4",  .8,    {transform: "translateX(-" +(windowWidth/3) +"px)"})]);
+    twnYachtScene1.add( [TweenMax.to("#imgYachtScene3",  .8,    {transform: "translateX(-" + ((windowWidth-leftRightBorderWidth)/3) +"px)"}),
+                         TweenMax.to("#imgYachtScene4",  .8,    {transform: "translateX(-" + ((windowWidth-leftRightBorderWidth)/3) +"px)"})]);
     twnYachtScene1.add( [TweenMax.to("#imgYachtText4",   .2,    {opacity: 1}),
                          TweenMax.to("#imgYachtScene4",  .2,    {opacity: 1})]);
     twnYachtScene1.add( [TweenMax.to("#vidDarkWater",     .4,    {opacity: 0}), 
