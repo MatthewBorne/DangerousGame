@@ -18,10 +18,20 @@ $(document).ready(function(){
     var widthNormalizer  = windowWidth  / 1680;
 
     var imageHeight = (windowWidth / 16) * 9; 
+    var imageWidth  = (windowHeight / 9) * 16; 
+
+    var leftRightBorderWidth = Math.max(0, ((windowWidth - imageWidth) / 2));
 
     //Sets the height of the fixed black bars at the top and bottom of the web page.
     $("#topBorder").css("height", (windowHeight - imageHeight) / 2);
     $("#bottomBorder").css("height", (windowHeight - imageHeight) / 2);
+    $("#leftBorder").css("width",  leftRightBorderWidth);
+    $("#rightBorder").css("width", leftRightBorderWidth);
+    $("#chapter2Content").css("width", windowWidth - (leftRightBorderWidth * 2));
+
+    console.log("window width: " + windowWidth);
+    console.log("leftRightBorderWidth: " + leftRightBorderWidth);
+    console.log("content Width: " + (windowWidth - (leftRightBorderWidth * 2)));
 
     //function to scroll the page down slightly
     function pageScroll() {
@@ -86,8 +96,6 @@ $(document).ready(function(){
     $('html').click(function() {
         giveBackScroll();
     });
-
-    preventScroll();
 
     //function used to prevent page scrolling
     function preventScroll () {
