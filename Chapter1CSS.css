@@ -334,20 +334,25 @@ html {
 }
 
 #imgFootprints {
-    position:relative;
+    position:absolute;
     width:100%;
+    left:0;
     opacity: 0;
     /*transform: translateY(-5000px);*/
 }
 
 #imgJungleRunning{
+    position:absolute;
+    left:0;
     width:100%;
     opacity:0;
 }
 
 #imgWaterText2{
-    position: relative;
+    position: absolute;
     margin-top:15%;
+    left:0;
+    margin-left:10%;
     opacity: 0;
     width: 80%;
 }

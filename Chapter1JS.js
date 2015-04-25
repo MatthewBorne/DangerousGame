@@ -466,34 +466,47 @@ $(document).ready(function(){
 
     $("#imgFootprints").load(function() {
         $('#imgFootprints').css("transform","translateY(-" + ($('#imgFootprints').height() - windowHeight - 100) + "px)");
+
+        var twnAfterWaterVideo = new TimelineMax();
+        twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", 1, {opacity: 1, onStart:playBGMNearShore}));
+        twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", 4, {transform: "translateY(0px)", onStart:playSFXSlowFootsteps}));
+        twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", 1, {opacity: 0, onComplete:playBGMFarFromShore}));
+
+        twnAfterWaterVideo.add(TweenMax.to("#imgJungleRunning", 1, {opacity: 1, onComplete:playSFXFastFootsteps}));
+        twnAfterWaterVideo.add(TweenMax.to("#imgJungleRunning", 1, {opacity: 1}));
+        twnAfterWaterVideo.add(TweenMax.to("#imgJungleRunning", 1, {opacity: 0, onComplete:playSFXGunShot}));
+
+        twnAfterWaterVideo.add(TweenMax.to("#imgWaterText2",    1, {opacity: 1}));
+        twnAfterWaterVideo.add(TweenMax.to("#imgWaterText2",    1, {opacity: 1}));
+        twnAfterWaterVideo.add(TweenMax.to("#imgWaterText2",    1, {opacity: 0}));
+
+        var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigFootPrints", duration:8000, triggerHook: 0, reverse:true})
+        .setTween(twnAfterWaterVideo)
+        .setPin("#divTrigFootPrints", {pushFollowers: false})
+        .on("leave", stopAllSFX) 
+        .addTo(controller);
     });
 
-    var twnAfterWaterVideo = new TimelineMax();
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 1, onStart:playBGMNearShore, onComplete:playSFXSlowFootsteps}));
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .9, {transform: "translateY(0px)"}));
-    twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", .1, {opacity: 0}));
-
-    var scnAfterWaterVideo = new ScrollScene({triggerElement: "#divTrigFootPrints", duration:4000, triggerHook: 0, reverse:true})
-    .setTween(twnAfterWaterVideo)
-    .setPin("#divTrigFootPrints", {pushFollowers: false})
-	.on("leave", stopAllSFX) 
-    .addTo(controller);
+    
     //scnAfterWaterVideo.addIndicators();
 
 
-
+/*
     var twnJungleRunning = new TimelineMax();
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1, onStart:playBGMFarFromShore, onComplete:playSFXFastFootsteps}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
     twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0, onComplete:playSFXGunShot, onStart: stopAllSFX}));
+    twnJungleRunning.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
+    twnJungleRunning.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
+    twnJungleRunning.add(TweenMax.to("#imgWaterText2", .1, {opacity: 0}));
 
-    var scnJungleRunning = new ScrollScene({triggerElement: "#divTrigJungleRunning", duration:2000, triggerHook: 0, reverse:true})
+    var scnJungleRunning = new ScrollScene({triggerElement: "#divTrigJungleRunning", duration:3000, triggerHook: 0, reverse:true})
     .setTween(twnJungleRunning)
     .setPin("#divTrigJungleRunning", {pushFollowers: false})
     .addTo(controller);
     scnJungleRunning.addIndicators();
-
-
+*/
+    /*
     var twnWaterTextTwo = new TimelineMax();
     twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
     twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
@@ -504,6 +517,7 @@ $(document).ready(function(){
     .setPin("#divTrigWaterText2", {pushFollowers: false})
     .addTo(controller);
     //scnWaterTextTwo.addIndicators();
+    */
 
 
 
