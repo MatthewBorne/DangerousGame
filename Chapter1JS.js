@@ -9,6 +9,11 @@ $(document).ready(function(){
     //location to which the debug page jump goes to
     var location = 103000;
 
+    //Line to run from home page to open the first content page
+    //window.open("./Chapter1HTML.html", "Most Dangerous Game", "fullscreen=yes");
+
+    jumpScroll(0);
+
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
     var windowWidth  = $( window ).width();
@@ -43,16 +48,14 @@ $(document).ready(function(){
     //Scrolls the browser window to the accepted parameter location
     function jumpScroll(loc) {
         window.scrollTo(0,loc);
+        $(document).scrollTop(loc);
         stopAllSFX();
     }
 
     //Debug function to allow us to skip down the page if we press a button
     window.onkeyup = function(e) {
         if(debug){
-        jumpScroll(location);
-        }
-        else {
-            //window.open("./Chapter1HTML.html", "Most Dangerous Game", "fullscreen=yes");
+            jumpScroll(location);
         }
     }
 

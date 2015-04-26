@@ -9,6 +9,8 @@ $(document).ready(function(){
     //location to which the debug page jump goes to
     var location = 103000;
 
+    jumpScroll(0);
+
     //Get the height and width of the browser
     var windowHeight = $( window ).height();
     var windowWidth  = $( window ).width();
@@ -43,6 +45,7 @@ $(document).ready(function(){
     //Scrolls the browser window to the accepted parameter location
     function jumpScroll(loc) {
         window.scrollTo(0,loc);
+        $(document).scrollTop(loc);
         stopAllSFX();
     }
 
@@ -50,9 +53,6 @@ $(document).ready(function(){
     window.onkeyup = function(e) {
         if(debug){
         jumpScroll(location);
-        }
-        else {
-            window.open("./index.html", "Most Dangerous Game", "fullscreen=yes");
         }
     }
 
@@ -548,6 +548,9 @@ $(document).ready(function(){
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 1}));
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText9", 2, {opacity: 0}));
 
+    twnZaroffRoomNo.add([TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}),
+                         TweenMax.to("#imgZaroffRoom8", .4, {opacity: 1})]);
+
     //Text fade in, sit still, and fade out
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText10", 2, {opacity: 1}));
@@ -558,7 +561,7 @@ $(document).ready(function(){
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 1}));
     twnZaroffRoomNo.add(TweenMax.to("#imgBeforeHuntText11", 2, {opacity: 0}));
 
-    twnZaroffRoomNo.add(TweenMax.to("#imgZaroffRoom5", .4, {opacity: 0}));
+    twnZaroffRoomNo.add(TweenMax.to("#imgZaroffRoom8", .4, {opacity: 0}));
 
 
     var scnZaroffRoomNo = new ScrollScene({triggerElement: "#divTrigZaroffRoomNo", duration:15000, triggerHook: 0, reverse:true})
