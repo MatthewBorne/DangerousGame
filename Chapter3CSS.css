@@ -1,0 +1,417 @@
+/* ***********************************************
+   Start CSS Reset Code  */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* End CSS Reset Code
+   ***********************************************    */
+
+
+/* This will Set videos to 16:9 when setting width % (to make the video as wide as the window) and setting height to auto (to adjust according to width)
+   For more information, check: http://coolestguidesontheplanet.com/videodrome/videojs/   */
+.video-js {padding-top: 56.25%}
+.vjs-fullscreen {padding-top: 0px}
+
+#contentTable {
+    position:relative;
+}
+
+#topBorder {
+    position: fixed;
+    top:0;
+    width:100%;
+    background: black;
+    z-index:100;
+}
+
+#bottomBorder {
+    position: fixed;
+    bottom:0;
+    width:100%;
+    background: black;
+    z-index:101;
+}
+
+#leftBorder {
+    position:relative;
+    height:100%;
+}
+
+#rightBorder {
+    position:relative;
+    height:100%;
+}
+
+#leftBorderContent {
+    position:absolute;
+    background: black;
+    z-index:101;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+}
+
+#rightBorderContent {
+    position:absolute;
+    background: black;
+    z-index:101;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+}
+
+#chapter2Content {
+    z-index:1;
+}
+
+
+body
+{
+    line-height: 1;
+    width: 100%;
+    height:100%;
+    overflow-x: hidden;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background: black;
+
+    /*overflow-x: hidden;*/
+}
+
+#divTrigDinner {
+    width:100%;
+}
+
+
+#imgRainsfordPersp2 {
+    transform: translateY(-1000px);
+}
+
+.fullScreenImage {
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+
+.classText {
+    position:absolute;
+    text-align: left;
+    opacity:0;
+    z-index:10;
+}
+
+#imgDinnerText3 {
+    position:absolute;
+    width:80%;
+    margin-top:40%;
+    margin-left:10%;
+    opacity:0;
+}
+
+
+#imgDinnerText4 {
+    width:60%;
+    margin-top:0%;
+}
+
+#imgDinnerText5 {
+    width:30%;
+    margin-top:0%;
+    margin-left:70%;
+}
+
+#imgDinnerText6 {
+    width:80%;
+    margin-top:15%;
+    margin-left:0%;
+}
+
+#imgDinnerText7 {
+    width:80%;
+    margin-top:43%;
+    margin-left:0%;
+}
+
+.wine {
+    margin-left:5%;
+    /*margin-top:23%;*/
+    position:absolute;
+    width:85%;
+    opacity:0;
+}
+
+#imgDinnerText8 {
+    width:100%;
+    margin-top:0%;
+    margin-left:0%;
+}
+
+#imgDinnerText9 {
+    width:70%;
+    margin-top:0%;
+    margin-left:30%;
+}
+
+#imgDinnerText10 {
+    width:70%;
+    margin-top:40%;
+    margin-left:30%;
+}
+
+#imgDinnerText11 {
+    width:70%;
+    margin-top:25%;
+    margin-left:10%;
+}
+
+#imgDinnerText12 {
+    width:70%;
+    margin-top:40%;
+    margin-left:10%;
+}
+
+#imgDinnerText13 {
+    width:100%;
+    margin-top:40%;
+}
+
+#imgDinnerText14 {
+    width:80%;
+    margin-top:35%;
+    margin-left:0%;
+}
+
+#imgDinnerText15 {
+    width:80%;
+    margin-top:35%;
+    margin-left:0%;
+}
+
+#imgDinnerText16 {
+    width:80%;
+    margin-top:35%;
+    margin-left:10%;
+}
+
+#imgDinnerText17 {
+    width:80%;
+    margin-top:32%;
+    margin-left:10%;
+}
+
+#imgDinnerText18 {
+    width:80%;
+    margin-top:43%;
+    margin-left:10%;
+}
+
+#imgDinnerText19 {
+    width:100%;
+    margin-top:33%;
+}
+
+#imgDinnerText20 {
+    width:80%;
+    margin-top:40%;
+    margin-left:10%;
+}
+
+#imgDinnerText21 {
+    width:80%;
+    margin-top:-3%;
+    margin-left:0%;
+}
+
+#imgDinnerText22 {
+    width:70%;
+    margin-top:0%;
+    margin-left:30%;
+}
+
+#imgDinnerText23 {
+    width:85%;
+    margin-top:40%;
+    margin-left:0%;
+}
+
+#imgDinnerText24 {
+    width:85%;
+    margin-top:40%;
+    margin-left:0%;
+}
+
+#imgDinnerText25 {
+    width:60%;
+    margin-top:0%;
+    margin-left:0%;
+}
+
+#imgDinnerText26 {
+    width:85%;
+    margin-top:35%;
+    margin-left:0%;
+}
+
+#imgDinnerText27 {
+    width:85%;
+    margin-top:35%;
+    margin-left:0%;
+}
+
+#imgDinnerText28 {
+    width:40%;
+    margin-top:0%;
+    margin-left:0%;
+}
+
+#imgDinnerText29 {
+    width:85%;
+    margin-top:35%;
+    margin-left:0%;
+}
+
+#imgDinnerText30 {
+    width:100%;
+    margin-top:35%;
+    margin-left:5%;
+}
+
+#imgDinnerText31 {
+    width:100%;
+    margin-top:35%;
+    margin-left:0%;
+}
+
+#imgZaroffBack {
+    transform: translateY(-3000px);
+}
+
+#imgZaroffRoom2 {
+    z-index:1;
+}
+
+#imgBeforeHuntText1 {
+    width:100%;
+    margin-top:33%;
+}
+
+#imgBeforeHuntText2_yes {
+    width:35%;
+    margin-top:20%;
+    margin-left:10%;
+}
+
+#imgBeforeHuntText3_no {
+    width:25%;
+    margin-top:20%;
+    margin-left:60%;
+}
+
+#imgZaroffRoom2 {
+    z-index:2;
+}
+
+#imgZaroffRoom3 {
+    z-index:1;
+}
+
+#imgBeforeHuntText4 {
+    width:100%;
+    margin-top:43%;
+}
+
+#imgBeforeHuntText5 {
+    width:100%;
+    margin-top:40%;
+    margin-left:4%;
+}
+
+#imgBeforeHuntText6 {
+    width:80%;
+    margin-top:44%;
+    margin-left:8%;
+}
+
+#imgBeforeHuntText7 {
+    width:100%;
+    margin-top:28%;
+}
+
+#imgBeforeHuntText8 {
+    width:80%;
+    margin-top:40%;
+    margin-left:8%;
+}
+
+#imgBeforeHuntText9 {
+    width:100%;
+    margin-top:27%;
+}
+
+#imgBeforeHuntText10 {
+    width:100%;
+    margin-top:3%;
+}
+
+#imgBeforeHuntText11 {
+    width:100%;
+    margin-top:33%;
+}
+
+/*
+    #imgGateLeft{
+        vertical-align: right;
+    }
+
+    #imgGateRight{
+        vertical-align: left;
+    }*/
+
+
+/* For Wipe, The div is overflow:hidden and starts at a width of 0% and ends at a width of 100%. */
+/* For Swipe, The div is positioned top: -100% and then animated to 0%.    */
