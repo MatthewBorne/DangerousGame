@@ -18,6 +18,10 @@
 <script type="text/javascript" src="./resources/js/scrollmagic/jquery.scrollmagic.min.js"></script>
 <script type="text/javascript" src="./resources/js/scrollmagic/jquery.scrollmagic.debug.js"></script>
 
+<!--  video.js plugin for video playback -->
+<link href="http://vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/4.11/video.js"></script> 
+
 <!-- Our Files -->
 <script src="Chapter3JS.js"></script>
 <link rel="stylesheet" type="text/css" href="Chapter3CSS.css">
@@ -42,22 +46,32 @@
 
                     <section id="scene5">
 
-                        <div id="divTrigIntroVideo" style="height:1000px">
+                        <div class="spacer" style="height:1000px;">
+                        Spacer Div here
+                        </div>
+
+                        <div id="divTrigRunningVideo1">
                             <div class="centerDiv">
                             </div>
 
                             <video id="vidRunningVideo1" class="video-js vjs-default-skin" autoplay="true"
                             preload="auto" data-setup="{}" width="auto" height="auto">
-                            <source src="./resources/vid/scene5/vidIntroVideo.mp4" type='video/mp4'>
+                            <source src="./resources/vid/scene5/vidRunning1.mp4" type='video/mp4'>
                               <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
                             </video>
+
                         </div>
 
-                        <div id="divTrigDinner">
+                        <div class="spacer" style="height:2000px;">
+                        Spacer Div here
+                        </div>
+
+                        <div id="divTrigTreeClimb">
 
                             <div class="centerDiv">
                             </div>
 
+                            <img id="imgClimbingTree" class="fullScreenImage" src="./resources/img/scene5/imgClimbingTree.gif">
                             
 
                         </div>
