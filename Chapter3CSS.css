@@ -169,6 +169,12 @@ html {
     opacity:0;
 }
 
+#vidRunningVideo4 {
+    position: relative;
+    width:100%;
+    opacity:0;
+}
+
 
 #imgClimbingTree {
     z-index:1;
@@ -215,6 +221,10 @@ html {
     z-index:2;
     opacity:0;
     transform: translateX(-200px);
+}
+
+#imgQuicksand4 {
+    transform: translateY(1500px);
 }
 
 

@@ -313,7 +313,16 @@ $(document).ready(function(){
                     TweenMax.to( "#imgQuicksand2", .05 , {opacity: 1})]); 
     twnQuicksand.add(TweenMax.to( "#imgQuicksand2", .1 , {opacity: 1}));
     twnQuicksand.add([ TweenMax.to( "#imgQuicksand2", .05 , {opacity: 0}),
-                    TweenMax.to( "#imgQuicksand3", .05 , {opacity: 1})]); 
+                    TweenMax.to( "#imgQuicksand3", .05 , {opacity: 1})]);
+    twnQuicksand.add(TweenMax.to("#imgQuicksand4", .15 , {opacity:1, transform: "translateY(0px)"}));  
+    twnQuicksand.add(TweenMax.to( "#imghuntredoText1", .05 , {opacity: 1})); 
+    twnQuicksand.add(TweenMax.to( "#imghuntredoText1", .15 , {opacity: 1})); 
+    twnQuicksand.add(TweenMax.to( "#imghuntredoText1", .05 , {opacity: 0})); 
+    twnQuicksand.add(TweenMax.to( "#imgDirtFlying", .05 , {opacity: 1})); 
+    twnQuicksand.add(TweenMax.to( "#imgDirtFlying", .15 , {opacity: 1})); 
+    twnQuicksand.add([TweenMax.to( "#imgQuicksand3", .00001 , {opacity: 0}),
+                    TweenMax.to( "#imgQuicksand4", .00001 , {opacity: 0}),
+                    TweenMax.to( "#imgDirtFlying", .05 , {opacity: 0})]); 
 
     //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnQuicksand = new ScrollScene({triggerElement: "#divTrigQuicksand", duration: 2000, triggerHook: 0.0, reverse: true})
@@ -322,6 +331,30 @@ $(document).ready(function(){
     .addTo(controller);
     scnQuicksand.addIndicators();
 
+
+
+
+
+    //Code to play Running Video 4
+    var vidRunning4 = videojs('vidRunningVideo4');
+
+    function playRunning4Vid() {
+        vidRunning4.play();
+        $(window).scrollTop($('#videoRunning4VidCenterer').offset().top + 15);
+    }
+
+
+    var twnRunning4 = new TimelineMax();
+
+    twnRunning4.add(TweenMax.to("#vidRunningVideo4", .05 , {opacity: 1, onStart:playRunning4Vid })); 
+    twnRunning4.add(TweenMax.to("#vidRunningVideo4", .05 , {opacity: 0})); 
+
+    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+    var scnRunning4 = new ScrollScene({triggerElement: "#divTrigRunning4", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnRunning4)
+    .setPin("#divTrigRunning4", {pushFollowers: false})
+    .addTo(controller);
+    scnRunning4.addIndicators();
 
 
     
