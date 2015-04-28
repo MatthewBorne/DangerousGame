@@ -257,6 +257,7 @@ $(document).ready(function(){
     scnInTree.addIndicators();
 
 
+    //Code to play Running Video 2
     var vidRunning2 = videojs('vidRunningVideo2');
     //vidRunning2.on('ended', giveBackScroll);
 
@@ -277,6 +278,50 @@ $(document).ready(function(){
     .setPin("#divTrigRunning2", {pushFollowers: false})
     .addTo(controller);
     scnRunning2.addIndicators();
+
+
+
+    //Code to play Running Video 3
+    var vidRunning3 = videojs('vidRunningVideo3');
+
+    function playRunning3Vid() {
+        vidRunning3.play();
+        $(window).scrollTop($('#videoRunning3VidCenterer').offset().top + 15);
+    }
+
+
+    var twnRunning3 = new TimelineMax();
+
+    twnRunning3.add(TweenMax.to("#vidRunningVideo3", .05 , {opacity: 1, onStart:playRunning3Vid })); 
+    twnRunning3.add(TweenMax.to("#vidRunningVideo3", .05 , {opacity: 0})); 
+
+    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+    var scnRunning3 = new ScrollScene({triggerElement: "#divTrigRunning3", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnRunning3)
+    .setPin("#divTrigRunning3", {pushFollowers: false})
+    .addTo(controller);
+    scnRunning3.addIndicators();
+
+
+
+
+    var twnQuicksand = new TimelineMax();
+
+    twnQuicksand.add(TweenMax.to( "#imgQuicksand1", .05 , {opacity: 1})); 
+    twnQuicksand.add(TweenMax.to( "#imgQuicksand1", .1 , {opacity: 1})); 
+    twnQuicksand.add([ TweenMax.to( "#imgQuicksand1", .05 , {opacity: 0}),
+                    TweenMax.to( "#imgQuicksand2", .05 , {opacity: 1})]); 
+    twnQuicksand.add(TweenMax.to( "#imgQuicksand2", .1 , {opacity: 1}));
+    twnQuicksand.add([ TweenMax.to( "#imgQuicksand2", .05 , {opacity: 0}),
+                    TweenMax.to( "#imgQuicksand3", .05 , {opacity: 1})]); 
+
+    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+    var scnQuicksand = new ScrollScene({triggerElement: "#divTrigQuicksand", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnQuicksand)
+    .setPin("#divTrigQuicksand", {pushFollowers: false})
+    .addTo(controller);
+    scnQuicksand.addIndicators();
+
 
 
     
