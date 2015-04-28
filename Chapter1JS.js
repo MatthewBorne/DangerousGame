@@ -54,6 +54,7 @@ $(document).ready(function(){
 
     //Debug function to allow us to skip down the page if we press a button
     window.onkeyup = function(e) {
+        giveBackScroll();
         if(debug){
             jumpScroll(location);
         }
@@ -117,10 +118,12 @@ $(document).ready(function(){
 
     function vidWaterVidDissapear() {
         $("#vidWaterVideo").css("opacity",0);
+        vidWaterVideo.pause();
     }
 
     $('html').click(function() {
         giveBackScroll();
+
     });
 
     preventScroll();
@@ -458,7 +461,7 @@ $(document).ready(function(){
     var twnVidWaterVideo = new TimelineMax();
     twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {onReverseComplete:vidWaterVidDissapear, onStart:playVidWaterVideo, onComplete:playSFXLargeSplash}));
     twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .00001, {onStart:preventScroll}));
-    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .9998,  {opacity: 0}));
+    twnVidWaterVideo.add(TweenMax.to("#vidWaterVideo", .9998,  {opacity: 0, onComplete:vidWaterVidDissapear}));
 
     var scnVidWaterVideo = new ScrollScene({triggerElement: "#divTrigWaterVideo", duration:300, triggerHook: 0.0, reverse:true})
     .setTween(twnVidWaterVideo)

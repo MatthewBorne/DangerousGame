@@ -102,7 +102,7 @@ table {
     z-index:1;
 }
 
-.video-js {padding-top: 56.25%}
+.video-js {padding-top: 56.25%; position:relative;}
 .vjs-fullscreen {padding-top: 0px}
 
 
@@ -133,9 +133,17 @@ html {
     text-align: center;
 }
 
+#vidDogsRunning {
+    position: relative;
+    height: 100%;
+    width:100%;
+    opacity:0;
+}
+
 
 #imgClimbingTree {
     z-index:1;
+    position:absolute;
     transform: translateY(-1000px);
 }
 

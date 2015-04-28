@@ -198,11 +198,34 @@ $(document).ready(function(){
     twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 0})); 
 
     //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
-    var scnClimbingTree = new ScrollScene({triggerElement: "#divTrigTreeClimb", duration: 1500*widthNormalizer, triggerHook: 0.0, reverse: true, offset: 100})
+    var scnClimbingTree = new ScrollScene({triggerElement: "#divTrigTreeClimb", duration: 2000, triggerHook: 0.0, reverse: true, offset: 100})
     .setTween(twnClimbingTree)
     .setPin("#divTrigTreeClimb", {pushFollowers: false})
     .addTo(controller);
     //scnClimbingTree.addIndicators();
+
+
+
+    //When in into running video ends, give back scrolling to the user
+    var vidDogsRunning = videojs('vidDogsRunning');
+    //vidRunning1.on('ended', giveBackScroll);
+
+    function playDogsVid() {
+        vidDogsRunning.play();
+    }
+
+
+    var twnDogsRunning = new TimelineMax();
+
+    twnDogsRunning.add(TweenMax.to("#vidDogsRunning", .05 , {opacity: 1, transform: "translateY(0px)", onStart:playDogsVid })); 
+    twnDogsRunning.add(TweenMax.to("#vidDogsRunning", .05 , {opacity: 0})); 
+
+    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+    var scnDogsRunning = new ScrollScene({triggerElement: "#divTrigDogsRunning", duration: 2000, triggerHook: 0.0, reverse: true, offset: 100})
+    .setTween(twnDogsRunning)
+    .setPin("#divTrigDogsRunning", {pushFollowers: false})
+    .addTo(controller);
+    scnDogsRunning.addIndicators();
 
 
     

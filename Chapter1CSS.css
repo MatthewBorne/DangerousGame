@@ -49,8 +49,46 @@ table {
 
 /* This will Set videos to 16:9 when setting width % (to make the video as wide as the window) and setting height to auto (to adjust according to width)
    For more information, check: http://coolestguidesontheplanet.com/videodrome/videojs/   */
-.video-js {padding-top: 56.25%}
-.vjs-fullscreen {padding-top: 0px}
+.vjs-fullscreen { /*padding-top: 0px */}
+
+.video-js {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.vjs-tech {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.vjs-poster {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#vidIntroVideo {
+    opacity: 1;
+}
+
+#vidWaterVideo {
+    opacity:0;
+    left:0 !important;
+    text-align:center;
+}
+
+#divTrigWaterVideo {
+    left:0;
+    margin-left:0;
+}
+
+#divTrigIntroVideo {
+    text-align: center;
+}
 
 #contentTable {
     position:relative;
@@ -123,13 +161,6 @@ html {
     /*overflow-x: hidden;*/
 }
 
-#vidIntroVideo {
-    opacity: 1;
-}
-
-#divTrigIntroVideo {
-    text-align: center;
-}
 
 #divGlobeScene {
     width:100%;
@@ -317,13 +348,6 @@ html {
 
 #divTrigWaterScene {
     text-align: center;
-}
-
-#vidWaterVideo {
-    position: relative;
-    height: 100%;
-    width:100%;
-    opacity:0;
 }
 
 #imgWaterText1{
