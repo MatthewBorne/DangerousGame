@@ -153,7 +153,6 @@ html {
 
 #vidDogsRunning {
     position: relative;
-    height: 100%;
     width:100%;
     opacity:0;
 }
@@ -175,5 +174,36 @@ html {
     opacity:0;
     z-index:10;
 }
+
+#imgInTree_1 {
+    z-index:1;
+}
+
+#imgInTree_2 {
+    z-index:3;
+}
+
+#imgInTree_3 {
+    z-index:4;
+}
+
+#imgInTree_DogsLow {
+    z-index:2;
+    opacity:0;
+    transform: translateX(-200px);
+}
+
+#imgInTree_DogsMid {
+    z-index:2;
+    opacity:0;
+    transform: translateX(200px);
+}
+
+#imgInTree_DogsHigh {
+    z-index:2;
+    opacity:0;
+    transform: translateX(-200px);
+}
+
 
 

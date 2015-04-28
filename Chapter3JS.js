@@ -229,6 +229,34 @@ $(document).ready(function(){
     scnDogsRunning.addIndicators();
 
 
+
+    var twnInTree = new TimelineMax();
+
+    twnInTree.add([ TweenMax.to( "#imgInTree_1", .05 , {opacity: 1}),
+                    TweenMax.to( "#imgInTree_2", .05 , {opacity: 1})]); 
+    twnInTree.add(TweenMax.to("#imgInTree_DogsLow", .0000001 , {opacity:1})); 
+    twnInTree.add(TweenMax.to("#imgInTree_DogsLow", .15 , {opacity:1, transform: "translateX(2000px)"})); 
+    twnInTree.add([ TweenMax.to( "#imgInTree_DogsLow", .000001 , {opacity: 0}),
+                    TweenMax.to( "#imgInTree_DogsMid", .000001 , {opacity: 1})]);
+    twnInTree.add(TweenMax.to("#imgInTree_DogsMid", .15 , {opacity:1, transform: "translateX(-2000px)"})); 
+    twnInTree.add([ TweenMax.to( "#imgInTree_DogsMid", .000001 , {opacity: 0}),
+                    TweenMax.to( "#imgInTree_DogsHigh", .000001 , {opacity: 1})]); 
+    twnInTree.add(TweenMax.to("#imgInTree_DogsHigh", .15 , {opacity:1, transform: "translateX(2000px)"})); 
+    twnInTree.add([ TweenMax.to( "#imgInTree_3", .15 , {opacity: 1}),
+                    TweenMax.to( "#imgInTree_DogsHigh", .000001 , {opacity: 0})]); 
+    twnInTree.add(TweenMax.to("#imgInTree_3", .15 , {opacity:1,  transform: "scale(1.3,1.3)"})); 
+    twnInTree.add([ TweenMax.to( "#imgInTree_3", .15 , {opacity: 0}),
+                    TweenMax.to( "#imgInTree_1", .000001 , {opacity: 0}),
+                    TweenMax.to( "#imgInTree_2", .000001 , {opacity: 0})]); 
+
+    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+    var scnInTree = new ScrollScene({triggerElement: "#divTrigInTree", duration: 8000, triggerHook: 0.0, reverse: true})
+    .setTween(twnInTree)
+    .setPin("#divTrigInTree", {pushFollowers: false})
+    .addTo(controller);
+    scnInTree.addIndicators();
+
+
     
 
 });
