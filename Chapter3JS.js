@@ -257,6 +257,28 @@ $(document).ready(function(){
     scnInTree.addIndicators();
 
 
+    var vidRunning2 = videojs('vidRunningVideo2');
+    //vidRunning2.on('ended', giveBackScroll);
+
+    function playRunning2Vid() {
+        vidRunning2.play();
+        $(window).scrollTop($('#videoRunning2VidCenterer').offset().top + 15);
+    }
+
+
+    var twnRunning2 = new TimelineMax();
+
+    twnRunning2.add(TweenMax.to("#vidRunningVideo2", .05 , {opacity: 1, onStart:playRunning2Vid })); 
+    twnRunning2.add(TweenMax.to("#vidRunningVideo2", .05 , {opacity: 0})); 
+
+    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+    var scnRunning2 = new ScrollScene({triggerElement: "#divTrigRunning2", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnRunning2)
+    .setPin("#divTrigRunning2", {pushFollowers: false})
+    .addTo(controller);
+    scnRunning2.addIndicators();
+
+
     
 
 });
