@@ -122,61 +122,13 @@ $(document).ready(function(){
         body.style.overflowY = "visible";
     }
 
-    var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
-	var sfxFillingGlass = new Audio('./resources/sfx/sfxFillingGlass.mp3');
-	var sfxSilverwareSounds = new Audio('./resources/sfx/sfxSilverwareSounds.mp3');
-	var bgmInTheCastle = new Audio('./resources/sfx/bgmInTheCastle.mp3');
-	var bgmNearShore = new Audio('./resources/sfx/bgmNearShore.mp3');
 	var bgmFarFromShore = new Audio('./resources/sfx/bgmFarFromShore.mp3');
-	//comment to test things; please delete
 	
-	bgmFarFromShore.loop = true;
-	bgmNearShore.loop = true;
-	bgmInTheCastle.loop = true;
-	//Is that right?
 
      
      //array containing all lengthy Audio objects
-    var longAudioObjects = [bgmFarFromShore, bgmInTheCastle, bgmNearShore];
+    var longAudioObjects = [];
 	
-    //Play gunshot sound on call
-    function playSFXGunShot (event) {
-        var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
-        sfxGunShot.play();
-    }
-	
-	
-	//Play sound effect for forest sound near the beach
-	function playBGMNearShore (event) {
-        bgmNearShore.currentTime = 0;
-        $(bgmNearShore).each(function(){this.play(); $(this).animate({volume:1},1000)});
-    }
-	
-	//Play sound effect for forest sound away from beach
-	function playBGMFarFromShore (event) {
-        bgmFarFromShore.currentTime = 0;
-        $(bgmFarFromShore).each(function(){this.play(); $(this).animate({volume:1},1000)});
-    }
-	
-	//Play sound effect for ambient castle sound
-	function playBGMInTheCastle (event) {
-        bgmInTheCastle.currentTime = 0;
-        $(bgmInTheCastle).each(function(){this.play(); $(this).animate({volume:1},1000)});
-    }
-	
-	
-	//Play sound effect for silverware/plate noises
-	function playSFXSilverwareSounds (event) {
-        sfxSilverwareSounds.currentTime = 0;
-        $(sfxSilverwareSounds).each(function(){this.play(); $(this).animate({volume:1},1000)});
-    }
-	
-
-    //Play sound effect of gun clicking
-    function playSFXGunClick (event) {
-        sfxGunClick.currentTime = 0;
-        $(sfxGunClick).each(function(){this.play(); $(this).animate({volume:1},1000)});
-    }
 	
 	//Play sound effect for knocking on the door
 	function playSFXFillingGlass (event) {
