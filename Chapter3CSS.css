@@ -181,6 +181,12 @@ html {
     opacity:0;
 }
 
+#vidRunningVideo6 {
+    position: relative;
+    width:100%;
+    opacity:0;
+}
+
 
 #imgClimbingTree {
     z-index:1;
@@ -232,6 +238,21 @@ html {
 #imgQuicksand4 {
     transform: translateY(1500px);
 }
+
+#imgKnifeTrap {
+    /*position:absolute;
+    height:100%;
+    opacity:0;*/
+    /*transform: translateX(2000px);*/
+
+    position: absolute;
+    width: 156%;
+    /*tranform: translateX(0px);*/
+    opacity: 0;
+    vertical-align: bottom;
+}
+
+
 
 
 

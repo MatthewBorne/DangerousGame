@@ -24,16 +24,18 @@ $(document).ready(function(){
 
     var leftRightBorderWidth = Math.max(0, ((windowWidth - imageWidth) / 2));
 
+    var contentWidth = windowWidth - (leftRightBorderWidth * 2);
+
     //Sets the height of the fixed black bars at the top and bottom of the web page.
     $("#topBorder").css("height", (windowHeight - imageHeight) / 2);
     $("#bottomBorder").css("height", (windowHeight - imageHeight) / 2);
     $("#leftBorder").css("width",  leftRightBorderWidth);
     $("#rightBorder").css("width", leftRightBorderWidth);
-    $("#chapter3Content").css("width", windowWidth - (leftRightBorderWidth * 2));
+    $("#chapter3Content").css("width", contentWidth);
 
     console.log("window width: " + windowWidth);
     console.log("leftRightBorderWidth: " + leftRightBorderWidth);
-    console.log("content Width: " + (windowWidth - (leftRightBorderWidth * 2)));
+    console.log("content Width: " + contentWidth);
 
     //Since the page starts with a video, prevent scroll at the start
     //preventScroll();
@@ -404,17 +406,48 @@ $(document).ready(function(){
 
     var twnKnifeTrap = new TimelineMax();
 
-    twnKnifeTrap.add(TweenMax.to( "#imghuntredoText3", .05 , {opacity: 1})); 
-    twnKnifeTrap.add(TweenMax.to( "#imghuntredoText3", .1 , {opacity: 1})); 
-    twnKnifeTrap.add( TweenMax.to( "#imghuntredoText3", .05 , {opacity: 0})); 
+    twnKnifeTrap.add(TweenMax.to( "#imgKnifeTrap", .00001 , {opacity: 1})); 
+    twnKnifeTrap.add(TweenMax.to( "#imgKnifeTrap", .1 , {transform: "translateX(-"+ contentWidth + "px)"})); 
+    twnKnifeTrap.add(TweenMax.to( "#imgKnifeTrap", .05 , {opacity: 0})); 
+
+    twnKnifeTrap.add(TweenMax.to( "#imghuntredoText4", .05 , {opacity: 1})); 
+    twnKnifeTrap.add(TweenMax.to( "#imghuntredoText4", .1 , {opacity: 1})); 
+    twnKnifeTrap.add( TweenMax.to( "#imghuntredoText4", .05 , {opacity: 0})); 
+    //twnKnifeTrap.add(TweenMax.to( "#imghuntredoText3", .1 , {opacity: 1})); 
+    //twnKnifeTrap.add( TweenMax.to( "#imghuntredoText3", .05 , {opacity: 0})); 
     
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
-    var scnKnifeTrap = new ScrollScene({triggerElement: "#divTrigKnifeTrap", duration: 2000, triggerHook: 0.0, reverse: true})
+    var scnKnifeTrap = new ScrollScene({triggerElement: "#divTrigKnifeTrap", duration: 6000, triggerHook: 0.0, reverse: true})
     .setTween(twnKnifeTrap)
     .setPin("#divTrigKnifeTrap", {pushFollowers: false})
     .addTo(controller);
     scnKnifeTrap.addIndicators();
+
+    $("#imgKnifeTrap").css({transform: 'translateX(' + contentWidth * 1.56  + 'px)'})
+
+
+
+
+    //Code to play Running Video 5
+    var vidRunning5 = videojs('vidRunningVideo5');
+
+    function playRunning5Vid() {
+        vidRunning5.play();
+        $(window).scrollTop($('#videoRunning5VidCenterer').offset().top + 15);
+    }
+
+
+    var twnRunning6 = new TimelineMax();
+
+    twnRunning6.add(TweenMax.to("#vidRunningVideo6", .05 , {opacity: 1, onStart:playRunning6Vid })); 
+    twnRunning6.add(TweenMax.to("#vidRunningVideo6", .05 , {opacity: 0})); 
+
+
+    var scnRunning6 = new ScrollScene({triggerElement: "#divTrigRunning6", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnRunning6)
+    .setPin("#divTrigRunning6", {pushFollowers: false})
+    .addTo(controller);
+    scnRunning6.addIndicators();
 
 
     
