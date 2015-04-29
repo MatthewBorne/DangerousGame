@@ -252,6 +252,31 @@ html {
     vertical-align: bottom;
 }
 
+#imgCliff {
+    transform: translateY(-1000px);
+}
+
+#imgEnd1 {
+    transform: translateY(1000px);
+}
+
+#imgEnd2_1 {
+    z-index: 1;
+}
+
+#imgEnd2_2 {
+    z-index: 2;
+}
+
+#imgEnd2_3 {
+    z-index: 3;
+}
+
+#imgEnd5_2 {
+    transform: translateX(0px);
+}
+
+
 
 
 
