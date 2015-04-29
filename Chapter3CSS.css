@@ -272,8 +272,61 @@ html {
     z-index: 3;
 }
 
+#imgEnd6 {
+    z-index: 1;
+}
+
 #imgEnd5_2 {
-    transform: translateX(0px);
+    z-index:2;
+}
+
+#imgEndingText1 {
+    z-index:3;
+}
+
+#imghuntredoText1 {
+    margin-top:40%;
+}
+
+#imghuntredoText2 {
+    width:50%;
+    margin-top:25%;
+    margin-left:20%;
+}
+
+#imghuntredoText3 {
+    width:100%;
+    margin-top:20%;
+    margin-left:2%;
+}
+
+#imghuntredoText4 {
+    margin-top:25%;
+}
+
+
+#imgEndingText1 {
+    margin-top: 40%;
+}
+
+#imgEndingText2 {
+    margin-top: 43%;
+}
+
+#imgEndingText3 {
+    margin-top: 35%;
+}
+
+#imgEndingText4 {
+    margin-top: 39%;
+}
+
+#imgEndingText5 {
+    margin-top: 33%;
+}
+
+#imgEndingText6 {
+    margin-top: 3%;
 }
 
 

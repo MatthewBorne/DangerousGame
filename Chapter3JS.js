@@ -235,13 +235,13 @@ $(document).ready(function(){
     twnInTree.add([ TweenMax.to( "#imgInTree_1", .05 , {opacity: 1}),
                     TweenMax.to( "#imgInTree_2", .05 , {opacity: 1})]); 
     twnInTree.add(TweenMax.to("#imgInTree_DogsLow", .0000001 , {opacity:1})); 
-    twnInTree.add(TweenMax.to("#imgInTree_DogsLow", .15 , {opacity:1, transform: "translateX(2000px)"})); 
+    twnInTree.add(TweenMax.to("#imgInTree_DogsLow", .15 , {opacity:1, transform: "translateX(1000px)"})); 
     twnInTree.add([ TweenMax.to( "#imgInTree_DogsLow", .000001 , {opacity: 0}),
                     TweenMax.to( "#imgInTree_DogsMid", .000001 , {opacity: 1})]);
-    twnInTree.add(TweenMax.to("#imgInTree_DogsMid", .15 , {opacity:1, transform: "translateX(-2000px)"})); 
+    twnInTree.add(TweenMax.to("#imgInTree_DogsMid", .15 , {opacity:1, transform: "translateX(-1000px)"})); 
     twnInTree.add([ TweenMax.to( "#imgInTree_DogsMid", .000001 , {opacity: 0}),
                     TweenMax.to( "#imgInTree_DogsHigh", .000001 , {opacity: 1})]); 
-    twnInTree.add(TweenMax.to("#imgInTree_DogsHigh", .15 , {opacity:1, transform: "translateX(2000px)"})); 
+    twnInTree.add(TweenMax.to("#imgInTree_DogsHigh", .15 , {opacity:1, transform: "translateX(1000px)"})); 
     twnInTree.add([ TweenMax.to( "#imgInTree_3", .15 , {opacity: 1}),
                     TweenMax.to( "#imgInTree_DogsHigh", .000001 , {opacity: 0})]); 
     twnInTree.add(TweenMax.to("#imgInTree_3", .15 , {opacity:1,  transform: "scale(1.3,1.3)"})); 
@@ -322,7 +322,7 @@ $(document).ready(function(){
                     TweenMax.to( "#imgDirtFlying", .05 , {opacity: 0})]); 
 
 
-    var scnQuicksand = new ScrollScene({triggerElement: "#divTrigQuicksand", duration: 2000, triggerHook: 0.0, reverse: true})
+    var scnQuicksand = new ScrollScene({triggerElement: "#divTrigQuicksand", duration: 4000, triggerHook: 0.0, reverse: true})
     .setTween(twnQuicksand)
     .setPin("#divTrigQuicksand", {pushFollowers: false})
     .addTo(controller);
@@ -483,7 +483,6 @@ $(document).ready(function(){
     twnFinale.add( TweenMax.to( "#imgEnd5_2", .1 , {opacity:1}));
 
     twnFinale.add([ TweenMax.to( "#imgEnd5_1", .1 , {opacity: 0}),
-                    TweenMax.to( "#imgEnd5_2", .1 , {opacity: 0}),
                     TweenMax.to( "#imgEnd6", .1 , {opacity: 1})]);
 
     twnFinale.add(TweenMax.to( "#imgEndingText1", .00001 , {opacity: 1})); 
@@ -491,6 +490,7 @@ $(document).ready(function(){
     twnFinale.add(TweenMax.to( "#imgEndingText1", .05 , {opacity: 0})); 
 
     twnFinale.add([ TweenMax.to( "#imgEnd6", .1 , {opacity: 0}),
+                    TweenMax.to( "#imgEnd5_2", .1 , {opacity: 0}),
                     TweenMax.to( "#imgEnd7-9", .1 , {opacity: 1})]);
 
     twnFinale.add(TweenMax.to( "#imgEndingText2", .00001 , {opacity: 1})); 
@@ -498,7 +498,7 @@ $(document).ready(function(){
     twnFinale.add(TweenMax.to( "#imgEndingText2", .05 , {opacity: 0})); 
 
     twnFinale.add([ TweenMax.to( "#imgEnd7-9", .1 , {opacity: 0}),
-                    TweenMax.to( "#imgEnd10", .1 , {opacity: 1})]);
+                    TweenMax.to( "#imgEnd10", .1 , {opacity: 1}),]);
 
     twnFinale.add(TweenMax.to( "#imgEndingText3", .00001 , {opacity: 1})); 
     twnFinale.add(TweenMax.to( "#imgEndingText3", .1 , {})); 
@@ -520,16 +520,20 @@ $(document).ready(function(){
 
     twnFinale.add(TweenMax.to( "#imgEnd11", .1 , {opacity: 0}));
 
-    twnFinale.add(TweenMax.to( "#imgEyesOpen", .1 , {opacity: 1}));
+    twnFinale.add(TweenMax.to( "#imgEyesClosed", .1 , {opacity: 1}));
 
-    twnFinale.add([ TweenMax.to( "#imgEyesOpen", .1 , {opacity: 0}),
-                    TweenMax.to( "#imgEyesClosed", .1 , {opacity: 1})]);
+    twnFinale.add([ TweenMax.to( "#imgEyesClosed", .1 , {opacity: 0}),
+                    TweenMax.to( "#imgEyesOpen", .1 , {opacity: 1})]);
 
     twnFinale.add(TweenMax.to( "#imgEndingText6", .00001 , {opacity: 1})); 
     twnFinale.add(TweenMax.to( "#imgEndingText6", .1 , {})); 
     twnFinale.add(TweenMax.to( "#imgEndingText6", .05 , {opacity: 0}));
 
-     twnFinale.add(TweenMax.to( "#imgEyesClosed", .1 , {opacity: 0}));
+    twnFinale.add(TweenMax.to( "#imgEyesOpen", .1 , {opacity: 0}));
+
+    twnFinale.add(TweenMax.to( "#imgEyesOpen", .1 , {}));
+
+    twnFinale.add(TweenMax.to( "#imgLogo", .1 , {opacity:1}));
 
 
     var scnFinale = new ScrollScene({triggerElement: "#divTrigFinale", duration: 15000, triggerHook: 0.0, reverse: true})
