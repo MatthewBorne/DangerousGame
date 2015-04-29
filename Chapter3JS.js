@@ -197,7 +197,6 @@ $(document).ready(function(){
     twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 1, transform: "translateY(0px)" })); 
     twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 0})); 
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnClimbingTree = new ScrollScene({triggerElement: "#divTrigTreeClimb", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnClimbingTree)
     .setPin("#divTrigTreeClimb", {pushFollowers: false})
@@ -221,7 +220,6 @@ $(document).ready(function(){
     twnDogsRunning.add(TweenMax.to("#vidDogsRunning", .05 , {opacity: 1, onStart:playDogsVid })); 
     twnDogsRunning.add(TweenMax.to("#vidDogsRunning", .05 , {opacity: 0})); 
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnDogsRunning = new ScrollScene({triggerElement: "#divTrigDogsRunning", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnDogsRunning)
     .setPin("#divTrigDogsRunning", {pushFollowers: false})
@@ -249,7 +247,6 @@ $(document).ready(function(){
                     TweenMax.to( "#imgInTree_1", .000001 , {opacity: 0}),
                     TweenMax.to( "#imgInTree_2", .000001 , {opacity: 0})]); 
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnInTree = new ScrollScene({triggerElement: "#divTrigInTree", duration: 8000, triggerHook: 0.0, reverse: true})
     .setTween(twnInTree)
     .setPin("#divTrigInTree", {pushFollowers: false})
@@ -272,7 +269,6 @@ $(document).ready(function(){
     twnRunning2.add(TweenMax.to("#vidRunningVideo2", .05 , {opacity: 1, onStart:playRunning2Vid })); 
     twnRunning2.add(TweenMax.to("#vidRunningVideo2", .05 , {opacity: 0})); 
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnRunning2 = new ScrollScene({triggerElement: "#divTrigRunning2", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnRunning2)
     .setPin("#divTrigRunning2", {pushFollowers: false})
@@ -295,7 +291,6 @@ $(document).ready(function(){
     twnRunning3.add(TweenMax.to("#vidRunningVideo3", .05 , {opacity: 1, onStart:playRunning3Vid })); 
     twnRunning3.add(TweenMax.to("#vidRunningVideo3", .05 , {opacity: 0})); 
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnRunning3 = new ScrollScene({triggerElement: "#divTrigRunning3", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnRunning3)
     .setPin("#divTrigRunning3", {pushFollowers: false})
@@ -324,7 +319,7 @@ $(document).ready(function(){
                     TweenMax.to( "#imgQuicksand4", .00001 , {opacity: 0}),
                     TweenMax.to( "#imgDirtFlying", .05 , {opacity: 0})]); 
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+
     var scnQuicksand = new ScrollScene({triggerElement: "#divTrigQuicksand", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnQuicksand)
     .setPin("#divTrigQuicksand", {pushFollowers: false})
@@ -349,12 +344,77 @@ $(document).ready(function(){
     twnRunning4.add(TweenMax.to("#vidRunningVideo4", .05 , {opacity: 1, onStart:playRunning4Vid })); 
     twnRunning4.add(TweenMax.to("#vidRunningVideo4", .05 , {opacity: 0})); 
 
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
     var scnRunning4 = new ScrollScene({triggerElement: "#divTrigRunning4", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnRunning4)
     .setPin("#divTrigRunning4", {pushFollowers: false})
     .addTo(controller);
     scnRunning4.addIndicators();
+
+
+
+    var twnKnifeScene = new TimelineMax();
+
+    twnKnifeScene.add(TweenMax.to( "#imghuntredoText3", .05 , {opacity: 1})); 
+    twnKnifeScene.add(TweenMax.to( "#imghuntredoText3", .1 , {opacity: 1})); 
+    twnKnifeScene.add( TweenMax.to( "#imghuntredoText3", .05 , {opacity: 0})); 
+    twnKnifeScene.add(TweenMax.to( "#imgKnife1", .05 , {opacity: 1})); 
+    twnKnifeScene.add(TweenMax.to( "#imgKnife1", .1 , {opacity: 1})); 
+    twnKnifeScene.add( [TweenMax.to( "#imgKnife1", .05 , {opacity: 0}),
+                        TweenMax.to( "#imgKnife2", .05 , {opacity: 1})]); 
+    twnKnifeScene.add(TweenMax.to( "#imghuntredoText2", .05 , {opacity: 1})); 
+    twnKnifeScene.add(TweenMax.to( "#imghuntredoText2", .1 , {opacity: 1})); 
+    twnKnifeScene.add( TweenMax.to( "#imghuntredoText2", .05 , {opacity: 0})); 
+    twnKnifeScene.add( TweenMax.to( "#imgKnife2", .05 , {opacity: 0})); 
+    
+
+
+
+    var scnKnifeScene = new ScrollScene({triggerElement: "#divTrigKnifeScene", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnKnifeScene)
+    .setPin("#divTrigKnifeScene", {pushFollowers: false})
+    .addTo(controller);
+    scnKnifeScene.addIndicators();
+
+
+
+    //Code to play Running Video 5
+    var vidRunning5 = videojs('vidRunningVideo5');
+
+    function playRunning5Vid() {
+        vidRunning5.play();
+        $(window).scrollTop($('#videoRunning5VidCenterer').offset().top + 15);
+    }
+
+
+    var twnRunning5 = new TimelineMax();
+
+    twnRunning5.add(TweenMax.to("#vidRunningVideo5", .05 , {opacity: 1, onStart:playRunning5Vid })); 
+    twnRunning5.add(TweenMax.to("#vidRunningVideo5", .05 , {opacity: 0})); 
+
+
+    var scnRunning5 = new ScrollScene({triggerElement: "#divTrigRunning5", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnRunning5)
+    .setPin("#divTrigRunning5", {pushFollowers: false})
+    .addTo(controller);
+    scnRunning5.addIndicators();
+
+
+
+
+
+    var twnKnifeTrap = new TimelineMax();
+
+    twnKnifeTrap.add(TweenMax.to( "#imghuntredoText3", .05 , {opacity: 1})); 
+    twnKnifeTrap.add(TweenMax.to( "#imghuntredoText3", .1 , {opacity: 1})); 
+    twnKnifeTrap.add( TweenMax.to( "#imghuntredoText3", .05 , {opacity: 0})); 
+    
+
+    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
+    var scnKnifeTrap = new ScrollScene({triggerElement: "#divTrigKnifeTrap", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnKnifeTrap)
+    .setPin("#divTrigKnifeTrap", {pushFollowers: false})
+    .addTo(controller);
+    scnKnifeTrap.addIndicators();
 
 
     

@@ -175,6 +175,12 @@ html {
     opacity:0;
 }
 
+#vidRunningVideo5 {
+    position: relative;
+    width:100%;
+    opacity:0;
+}
+
 
 #imgClimbingTree {
     z-index:1;
