@@ -146,16 +146,16 @@ $(document).ready(function(){
     // init scrollMagic controller
     var controller = new ScrollMagic();
 
-    var twnClimbingTree = new TimelineMax();
 
-    twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 1, transform: "translateY(0px)" })); 
-    twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 0})); 
+    var twnHeadStart = new TimelineMax();
 
-    var scnClimbingTree = new ScrollScene({triggerElement: "#divTrigTreeClimb", duration: 2000, triggerHook: 0.0, reverse: true})
-    .setTween(twnClimbingTree)
-    .setPin("#divTrigTreeClimb", {pushFollowers: false})
+    twnHeadStart.add(TweenMax.to("#imgHeadStart", .05 , {opacity: 0})); 
+
+    var scnHeadStart = new ScrollScene({triggerElement: "#divTrigHeadStart", duration: 1000, triggerHook: 0.0, reverse: true})
+    .setTween(twnHeadStart)
+    .setPin("#divTrigHeadStart", {pushFollowers: false})
     .addTo(controller);
-    //scnClimbingTree.addIndicators();
+    //scnHeadStart.addIndicators();
 
 
 
@@ -163,11 +163,36 @@ $(document).ready(function(){
     var vidDogsRunning = videojs('vidDogsRunning');
     //vidRunning1.on('ended', giveBackScroll);
 
+
+
+    //Code to play Running Video 2
+    var vidRunning1 = videojs('vidRunningVideo1');
+    //vidRunning2.on('ended', giveBackScroll);
+
+    function playRunning1Vid() {
+        vidRunning1.play();
+        $(window).scrollTop($('#videoRunning1VidCenterer').offset().top + 15);
+    }
+
+
+    var twnRunning1 = new TimelineMax();
+
+    twnRunning1.add(TweenMax.to("#vidRunningVideo1", .05 , {opacity: 1, onStart:playRunning1Vid })); 
+    twnRunning1.add(TweenMax.to("#vidRunningVideo1", .05 , {opacity: 0})); 
+
+    var scnRunning1 = new ScrollScene({triggerElement: "#divTrigRunning1", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnRunning1)
+    .setPin("#divTrigRunning1", {pushFollowers: false})
+    .addTo(controller);
+    scnRunning1.addIndicators();
+
+
+
+
     function playDogsVid() {
         vidDogsRunning.play();
         $(window).scrollTop($('#videoDogsVidCenterer').offset().top + 15);
     }
-
 
     var twnDogsRunning = new TimelineMax();
 
@@ -179,6 +204,19 @@ $(document).ready(function(){
     .setPin("#divTrigDogsRunning", {pushFollowers: false})
     .addTo(controller);
     scnDogsRunning.addIndicators();
+
+
+
+    var twnClimbingTree = new TimelineMax();
+
+    twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 1})); 
+    twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 0})); 
+
+    var scnClimbingTree = new ScrollScene({triggerElement: "#divTrigTreeClimb", duration: 2000, triggerHook: 0.0, reverse: true})
+    .setTween(twnClimbingTree)
+    .setPin("#divTrigTreeClimb", {pushFollowers: false})
+    .addTo(controller);
+    //scnClimbingTree.addIndicators();
 
 
 
@@ -196,6 +234,11 @@ $(document).ready(function(){
     twnInTree.add(TweenMax.to("#imgInTree_DogsHigh", .15 , {opacity:1, transform: "translateX(1000px)"})); 
     twnInTree.add([ TweenMax.to( "#imgInTree_3", .15 , {opacity: 1}),
                     TweenMax.to( "#imgInTree_DogsHigh", .000001 , {opacity: 0})]); 
+    twnInTree.add(TweenMax.to( "#imghuntdarktreeText1", .05 , {opacity: 1})); 
+    twnInTree.add(TweenMax.to( "#imghuntdarktreeText1", .15 , {opacity: 1})); 
+    twnInTree.add(TweenMax.to( "#imghuntdarktreeText1", .05 , {opacity: 0})); 
+
+
     twnInTree.add(TweenMax.to("#imgInTree_3", .15 , {opacity:1,  transform: "scale(1.3,1.3)"})); 
     twnInTree.add([ TweenMax.to( "#imgInTree_3", .15 , {opacity: 0}),
                     TweenMax.to( "#imgInTree_1", .000001 , {opacity: 0}),

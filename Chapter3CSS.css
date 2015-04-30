@@ -147,8 +147,17 @@ html {
     opacity:0;
 }
 
+#imgHeadStart {
+    opacity: 1;
+    margin-top: 22%;
+}
+
 #vidRunningVideo1 {
     z-index:3;
+}
+
+#vidRunningVideo1 {
+    opacity: 0;
 }
 
 #vidDogsRunning {
@@ -191,7 +200,6 @@ html {
 #imgClimbingTree {
     z-index:1;
     position:absolute;
-    transform: translateY(-1000px);
 }
 
 #vidRunningVideo1 {
@@ -233,6 +241,11 @@ html {
     z-index:2;
     opacity:0;
     transform: translateX(-200px);
+}
+
+#imghuntdarktreeText1 {
+    z-index:5;
+    margin-top:35%;
 }
 
 #imgQuicksand4 {
@@ -301,7 +314,7 @@ html {
 }
 
 #imghuntredoText4 {
-    margin-top:25%;
+    margin-top:20%;
 }
 
 
@@ -314,7 +327,7 @@ html {
 }
 
 #imgEndingText3 {
-    margin-top: 35%;
+    margin-top: 37%;
 }
 
 #imgEndingText4 {
