@@ -506,12 +506,16 @@ $(document).ready(function(){
     //scnZaroffRoom.addIndicators();
 
     $('#imgBeforeHuntText2_yes').click( function() {
-        jumpScroll($(document).scrollTop() + 150);
+        jumpToNextPage();
     });
 
     $('#imgBeforeHuntText3_no').click( function() {
-        jumpScroll($(document).scrollTop() + 10500);
+        jumpScroll($(document).scrollTop() + 3400);
     });
+
+    function jumpToNextPage() {
+        window.location.href = './Chapter3HTML.html';
+    }
 
 
     var twnZaroffRoomNo = new TimelineMax();

@@ -504,6 +504,8 @@ $(document).ready(function(){
 
     twnFinale.add(TweenMax.to( "#imgEnd11", .1 , {opacity: 0}));
 
+    twnFinale.add(TweenMax.to( "#imgEnd11", .3 , {opacity: 0}));
+
     twnFinale.add(TweenMax.to( "#imgEyesClosed", .1 , {opacity: 1}));
 
     twnFinale.add([ TweenMax.to( "#imgEyesClosed", .1 , {opacity: 0}),
