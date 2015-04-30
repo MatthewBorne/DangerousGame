@@ -204,24 +204,13 @@ $(document).ready(function(){
     .setPin("#divTrigDogsRunning", {pushFollowers: false})
     .addTo(controller);
     scnDogsRunning.addIndicators();
-
-
-
-    var twnClimbingTree = new TimelineMax();
-
-    twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 1})); 
-    twnClimbingTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 0})); 
-
-    var scnClimbingTree = new ScrollScene({triggerElement: "#divTrigTreeClimb", duration: 2000, triggerHook: 0.0, reverse: true})
-    .setTween(twnClimbingTree)
-    .setPin("#divTrigTreeClimb", {pushFollowers: false})
-    .addTo(controller);
-    //scnClimbingTree.addIndicators();
-
+    
 
 
     var twnInTree = new TimelineMax();
 
+    twnInTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 1})); 
+    twnInTree.add(TweenMax.to("#imgClimbingTree", .05 , {opacity: 0})); 
     twnInTree.add([ TweenMax.to( "#imgInTree_1", .05 , {opacity: 1}),
                     TweenMax.to( "#imgInTree_2", .05 , {opacity: 1})]); 
     twnInTree.add(TweenMax.to("#imgInTree_DogsLow", .0000001 , {opacity:1})); 
@@ -449,9 +438,9 @@ $(document).ready(function(){
 
     var twnFinale = new TimelineMax();
 
-    twnFinale.add(TweenMax.to( "#imgCliff", .00001 , {opacity: 1})); 
+   /* twnFinale.add(TweenMax.to( "#imgCliff", .00001 , {opacity: 1})); 
     twnFinale.add(TweenMax.to( "#imgCliff", .1 , {transform: "translateY(0px)"})); 
-    twnFinale.add(TweenMax.to( "#imgCliff", .05 , {opacity: 0})); 
+    twnFinale.add(TweenMax.to( "#imgCliff", .05 , {opacity: 0})); */
 
     twnFinale.add([ TweenMax.to( "#imgEnd1", .00001 , {opacity: 1}), 
                     TweenMax.to( "#imgEnd1", .1 , {transform: "translateY(0px)"})]);
