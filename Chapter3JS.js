@@ -136,7 +136,7 @@ $(document).ready(function(){
 
 	function playbgmForestDrums () {
         bgmForestDrums.currentTime = 0;
-        bgmForestDrums.volume = 0.2;
+        bgmForestDrums.volume = 0.1;
         bgmForestDrums.play();
         //$(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
