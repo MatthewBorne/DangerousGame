@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 
     //Force the webpage to refresh when the page is resized
-    $(window).resize(function(){window.location.reload();});
+    $(window).resize(function(){jumpScroll(0); window.location.reload();});
 
 
     $('html').click(function() {
@@ -204,7 +204,7 @@ $(document).ready(function(){
     .setPin("#divTrigDogsRunning", {pushFollowers: false})
     .addTo(controller);
     scnDogsRunning.addIndicators();
-    
+
 
 
     var twnInTree = new TimelineMax();

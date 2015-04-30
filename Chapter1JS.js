@@ -94,7 +94,7 @@ $(document).ready(function(){
 
 
     //Force the webpage to refresh when the page is resized
-    $(window).resize(function(){window.location.reload();});
+    $(window).resize(function(){jumpScroll(0); window.location.reload();});
 
     //object which references intro video
     var vidIntroVideo = videojs('vidIntroVideo');
