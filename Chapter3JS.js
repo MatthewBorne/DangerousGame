@@ -122,18 +122,30 @@ $(document).ready(function(){
         body.style.overflowY = "visible";
     }
 
-	var bgmFarFromShore = new Audio('./resources/sfx/bgmFarFromShore.mp3');
+	var bgmForestDrums = new Audio('./resources/sfx/bgmForestDrums.ogg');
+    var sfxDogHowling = new Audio('./resources/sfx/sfxDogHowling.ogg');
 	
+    bgmForestDrums.loop = true;
 
      
      //array containing all lengthy Audio objects
     var longAudioObjects = [];
+
+    playbgmForestDrums();
 	
-	
-	//Play sound effect for knocking on the door
-	function playSFXFillingGlass (event) {
-        sfxFillingGlass.currentTime = 0;
-        $(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
+
+	function playbgmForestDrums () {
+        bgmForestDrums.currentTime = 0;
+        bgmForestDrums.volume = 0.2;
+        bgmForestDrums.play();
+        //$(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+
+    function playsfxDogHowling () {
+        sfxDogHowling.currentTime = 0;
+        //bgmForestDrums.volume = 0.2;
+        sfxDogHowling.play();
+        //$(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
 
@@ -328,7 +340,7 @@ $(document).ready(function(){
     var twnRunning4 = new TimelineMax();
 
     twnRunning4.add(TweenMax.to("#vidRunningVideo4", .05 , {opacity: 1, onStart:playRunning4Vid })); 
-    twnRunning4.add(TweenMax.to("#vidRunningVideo4", .05 , {opacity: 0})); 
+    twnRunning4.add(TweenMax.to("#vidRunningVideo4", .05 , {opacity: 0, onComplete:playsfxDogHowling})); 
 
     var scnRunning4 = new ScrollScene({triggerElement: "#divTrigRunning4", duration: 2000, triggerHook: 0.0, reverse: true})
     .setTween(twnRunning4)

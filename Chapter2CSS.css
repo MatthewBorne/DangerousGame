@@ -129,7 +129,8 @@ html {
 
 
 #imgRainsfordPersp2 {
-    transform: translateY(-1000px);
+    opacity:1;
+    /*transform: translateY(-1000px);*/
 }
 
 .fullScreenImage {
