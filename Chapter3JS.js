@@ -403,7 +403,7 @@ $(document).ready(function(){
     var twnKnifeTrap = new TimelineMax();
 
     twnKnifeTrap.add(TweenMax.to( "#imgKnifeTrap", .00001 , {opacity: 1})); 
-    twnKnifeTrap.add(TweenMax.to( "#imgKnifeTrap", .1 , {transform: "translateX(-"+ contentWidth + "px)"})); 
+    twnKnifeTrap.add(TweenMax.to( "#imgKnifeTrap", .1 , {transform: "translateX(-"+ contentWidth*2 + "px)"})); 
     twnKnifeTrap.add(TweenMax.to( "#imgKnifeTrap", .05 , {opacity: 0})); 
 
     twnKnifeTrap.add(TweenMax.to( "#imghuntredoText4", .05 , {opacity: 1})); 
