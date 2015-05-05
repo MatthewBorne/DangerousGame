@@ -4,11 +4,6 @@
 //                           Pin the containing div, and tween the object inside
 $(document).ready(function(){
 
-    //setting debug to true allows debug functions such as page jump on button press.
-    var debug = false;
-    //location to which the debug page jump goes to
-    var location = 103000;
-
     //Line to run from home page to open the first content page
     //window.open("./Chapter1HTML.html", "Most Dangerous Game", "fullscreen=yes");
 
@@ -50,14 +45,6 @@ $(document).ready(function(){
         window.scrollTo(0,loc);
         $(document).scrollTop(loc);
         stopAllSFX();
-    }
-
-    //Debug function to allow us to skip down the page if we press a button
-    window.onkeyup = function(e) {
-        giveBackScroll();
-        if(debug){
-            jumpScroll(location);
-        }
     }
 
     //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
@@ -130,11 +117,8 @@ $(document).ready(function(){
 
     //function used to prevent page scrolling
     function preventScroll () {
-        if(!debug)
-        {
-            var body = document.body;
-            body.style.overflowY = "hidden";
-        }
+        var body = document.body;
+        body.style.overflowY = "hidden";
     }
 
     //function used to re-enable browser scrolling after a portion that locks site scrolling (e.g. videos that must be watched)

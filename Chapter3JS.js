@@ -4,11 +4,6 @@
 //                           Pin the containing div, and tween the object inside
 $(document).ready(function(){
 
-    //setting debug to true allows debug functions such as page jump on button press.
-    var debug = false;
-    //location to which the debug page jump goes to
-    var location = 103000;
-
     jumpScroll(0);
 
     //Get the height and width of the browser
@@ -59,13 +54,6 @@ $(document).ready(function(){
         stopAllSFX();
     }
 
-    //Debug function to allow us to skip down the page if we press a button
-    window.onkeyup = function(e) {
-        if(debug){
-        jumpScroll(location);
-        }
-    }
-
     //Takes every element in the html with class center and adds a spacer div immediately before it in order to center the element
     $('.centerVertically').each(
         function(index){
@@ -109,11 +97,8 @@ $(document).ready(function(){
 
     //function used to prevent page scrolling
     function preventScroll () {
-        if(!debug)
-        {
-            var body = document.body;
-            body.style.overflowY = "hidden";
-        }
+        var body = document.body;
+        body.style.overflowY = "hidden";
     }
 
     //function used to re-enable browser scrolling after a portion that locks site scrolling (e.g. videos that must be watched)
@@ -196,7 +181,7 @@ $(document).ready(function(){
     .setTween(twnRunning1)
     .setPin("#divTrigRunning1", {pushFollowers: false})
     .addTo(controller);
-    scnRunning1.addIndicators();
+    //scnRunning1.addIndicators();
 
 
 
@@ -215,7 +200,7 @@ $(document).ready(function(){
     .setTween(twnDogsRunning)
     .setPin("#divTrigDogsRunning", {pushFollowers: false})
     .addTo(controller);
-    scnDogsRunning.addIndicators();
+    //scnDogsRunning.addIndicators();
 
 
 
@@ -249,7 +234,7 @@ $(document).ready(function(){
     .setTween(twnInTree)
     .setPin("#divTrigInTree", {pushFollowers: false})
     .addTo(controller);
-    scnInTree.addIndicators();
+    //scnInTree.addIndicators();
 
 
     //Code to play Running Video 2
@@ -271,7 +256,7 @@ $(document).ready(function(){
     .setTween(twnRunning2)
     .setPin("#divTrigRunning2", {pushFollowers: false})
     .addTo(controller);
-    scnRunning2.addIndicators();
+    //scnRunning2.addIndicators();
 
 
 
@@ -293,7 +278,7 @@ $(document).ready(function(){
     .setTween(twnRunning3)
     .setPin("#divTrigRunning3", {pushFollowers: false})
     .addTo(controller);
-    scnRunning3.addIndicators();
+    //scnRunning3.addIndicators();
 
 
 
@@ -322,7 +307,7 @@ $(document).ready(function(){
     .setTween(twnQuicksand)
     .setPin("#divTrigQuicksand", {pushFollowers: false})
     .addTo(controller);
-    scnQuicksand.addIndicators();
+    //scnQuicksand.addIndicators();
 
 
 
@@ -346,7 +331,7 @@ $(document).ready(function(){
     .setTween(twnRunning4)
     .setPin("#divTrigRunning4", {pushFollowers: false})
     .addTo(controller);
-    scnRunning4.addIndicators();
+    //scnRunning4.addIndicators();
 
 
 
@@ -371,7 +356,7 @@ $(document).ready(function(){
     .setTween(twnKnifeScene)
     .setPin("#divTrigKnifeScene", {pushFollowers: false})
     .addTo(controller);
-    scnKnifeScene.addIndicators();
+    //scnKnifeScene.addIndicators();
 
 
 
@@ -394,7 +379,7 @@ $(document).ready(function(){
     .setTween(twnRunning5)
     .setPin("#divTrigRunning5", {pushFollowers: false})
     .addTo(controller);
-    scnRunning5.addIndicators();
+    //scnRunning5.addIndicators();
 
 
 
@@ -417,7 +402,7 @@ $(document).ready(function(){
     .setTween(twnKnifeTrap)
     .setPin("#divTrigKnifeTrap", {pushFollowers: false})
     .addTo(controller);
-    scnKnifeTrap.addIndicators();
+    //scnKnifeTrap.addIndicators();
 
     $("#imgKnifeTrap").css({transform: 'translateX(' + contentWidth * 1.56  + 'px)'})
 
@@ -443,7 +428,7 @@ $(document).ready(function(){
     .setTween(twnRunning6)
     .setPin("#divTrigRunning6", {pushFollowers: false})
     .addTo(controller);
-    scnRunning6.addIndicators();
+    //scnRunning6.addIndicators();
 
 
 
@@ -538,7 +523,7 @@ $(document).ready(function(){
     .setTween(twnFinale)
     .setPin("#divTrigFinale", {pushFollowers: false})
     .addTo(controller);
-    scnFinale.addIndicators();
+    //scnFinale.addIndicators();
 
     //$("#imgKnifeTrap").css({transform: 'translateX(' + contentWidth * 1.56  + 'px)'})
 
