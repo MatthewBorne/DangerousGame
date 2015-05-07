@@ -4,9 +4,6 @@
 //                           Pin the containing div, and tween the object inside
 $(document).ready(function(){
 
-    //Line to run from home page to open the first content page
-    //window.open("./Chapter1HTML.html", "Most Dangerous Game", "fullscreen=yes");
-
     jumpScroll(0);
 
     //Get the height and width of the browser
@@ -135,10 +132,7 @@ $(document).ready(function(){
     vidWaterVideo.on('ended', vidWaterVidDissapear);
 
     var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
-    var sfxSpaceWhoosh = new Audio('./resources/sfx/sfxSpaceWhoosh.ogg');
-    var sfxJetSound    = new Audio('./resources/sfx/sfxJetSound.ogg');
     var sfxBoatOnOcean = new Audio('./resources/sfx/sfxBoatOnOcean.ogg');
-    var sfxZoomLens    = new Audio('./resources/sfx/sfxZoomLens.ogg');
     var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
 	var sfxForestNoise = new Audio('./resources/sfx/sfxForestNoise.mp3');
 	var sfxSlowFootsteps = new Audio('./resources/sfx/sfxSlowFootsteps.mp3');
@@ -163,7 +157,7 @@ $(document).ready(function(){
 
      
      //array containing all lengthy Audio objects
-    var longAudioObjects = [sfxJetSound, sfxBoatOnOcean, sfxLighter, sfxForestNoise, sfxSlowFootsteps, sfxFastFootsteps, bgmFarFromShore, bgmInTheCastle, bgmNearShore];
+    var longAudioObjects = [sfxBoatOnOcean, sfxLighter, sfxForestNoise, sfxSlowFootsteps, sfxFastFootsteps, bgmFarFromShore, bgmInTheCastle, bgmNearShore];
 	
     //Play gunshot sound on call
     function playSFXGunShot (event) {
@@ -171,23 +165,6 @@ $(document).ready(function(){
         sfxGunShot.play();
     }
 	
-    //Play Woosh sound effect for when globe zoomz in - scene0
-	function playSFXSpaceWhoosh (event) {
-        sfxSpaceWhoosh.currentTime = 0;
-        $(sfxSpaceWhoosh).each(function(){this.play(); $(this).animate({volume:1},1000)});
-	}
-	
-    //Play sound effect for Jet flying over the earth - scene0
-	function playSFXJetSound (event) {
-		sfxJetSound.currentTime = 0;
-        $(sfxJetSound).each(function(){this.play(); $(this).animate({volume:1},1000)});
-	}
-	
-	//Play sound effect for a lens zooming
-	function playSFXZoomLens (event) {
-        sfxZoomLens.currentTime = 0;
-        $(sfxZoomLens).each(function(){this.play(); $(this).animate({volume:1},1000)});
-	}
 
     //Play sound effect for lighter lighting the pipe - scene1
     function playSFXLighter (event) {
@@ -402,36 +379,6 @@ $(document).ready(function(){
 
     
     //scnAfterWaterVideo.addIndicators();
-
-
-/*
-    var twnJungleRunning = new TimelineMax();
-    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1, onStart:playBGMFarFromShore, onComplete:playSFXFastFootsteps}));
-    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 1}));
-    twnJungleRunning.add(TweenMax.to("#imgJungleRunning", .1, {opacity: 0, onComplete:playSFXGunShot, onStart: stopAllSFX}));
-    twnJungleRunning.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
-    twnJungleRunning.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
-    twnJungleRunning.add(TweenMax.to("#imgWaterText2", .1, {opacity: 0}));
-
-    var scnJungleRunning = new ScrollScene({triggerElement: "#divTrigJungleRunning", duration:3000, triggerHook: 0, reverse:true})
-    .setTween(twnJungleRunning)
-    .setPin("#divTrigJungleRunning", {pushFollowers: false})
-    .addTo(controller);
-    scnJungleRunning.addIndicators();
-*/
-    /*
-    var twnWaterTextTwo = new TimelineMax();
-    twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
-    twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 1}));
-    twnWaterTextTwo.add(TweenMax.to("#imgWaterText2", .1, {opacity: 0}));
-
-    var scnWaterTextTwo = new ScrollScene({triggerElement: "#divTrigWaterText2", duration:1000, triggerHook: 0, reverse:true})
-    .setTween(twnWaterTextTwo)
-    .setPin("#divTrigWaterText2", {pushFollowers: false})
-    .addTo(controller);
-    //scnWaterTextTwo.addIndicators();
-    */
-
 
 
     var twnWildCastleAppears = new TimelineMax();
