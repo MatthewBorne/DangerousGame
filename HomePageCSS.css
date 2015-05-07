@@ -4,7 +4,7 @@ body{
 	text-align:center;
 }
 
-button {
+input[type=submit] {
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
@@ -12,11 +12,16 @@ button {
     overflow: hidden;
     outline:none;
 	color: white;
-	font-family: georgia;
-	font-size: 1em;
+	font-family: myFirstFont;
+	font-size:2.5em;
 }
 
-button:hover {
+@font-face {
+	font-family: myFristFont;
+	src: url("resources/font/SignaritaZhai/SignaritaZhaiRhianne.ttf");
+}
+
+input[type=submit]:hover {
 	color: blue;
 }
 
