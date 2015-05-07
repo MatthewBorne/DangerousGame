@@ -117,7 +117,7 @@ $(document).ready(function(){
 
      
      //array containing all lengthy Audio objects
-    var longAudioObjects = [];
+    var longAudioObjects = [bgmForestDrums];
 
     playbgmForestDrums();
 	
@@ -523,7 +523,7 @@ $(document).ready(function(){
 
     twnFinale.add(TweenMax.to( "#imgEnd11", .1 , {opacity: 0}));
 
-    twnFinale.add(TweenMax.to( "#imgEnd11", .3 , {opacity: 0}));
+    twnFinale.add(TweenMax.to( "#imgEnd11", .3 , {opacity: 0, onComplete: stopAllSFX}));
 
     twnFinale.add(TweenMax.to( "#imgEyesClosed", .1 , {opacity: 1}));
 
