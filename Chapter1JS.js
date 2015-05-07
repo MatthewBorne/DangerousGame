@@ -520,7 +520,7 @@ $(document).ready(function(){
 
     //Get the height of the imgGateHand image so we can translate it accordingly
     //This code must be ran after the imgGateHand image loads so we can get the image's height
-    var handHeight
+    var handHeight;
     $("#imgGateHand").load(function() {
         handHeight = $("#imgGateHand").height();
         console.log(handHeight)
@@ -547,7 +547,7 @@ $(document).ready(function(){
                             TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
 
         //Scene in which the gates to Zaroff's castle are opened (in scene3)
-        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXCreakingGateGate})
+        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXCreakingGate})
         .setTween(twnGatesOpen)
         .setPin("#divTrigGate")
         .addTo(controller);
@@ -599,6 +599,11 @@ $(document).ready(function(){
 	
 
     twnGargoyles.add(   [TweenMax.to("#imgGunPoint2", .2, {opacity: 0}),
+                         TweenMax.to("#imgGunPoint3", .2, {opacity: 1})]);
+
+    twnGargoyles.add(   [TweenMax.to("#imgGunPoint3", 1.5, {opacity: 1})]);
+
+    twnGargoyles.add(   [TweenMax.to("#imgGunPoint3", .2, {opacity: 0}),
                          TweenMax.to("#imgHandShake", .2, {opacity: 1})]);
 
     twnGargoyles.add(TweenMax.to("#imgHandShake", .9, {opacity: 1}));
