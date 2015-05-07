@@ -196,12 +196,6 @@ $(document).ready(function(){
         $(sfxLighter).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
-	//Play sound effect for squeaking gate
-    function playSFXSqueakingGate (event) {
-        sfxSqueakingGate.currentTime = 0;
-        $(sfxSqueakingGate).each(function(){this.play(); $(this).animate({volume:1},1000)});
-    }
-	
 	//Play sound effect for footsteps in the forest
 	function playSFXSlowFootsteps (event) {
         sfxSlowFootsteps.currentTime = 0;
@@ -553,7 +547,7 @@ $(document).ready(function(){
                             TweenMax.to("#imgGateRight", 2.5, {opacity: 0})  ]);
 
         //Scene in which the gates to Zaroff's castle are opened (in scene3)
-        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXSqueakingGate})
+        var scnGatesOpen = new ScrollScene({triggerElement: "#divTrigGate", duration: 1400, triggerHook: 0.0, reverse: true, onComplete:playSFXCreakingGateGate})
         .setTween(twnGatesOpen)
         .setPin("#divTrigGate")
         .addTo(controller);

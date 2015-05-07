@@ -100,7 +100,7 @@ $(document).ready(function(){
     var sfxGunShot     = new Audio('./resources/sfx/sfxGunShot.mp3');
 	var sfxFillingGlass = new Audio('./resources/sfx/sfxFillingGlass.mp3');
 	var sfxSilverwareSounds = new Audio('./resources/sfx/sfxSilverwareSounds.mp3');
-	var bgmInTheCastle = new Audio('./resources/sfx/bgmInTheCastle.mp3');
+	var bgmInTheCastle = new Audio('./resources/sfx/bgmInTheCastleLouder.mp3');
 	var bgmNearShore = new Audio('./resources/sfx/bgmNearShore.mp3');
 	var bgmFarFromShore = new Audio('./resources/sfx/bgmFarFromShore.mp3');
 	//comment to test things; please delete

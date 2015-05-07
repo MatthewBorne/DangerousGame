@@ -109,6 +109,9 @@ $(document).ready(function(){
 
 	var bgmForestDrums = new Audio('./resources/sfx/bgmForestDrums.ogg');
     var sfxDogHowling = new Audio('./resources/sfx/sfxDogHowling.ogg');
+	var sfxDiggingInDirt = new Audio('./resources/sfx/sfxDiggingInDirt.wav');
+	var sfxFallingInDirt = new Audio('./resources/sfx/sfxFallingInDirt.mp3');
+	var sfxManScreaming = new Audio('./resources/sfx/sfxManScreaming.ogg');
 	
     bgmForestDrums.loop = true;
 
@@ -133,7 +136,26 @@ $(document).ready(function(){
         //$(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
-
+	function playsfxDiggingInDirt () {
+        sfxDiggingInDirt.currentTime = 0;
+        //bgmForestDrums.volume = 0.2;
+        sfxDiggingInDirt.play();
+        //$(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+		function playsfxFallingInDirt () {
+        sfxFallingInDirt.currentTime = 0;
+        //bgmForestDrums.volume = 0.2;
+        sfxFallingInDirt.play();
+        //$(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+		function playsfxManScreaming () {
+        sfxManScreaming.currentTime = 0;
+        //bgmForestDrums.volume = 0.2;
+        sfxManScreaming.play();
+        //$(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
     //Fades out all lengthy audio clips
     function stopAllSFX() {
         $(longAudioObjects).stop().animate({volume:0},800,function(){ this.pause() })
@@ -285,7 +307,7 @@ $(document).ready(function(){
 
     var twnQuicksand = new TimelineMax();
 
-    twnQuicksand.add(TweenMax.to( "#imgQuicksand1", .05 , {opacity: 1})); 
+    twnQuicksand.add(TweenMax.to( "#imgQuicksand1", .05 , {opacity: 1, onStart:playsfxFallingInDirt})); 
     twnQuicksand.add(TweenMax.to( "#imgQuicksand1", .1 , {opacity: 1})); 
     twnQuicksand.add([ TweenMax.to( "#imgQuicksand1", .05 , {opacity: 0}),
                     TweenMax.to( "#imgQuicksand2", .05 , {opacity: 1})]); 
@@ -296,7 +318,7 @@ $(document).ready(function(){
     twnQuicksand.add(TweenMax.to( "#imghuntredoText1", .05 , {opacity: 1})); 
     twnQuicksand.add(TweenMax.to( "#imghuntredoText1", .15 , {opacity: 1})); 
     twnQuicksand.add(TweenMax.to( "#imghuntredoText1", .05 , {opacity: 0})); 
-    twnQuicksand.add(TweenMax.to( "#imgDirtFlying", .05 , {opacity: 1})); 
+    twnQuicksand.add(TweenMax.to( "#imgDirtFlying", .05 , {opacity: 1, onStart:playsfxDiggingInDirt})); 
     twnQuicksand.add(TweenMax.to( "#imgDirtFlying", .15 , {opacity: 1})); 
     twnQuicksand.add([TweenMax.to( "#imgQuicksand3", .00001 , {opacity: 0}),
                     TweenMax.to( "#imgQuicksand4", .00001 , {opacity: 0}),
@@ -398,7 +420,7 @@ $(document).ready(function(){
     //twnKnifeTrap.add( TweenMax.to( "#imghuntredoText3", .05 , {opacity: 0})); 
     
 
-    var scnKnifeTrap = new ScrollScene({triggerElement: "#divTrigKnifeTrap", duration: 6000, triggerHook: 0.0, reverse: true})
+    var scnKnifeTrap = new ScrollScene({triggerElement: "#divTrigKnifeTrap", duration: 6000, triggerHook: 0.0, reverse: true, onComplete: playsfxManScreaming})
     .setTween(twnKnifeTrap)
     .setPin("#divTrigKnifeTrap", {pushFollowers: false})
     .addTo(controller);
