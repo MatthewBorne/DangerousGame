@@ -148,6 +148,7 @@ $(document).ready(function(){
 	var bgmInTheCastle = new Audio('./resources/sfx/bgmInTheCastle.mp3');
 	var bgmNearShore = new Audio('./resources/sfx/bgmNearShore.mp3');
 	var bgmFarFromShore = new Audio('./resources/sfx/bgmFarFromShore.mp3');
+	var sfxGaspingFall = new Audio('./resources/sfx/sfxGaspingFall.wav');
 	//comment to test things; please delete
 	
 	bgmFarFromShore.loop = true;
@@ -170,6 +171,11 @@ $(document).ready(function(){
     function playSFXLighter (event) {
         sfxLighter.currentTime = 0;
         $(sfxLighter).each(function(){this.play(); $(this).animate({volume:1},1000)});
+    }
+	
+	function playSFXGaspingFall (event) {
+        sfxGaspingFall.currentTime = 0;
+        $(sfxGaspingFall).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
 	//Play sound effect for footsteps in the forest
@@ -329,7 +335,7 @@ $(document).ready(function(){
     twnWaterScene.add([TweenMax.to("#imgYachtScene6",     .5,   {opacity: 0}),
                         TweenMax.to("#vidDarkWaterAgain", .5,   {opacity: 0}),
                         TweenMax.to("#imgYachtScene7",    .5,   {opacity: 1}),
-                        TweenMax.to("#imgYachtScene7_bg", .5,   {opacity: 1})]);
+                        TweenMax.to("#imgYachtScene7_bg", .5,   {opacity: 1, onComplete: playSFXGaspingFall})]);
     twnWaterScene.add( TweenMax.to("#imgYachtScene7_bg",  1,   {transform: "scale(2,2)"}));
     twnWaterScene.add([TweenMax.to("#imgYachtScene7",    .5,   {opacity: 0}),
                         TweenMax.to("#imgYachtScene7_bg", .5,   {opacity: 0})]);
