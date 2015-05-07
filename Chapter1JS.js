@@ -142,7 +142,6 @@ $(document).ready(function(){
     var sfxLighter     = new Audio('./resources/sfx/sfxLighter.ogg');
 	var sfxForestNoise = new Audio('./resources/sfx/sfxForestNoise.mp3');
 	var sfxSlowFootsteps = new Audio('./resources/sfx/sfxSlowFootsteps.mp3');
-	var sfxFillingGlass = new Audio('./resources/sfx/sfxFillingGlass.mp3');
 	var sfxCreakingGate = new Audio('./resources/sfx/sfxCreakingGate.mp3');
 	var sfxSilverwareSounds = new Audio('./resources/sfx/sfxSilverwareSounds.mp3');
 	var sfxDoorKnocker = new Audio('./resources/sfx/sfxDoorKnocker.mp3');
@@ -256,13 +255,8 @@ $(document).ready(function(){
         $(sfxFoghorn).each(function(){this.play(); $(this).animate({volume:1},1000)});
     }
 	
-	//Play sound effect for knocking on the door
-	function playSFXFillingGlass (event) {
-        sfxFillingGlass.currentTime = 0;
-        $(sfxFillingGlass).each(function(){this.play(); $(this).animate({volume:1},1000)});
-    }
 	
-	//Play sound effect for knocking on the door
+	//Play sound effect for large splash when you fall in the water
 	function playSFXLargeSplash (event) {
         sfxLargeSplash.currentTime = 0;
         $(sfxLargeSplash).each(function(){this.play(); $(this).animate({volume:1},1000)});
@@ -291,71 +285,6 @@ $(document).ready(function(){
 
     // init scrollMagic controller
     var controller = new ScrollMagic();
-
-
-    //tween to make the globe pin and "zoom in"
-    var twnGlobeAppear = TweenMax.to("#imgGlobe", 1, {opacity: 1, transform: "scale(1.5,1.5)", onStart:playSFXSpaceWhoosh});
-
-    //Scene to make the globe pin and "zoom in"
-    var scnGlobeAppear = new ScrollScene({triggerElement: "#divTrigGlobe", duration: 1100, triggerHook: 0.0, reverse: true})
-    .setTween(twnGlobeAppear)
-    .setPin("#divTrigGlobe" ,{pushFollowers: false})
-    .addTo(controller);
-    //scnGlobeAppear.addIndicators();
-
-
-    var widthNormalizerPlane;
-
-    //Tweens to make the plane grow and shrink while flying over ocean
-    var twnPlaneAppear = new TimelineMax();
-
-    //Scene to make the plane grow and shrink while flying over ocean. Plane is pinned while the globe naturally scrolls to simulate plane movement
-    var scnPlaneAppear
-
-
-    //Because we are doing calculations with imgGlobe height, we must wait until the image is loaded before pulling the height and doing maths
-    $('#imgGlobe').load(function() {
-        widthNormalizerPlane = $('#imgGlobe').height()/1.8;
-
-        //Set the scroll distance of the plane in relation to the width of the page.
-        $("#divTrigPlane").css("height", widthNormalizerPlane + "px");
-
-        twnPlaneAppear = new TimelineMax();   
-
-        twnPlaneAppear.add(TweenMax.to("#imgPlane", .05 , {opacity: 1   })); 
-        twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.35}));
-        twnPlaneAppear.add(TweenMax.to("#imgPlane", .5  , {opacity: 1   }));
-        twnPlaneAppear.add(TweenMax.to("#imgPlane", .225, {scale:   0.20}));
-
-        //Scene to make the plane grow and shrink while flying over ocean. Plane is pinned while the globe naturally scrolls to simulate plane movement
-        scnPlaneAppear = new ScrollScene({triggerElement: "#divTrigPlane", duration:widthNormalizerPlane, triggerHook: 0.0, reverse: true})
-        .setTween(twnPlaneAppear)
-        .setPin("#divTrigPlane",  {pushFollowers: false})
-        .on("enter", playSFXJetSound)   //Play the Jet Sound Effect
-        .on("leave", stopAllSFX)        //Fade out the Jet Sound Effect
-        .addTo(controller);
-        //scnPlaneAppear.addIndicators();
-    });
-
-
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
-    var twnYachtAppear = new TimelineMax();   
-
-    twnYachtAppear.add(  [TweenMax.to("#imgPlane",      0.1,   {opacity: 0, onStart:stopAllSFX}),
-                            TweenMax.to("#imgGlobeYacht", 0.3,   {opacity: 1}),
-                            TweenMax.to("#imgGlobe",      0.1,   {opacity: 1})]);
-    twnYachtAppear.add( TweenMax.to("#imgPlane",      0.0001,   {opacity: 0, transform: "translateX(-2000px)"}));
-    twnYachtAppear.add(  [TweenMax.to("#imgGlobeYacht",      1.0,   {transform: "scale(3.3,3.3)" })]);
-    twnYachtAppear.add(  [TweenMax.to("#imgGlobe",  .1,   {opacity: 0}),            //the ,0 at the end tells the timeline to run this tween and the next at the same time 
-                            TweenMax.to("#imgGlobeYacht", .5,   {opacity: 0})]);
-    twnYachtAppear.add( TweenMax.to("#imgGlobe",  1.9,   {opacity: 0}));
-
-
-    //Timeline which makes the plane dissapear, the globe switches with a globe image containing a yacht, and the new globe zooms into the yacht
-    var scnYachtAppear = new ScrollScene({triggerElement: "#divTrigYacht", duration: 1500*widthNormalizer, triggerHook: 0.0, reverse: true, offset: 100})
-    .setTween(twnYachtAppear)
-    .addTo(controller);
-    //scnYachtAppear.addIndicators();
 
 
     //Timeline for the majority of Scene1 - The Yacht scene
