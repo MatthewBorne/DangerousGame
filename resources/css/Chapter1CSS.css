@@ -750,25 +750,27 @@ html {
     margin-top:30%;
 }
 
+@font-face {
+    font-family: myFirstFont;
+    src: url('signaritazhairhianne.ttf');
+}
+
 input[type=submit] {
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
-    overflow: hidden;
+    /*overflow: hidden;*/
     outline:none;
-	color: white;
-	font-family: myFirstFont;
-	font-size:2.5em;
-}
-
-@font-face {
-	font-family: myFristFont;
-	src: url("resources/font/SignaritaZhai/SignaritaZhaiRhianne.ttf");
+    color: white;
+    font-family: myFirstFont;
+    font-size:2.5em;
+    height: 100px;
+    width: 1000px;
 }
 
 input[type=submit]:hover {
-	color: blue;
+    color: blue;
 }
 
 /*
