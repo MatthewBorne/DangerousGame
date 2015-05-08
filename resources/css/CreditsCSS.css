@@ -1,0 +1,62 @@
+body{
+	background-color: black;
+	color: white;
+	text-align:center;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url('signaritazhairhianne.ttf');
+}
+
+input[type=submit] {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    /*overflow: hidden;*/
+    outline:none;
+    color: white;
+    font-family: myFirstFont;
+    font-size:2.5em;
+    height: 100px;
+    width: 1000px;
+}
+
+#creditsHeader {
+    color: white;
+    font-family: myFirstFont;
+    font-size:3.5em;
+    height: 200px;
+    text-align:center;
+    line-height: 150px;
+}
+
+.AssetType {
+    color: lightblue;
+    font-family: myFirstFont;
+    font-size:2em;
+    text-align:center;
+    line-height: 100px;
+}
+
+input[type=submit]:hover {
+    color: blue;
+}
+
+table{
+	text-align:center;
+}
+
+#start {
+	margin-left: auto;
+    margin-right: auto;
+	width: 7%;
+}
+
+#logo {
+	width: 75%;
+	height: auto;
+	margin-left: auto;
+    margin-right: auto;
+}
