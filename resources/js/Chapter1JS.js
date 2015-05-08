@@ -368,11 +368,7 @@ $(document).ready(function(){
         twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", 4, {transform: "translateY(0px)", onStart:playSFXSlowFootsteps}));
         twnAfterWaterVideo.add(TweenMax.to("#imgFootprints", 1, {opacity: 0, onComplete:playBGMFarFromShore}));
 
-        twnAfterWaterVideo.add(TweenMax.to("#imgJungleRunning", 1, {opacity: 1, onComplete:playSFXFastFootsteps}));
-        twnAfterWaterVideo.add(TweenMax.to("#imgJungleRunning", 1, {opacity: 1}));
-        twnAfterWaterVideo.add(TweenMax.to("#imgJungleRunning", 1, {opacity: 0, onComplete:playSFXGunShot}));
-
-        twnAfterWaterVideo.add(TweenMax.to("#imgWaterText2",    1, {opacity: 1}));
+        twnAfterWaterVideo.add(TweenMax.to("#imgWaterText2",    1, {opacity: 1, onStart:playSFXGunShot}));
         twnAfterWaterVideo.add(TweenMax.to("#imgWaterText2",    1, {opacity: 1}));
         twnAfterWaterVideo.add(TweenMax.to("#imgWaterText2",    1, {opacity: 0}));
 
